@@ -1,10 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import Normalize from 'react-normalize';
+import { ThemeProvider } from 'styled-components';
 import { store } from './app/store';
-import App from './App';
+import { GlobalStyle } from './app/GlobalStyle';
+import { theme } from './app/theme';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import App from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -12,7 +15,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <Normalize />
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
