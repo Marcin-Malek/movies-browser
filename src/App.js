@@ -1,9 +1,9 @@
 import React from 'react';
-import MoviePage from './common/MoviePage';
+import MovieList from './common/MovieList';
 
 const App = () => (
   <> 
-    <MoviePage />
+    <MovieList />
   </>
 );
 

@@ -17,13 +17,13 @@ export const StarContainer = styled.div`
     width: 24px;
     height: 24px;
 `;
-export const img = styled.img`
+export const Img = styled.img`
     position: absolute;
     left: 0%;
     right: -0.01%;
     top: 2.45%;
     bottom: 2.24%;
-    background: ${({theme}) => theme.color.yellow};
+    color: ${({theme}) => theme.color.yellow};
 `;
 
 export const Rate = styled.p`

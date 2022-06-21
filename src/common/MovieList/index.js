@@ -1,9 +1,9 @@
 import MovieTile from "./MovieTile";
 
-function MoviePage() {
+function MovieList() {
     return (
         <MovieTile />
     )
 }
 
-export default MoviePage;
+export default MovieList;
