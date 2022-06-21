@@ -25,7 +25,7 @@ export const MovieDetails = ({image}) => (
         <Title>Mulan</Title>
         <Year>2020</Year>
         <Poster>
-            {image && <Image src={image} /> || <CameraIcon />}
+            {(image && <Image src={image} />) || <CameraIcon />}
         </Poster>
         <ProductionDetails>
             <DetailsWrapper>
