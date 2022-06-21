@@ -26,7 +26,7 @@ export const Title = styled.p`
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
     margin: 0;
 `;
 
@@ -38,7 +38,7 @@ export const Year = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    color: #7E839A;
+    color: ${({theme}) => theme.color.darkerGray};
     margin-top: 8px;
     margin-bottom: 8px;
 `;
@@ -53,7 +53,7 @@ export const TagsContainer = styled.div`
     height: 36px;
 `;
 export const TagContainer = styled.div`
-    background: #E4E6F0;
+    background: ${({theme}) => theme.color.gray};
     border-radius: 5px; 
     padding: 8px 16px;
 `;
@@ -64,7 +64,7 @@ export const Tag = styled.p`
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
 `;
 
 

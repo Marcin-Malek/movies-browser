@@ -23,7 +23,7 @@ export const img = styled.img`
     right: -0.01%;
     top: 2.45%;
     bottom: 2.24%;
-    background: #FCD420;
+    background: ${({theme}) => theme.color.yellow};
 `;
 
 export const Rate = styled.p`
@@ -34,7 +34,7 @@ export const Rate = styled.p`
     font-weight: 600;
     font-size: 16px;
     line-height: 150%;
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
     margin: 0;
 `;
 
@@ -46,6 +46,6 @@ export const Votes = styled.p`
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    color: #7E839A;
+    color: ${({theme}) => theme.color.darkerGray};
     margin: 0;
 `;
