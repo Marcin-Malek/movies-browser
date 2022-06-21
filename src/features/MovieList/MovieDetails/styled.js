@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import star from "../../../images/star.svg"
 
 export const Wrapper = styled.section`
     display: grid;
