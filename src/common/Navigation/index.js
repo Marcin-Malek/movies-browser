@@ -1,4 +1,4 @@
-import { NavbarContainer, NavElement, StyledNavbar, StyledNavLink } from "./styled"
+import { NavbarContainer, StyledNavbar, StyledNavLink } from "./styled"
 
 
 export const Navigation = () => {
@@ -6,12 +6,12 @@ export const Navigation = () => {
     return (
         <NavbarContainer>
             <StyledNavbar>
-                <NavElement>
+                <li>
                     <StyledNavLink to="/movies">MOVIES</StyledNavLink>
-                </NavElement>
-                <NavElement>
+                </li>
+                <li>
                     <StyledNavLink to="/people">PEOPLE</StyledNavLink>
-                </NavElement>
+                </li>
             </StyledNavbar>
         </NavbarContainer>
     )

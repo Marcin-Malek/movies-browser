@@ -29,7 +29,3 @@ export const StyledNavbar = styled.ul`
     display: flex;
     align-items: center;
 `
-
-export const NavElement = styled.li`
-    float: left;
-`
