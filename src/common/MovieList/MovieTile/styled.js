@@ -89,7 +89,7 @@ export const RatingContainer = styled.div`
     align-items: center;
     gap: 12px;
     padding: 0px;
-    margin-top: 39px;  //jak bym dał margin od dołu 16 px to by dołączyło się do góry
+    margin:39px 0px 16px 16px;
     margin-left: 16px;
 `;
 
