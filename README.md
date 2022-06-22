@@ -1,4 +1,87 @@
-# Getting Started with Create React App and Redux
+# Movies Browser 🎬
+*preview soon here*
+## Table of contents
+* [General info](#general-info)
+* [Demo version](#demo-version)
+* [Features](#features)
+* [How to use](#how-to-use)
+* [Technologies](#technologies)
+* [Methods](#methods)
+* [API](#api)
+* [Authors](#authors)
+* [Available Scripts](#available-scripts)
+
+
+## General info
+Movies Browser is a simple site that contains all your favorite movies. You can search for a movie or an actor on it.
+
+This Movies Browser app was created as a final group project from the course YouCode.
+
+When searching for a movie, you will find additional information, such as:
+* Release date
+* Productions
+* Film genre
+* Rating
+* Description
+
+When searching for an actor, you will find information such as:
+* Date of birth
+* Place of birth
+* Description
+* Movies - cast
+* Movies - crew
+## Demo version 
+https://marcin-malek.github.io/movies-browser/
+
+## Features
+* Movie Page
+
+    *animated preview soon here*
+
+* People Page 
+
+    *animated preview soon here*
+
+* Search
+
+    *animated preview soon here*
+
+## How to use 
+* To browse through movies or people select the button in the navigation.
+* To learn more about the movie or person, click on the picture tile.
+* To search for a movie or person enter your query on the input.
+## Technologies
+Project is created with:
+* CSS4
+* HTML5
+* JavaScript (ES6+)
+* React
+* React Router v6.3.0
+* Redux with react-redux v8.0.2
+* Redux Saga v1.1.3
+* Styled Components v5.3.5
+* Axios
+
+## Methods
+* Semantic & accessible HTML
+* Responsive Web Design
+* Flex/Grid
+* BEM
+* Error Handling
+* React Hooks
+* Working with API (fetch, axios)
+* Promises Async/Await
+* NPM
+* JSX
+
+## API
+This project uses API provided by [The Movie Database](https://www.themoviedb.org/).
+
+## Authors 
+* [Damian Michałowski](https://github.com/damianmichalowski)
+* [Jakub Szczechowicz](https://github.com/JamieShifter)
+* [Marcin Małek](https://github.com/Marcin-Malek)
+## Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
@@ -13,11 +96,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
