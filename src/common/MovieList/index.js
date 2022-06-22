@@ -1,4 +1,4 @@
-import MovieTile from "./MovieTile";
+import {MovieTile} from "./MovieTile";
 
 function MovieList() {
     return (

@@ -15,7 +15,7 @@ import {
     Votes
 } from "./styled";
 
-function MovieTile() {
+export const MovieTile = () => {
     return (
         <Container>
             <Poster>
@@ -39,6 +39,4 @@ function MovieTile() {
             </RatingContainer>
         </Container>
     )
-}
-
-export default MovieTile;
+};
