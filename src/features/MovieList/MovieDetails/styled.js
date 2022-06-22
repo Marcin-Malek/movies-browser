@@ -12,10 +12,11 @@ export const Wrapper = styled.section`
     "poster rating"
     "poster description";
     column-gap: 40px;
+    row-gap: 24px;
     max-width: 1368px;
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     padding: 40px;
     margin: 16px;
+    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     background-color: ${({ theme }) => theme.color.white};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -27,16 +28,17 @@ export const Wrapper = styled.section`
             "poster rating"
             "description description";
         column-gap: 16px;
+        row-gap: 8px;
         padding: 16px;
     }
 `;
 
 export const Title = styled.header`
     grid-area: title;
-    margin: 8px 0 24px;
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
+    margin: 8px 0 0;
     display: flex;
     align-items: center;
 
@@ -44,7 +46,7 @@ export const Title = styled.header`
         font-weight: 500;
         font-size: 16px;
         line-height: 130%;
-        margin: 0 0 4px;
+        margin: 0 0 -4px;
     }
 `;
 
@@ -85,12 +87,8 @@ export const ProductionDetails = styled.dl`
     grid-area: property;
     display: grid;
     row-gap: 8px;
-    margin: 24px 0 0;
+    margin: 0;
     align-items: center;
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        margin: 8px 0 0;
-    }
 `;
 
 export const DetailsWrapper = styled.div`
@@ -131,13 +129,8 @@ export const Tags = styled.ul`
     gap: 10px;
     align-items: center;
     list-style: none;
-    list-style-position: inside;
     padding: 0;
-    margin: 24px 0;
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        margin: 8px 0;
-    }
+    margin: 0;
 `;
 
 export const Tag = styled.li`
@@ -147,9 +140,9 @@ export const Tag = styled.li`
     border-radius: 5px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        padding: 4px 8px;
         font-size: 10px;
         line-height: 110%;
+        padding: 4px 8px;
     }
 `;
 
@@ -204,10 +197,10 @@ export const Description = styled.p`
     grid-area: description;
     font-size: 20px;
     line-height: 160%;
-    margin: 24px 0 0;
+    margin: 0;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
-        margin: 16px 0 0;
+        margin: 8px 0 0;
     }
 `;
