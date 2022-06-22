@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.article`
     width: 324px;
     height: 650px;
     background-color: ${({ theme }) => theme.color.white};
