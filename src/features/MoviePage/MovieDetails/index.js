@@ -20,36 +20,36 @@ import {
 } from './styled';
 import { ReactComponent as CameraIcon } from "../../../images/camera.svg";
 
-export const MovieDetails = ({image}) => (
+export const MovieDetails = (props) => (
     <Wrapper>
-        <Title>Mulan</Title>
-        <Year>2020</Year>
+        <Title>{props.title}</Title>
+        <Year>{props.year}</Year>
         <Poster>
-            {(image && <Image src={image} />) || <CameraIcon />}
+            {(props.image && <Image src={props.image} />) || <CameraIcon />}
         </Poster>
         <ProductionDetails>
             <DetailsWrapper>
                 <Property>Production:</Property>
-                <Detail>China, United States of America</Detail>
+                <Detail>{props.production}</Detail>
             </DetailsWrapper>
             <DetailsWrapper>
                 <Property>Release date:</Property>
-                <Detail><time dateTime="2020-10-24">24.10.2020</time></Detail>
+                <Detail>{props.release}</Detail>
             </DetailsWrapper>
         </ProductionDetails>
         <Tags>
-            <Tag>Action</Tag>
-            <Tag>Drama</Tag>
-            <Tag>Adventure</Tag>
+            {props.tags.map((tag, tagIndex) => (
+                <Tag key={tagIndex}>{tag}</Tag>
+            ))}
         </Tags>
         <Rating>
             <StyledStar />
-            <Numerator>7,8</Numerator>
+            <Numerator>{props.rating}</Numerator>
             <Denominator>/ 10</Denominator>
-            <VoteCount>335 votes</VoteCount>
+            <VoteCount>{props.votes} votes</VoteCount>
         </Rating>
         <Description>
-            A young Chinese maiden disguises herself as a male warrior in order to save her father. Disguises herself as a male warrior in order to save her father. A young Chinese maiden disguises herself as a male warrior in order to save her father.
+            {props.description}
         </Description>
     </Wrapper>
 );
