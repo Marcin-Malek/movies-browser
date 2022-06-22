@@ -5,12 +5,12 @@ export const Wrapper = styled.section`
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-areas: 
-    "poster title"
-    "poster year"
-    "poster property"
-    "poster tags"
-    "poster rating"
-    "poster description";
+        "poster title"
+        "poster year"
+        "poster property"
+        "poster tags"
+        "poster rating"
+        "poster description";
     column-gap: 40px;
     row-gap: 24px;
     max-width: 1368px;
@@ -56,11 +56,11 @@ export const Year = styled.span`
     line-height: 120%;
     display: flex;
     align-items: center;
+    color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 130%;
-        color: ${({ theme }) => theme.color.darkerGray};
     }
 `;
 
@@ -72,7 +72,7 @@ export const Poster = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background: #C4C4C4;
+    background: ${({theme}) => theme.color.silver};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 114px;
@@ -184,12 +184,12 @@ export const VoteCount = styled.span`
     font-size: 14px;
     line-height: 120%;
     margin: 0 12px;
+    color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 130%;
         margin: 0;
-        color: ${({theme}) => theme.color.darkerGray};
     }
 `;
 
