@@ -1,9 +1,9 @@
 import React from 'react';
-import { MovieList } from './features/MovieList';
+import { MoviePage } from './features/MoviePage';
 
 const App = () => (
   <> 
-    <MovieList />
+    <MoviePage />
   </>
 );
 
