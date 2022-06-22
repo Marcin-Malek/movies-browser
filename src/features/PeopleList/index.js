@@ -1,3 +1,3 @@
 export const PeopleList = () => {
-    return <h1>PeopleList</h1>
+    return <h1>Popular People</h1>
 }
