@@ -1,10 +1,20 @@
 import React from 'react';
-import { MoviePage } from './features/MoviePage';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigation } from './common/Navigation';
+import { MovieList } from "./features/MovieList";
+import { PeopleList } from "./features/PeopleList";
 
 const App = () => (
-  <> 
-    <MoviePage />
-  </>
+  <HashRouter>
+    <Navigation/>
+    <Routes>
+      <Route path="/" element={<Navigate to="movies" replace />} />
+      <Route path="movies" element={<MovieList />} />
+      <Route path="people" element={<PeopleList />} />
+      <Route path="movies/:id" />
+      <Route path="people/:id" />
+    </Routes>
+  </HashRouter>
 );
 
 export default App;
