@@ -10,6 +10,7 @@ import {
     ProductionDetails,
     Property,
     Rating,
+    StyledStar,
     Tag,
     Tags,
     Title,
@@ -17,7 +18,6 @@ import {
     Wrapper,
     Year
 } from './styled';
-import { ReactComponent as Star } from "../../../images/star.svg";
 import { ReactComponent as CameraIcon } from "../../../images/camera.svg";
 
 export const MovieDetails = ({image}) => (
@@ -39,10 +39,11 @@ export const MovieDetails = ({image}) => (
         </ProductionDetails>
         <Tags>
             <Tag>Action</Tag>
+            <Tag>Drama</Tag>
             <Tag>Adventure</Tag>
         </Tags>
         <Rating>
-            <Star />
+            <StyledStar />
             <Numerator>7,8</Numerator>
             <Denominator>/ 10</Denominator>
             <VoteCount>335 votes</VoteCount>
