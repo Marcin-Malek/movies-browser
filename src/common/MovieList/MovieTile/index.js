@@ -15,7 +15,7 @@ import {
     Votes
 } from "./styled";
 
-export const MovieTile = () => {
+export const MovieTile = ({title, year, genre, rate, votes}) => {
     return (
         <Container>
             <Poster>
@@ -23,10 +23,10 @@ export const MovieTile = () => {
             </Poster>
 
             <DescriptionContainer>
-                <Title> Mulan </Title>
-                <Year> 2020 </Year>
+                <Title> {title} </Title>
+                <Year> {year} </Year>
                 <TagsContainer>
-                    <Tag> Action </Tag>
+                    <Tag> {genre} </Tag>
                     <Tag> Adventure </Tag>
                     <Tag> Drama </Tag>
                 </TagsContainer>
@@ -34,8 +34,8 @@ export const MovieTile = () => {
 
             <RatingContainer>
                 <StarIcon src={Star} />
-                <Rate>7,8</Rate>
-                <Votes>35 votes</Votes>
+                <Rate>{rate}</Rate>
+                <Votes>{votes} votes</Votes>
             </RatingContainer>
         </Container>
     )
