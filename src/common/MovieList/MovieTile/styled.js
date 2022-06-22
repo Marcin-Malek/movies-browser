@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.article`
+export const Container = styled.div`
     width: 324px;
     height: 650px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
-    margin: 16px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const Poster = styled.div`
-    margin: 16px;
-    float: left;  //załatwia sprawę margin collapsing zapobiega złączeniu z górą krawędzią
+    margin-top: 16px;
     height: 434px;
     width: 292px;
     background-color: ${({ theme }) => theme.color.silver};
@@ -84,6 +87,7 @@ export const Tag = styled.p`
 
 export const RatingContainer = styled.div`
     height: 24px;
+    align-self: flex-start;
     display: flex;
     flex-direction: row;
     align-items: center;
