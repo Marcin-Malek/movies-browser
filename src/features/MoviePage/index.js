@@ -1,8 +1,14 @@
 import React from 'react';
 import { MovieDetails } from './MovieDetails';
+import { MoviePoster } from './MoviePoster';
+import image from "../../images/Poster.jpg"
 
 export const MoviePage = () => (
     <>
+        <MoviePoster
+            image={image}
+            rating={"7,8"}
+            votes={"335"} />
         <MovieDetails
             title={"Mulan"}
             year={"2020"}
