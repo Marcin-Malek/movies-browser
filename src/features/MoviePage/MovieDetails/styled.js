@@ -14,9 +14,7 @@ export const Wrapper = styled.section`
         "poster empty";
     column-gap: 40px;
     row-gap: 24px;
-    max-width: 1368px;
     padding: 40px;
-    margin: 16px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     background-color: ${({ theme }) => theme.color.white};
 
