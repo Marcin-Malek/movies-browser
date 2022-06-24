@@ -15,7 +15,7 @@ import {
     Votes
 } from "./styled";
 
-export const MovieTile = ({title, year, genre, rate, votes}) => {
+export const MovieTile = ({ title, year, tags, rate, votes }) => {
     return (
         <Container>
             <Poster>
@@ -26,9 +26,9 @@ export const MovieTile = ({title, year, genre, rate, votes}) => {
                 <Title> {title} </Title>
                 <Year> {year} </Year>
                 <TagsContainer>
-                    <Tag> {genre} </Tag>
-                    <Tag> Adventure </Tag>
-                    <Tag> Drama </Tag>
+                    {tags.map((tag, tagIndex) => (
+                        <Tag key={tagIndex}>{tag}</Tag>
+                    ))}
                 </TagsContainer>
             </DescriptionContainer>
 
