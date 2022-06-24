@@ -10,7 +10,8 @@ export const Wrapper = styled.section`
         "poster property"
         "poster tags"
         "poster rating"
-        "poster description";
+        "poster description"
+        "poster empty";
     column-gap: 40px;
     row-gap: 24px;
     max-width: 1368px;
