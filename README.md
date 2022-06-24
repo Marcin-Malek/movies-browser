@@ -57,7 +57,7 @@ Project is created with:
 * JavaScript (ES6+)
 * React
 * React Router v6.3.0
-* Redux with react-redux v8.0.2
+* React Redux v8.0.2
 * Redux Saga v1.1.3
 * Styled Components v5.3.5
 * Axios
@@ -66,11 +66,9 @@ Project is created with:
 * Semantic & accessible HTML
 * Responsive Web Design
 * Flex/Grid
-* BEM
 * Error Handling
 * React Hooks
 * Working with API (fetch, axios)
-* Promises Async/Await
 * NPM
 * JSX
 
