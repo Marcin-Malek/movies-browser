@@ -1,27 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 324px;
-    height: 650px;
+    max-width: 324px;
+    max-height: 650px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "poster"
+        "title"
+        "year"
+        "tags"
+        "rates";
 `;
 
 export const Poster = styled.div`
-    margin-top: 16px;
+    grid-area: poster;
     height: 434px;
-    width: 292px;
-    background-color: ${({ theme }) => theme.color.silver};
-    border-radius: 5px;
+    max-width: 292px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: ${({ theme }) => theme.color.silver};
+    border-radius: 5px;
 `;
 
 export const CameraIcon = styled.img`
@@ -31,18 +36,13 @@ export const CameraIcon = styled.img`
 `;
 
 export const DescriptionContainer = styled.div`
-    width: 292px;
-    height: 105px;
-    margin: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    
 `;
 
 export const Title = styled.p`
+    grid-area: title;
     height: 29px;
-    margin: 0;
+    margin:16px 0 0 0;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -52,21 +52,22 @@ export const Title = styled.p`
 `;
 
 export const Year = styled.p`
-   height: 24px;
-   font-family: 'Poppins';
+    grid-area: year;
+    margin:8px 0 0 0;
+    height: 24px;
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     color: ${({theme}) => theme.color.darkerGray};
-    margin: 0px;
 `;
 
 export const TagsContainer = styled.div`
+    grid-area: tags;
+    margin:8px 0 10px 0;
     height: 36px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     flex-wrap: wrap;
     padding: 0px;
     gap: 8px;
@@ -86,15 +87,11 @@ export const Tag = styled.p`
 `;
 
 export const RatingContainer = styled.div`
-    height: 24px;
-    align-self: flex-start;
+    grid-area: rates;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     gap: 12px;
-    padding: 0px;
-    margin:39px 0px 16px 16px;
-    margin-left: 16px;
+    align-items: center;
+    flex-wrap: nowrap;
 `;
 
 export const StarIcon = styled.img`
