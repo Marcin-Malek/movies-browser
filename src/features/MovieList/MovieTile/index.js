@@ -22,15 +22,13 @@ export const MovieTile = ({ title, year, tags, rate, votes }) => {
                 <CameraIcon src={Camera} />
             </Poster>
 
-            <DescriptionContainer>
-                <Title> {title} </Title>
-                <Year> {year} </Year>
-                <TagsContainer>
-                    {tags.map((tag, tagIndex) => (
-                        <Tag key={tagIndex}>{tag}</Tag>
-                    ))}
-                </TagsContainer>
-            </DescriptionContainer>
+            <Title> {title} </Title>
+            <Year> {year} </Year>
+            <TagsContainer>
+                {tags.map((tag, tagIndex) => (
+                    <Tag key={tagIndex}>{tag}</Tag>
+                ))}
+            </TagsContainer>
 
             <RatingContainer>
                 <StarIcon src={Star} />
