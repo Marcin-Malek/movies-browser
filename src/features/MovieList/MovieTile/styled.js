@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    max-width: 324px;
+    width: 324px;
     max-height: 650px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
-    margin: 20px;
     padding: 16px;
     display: grid;
     grid-template-columns: 1fr;
@@ -97,7 +96,7 @@ export const Year = styled.p`
 
 export const TagsContainer = styled.div`
     grid-area: tags;
-    margin:8px 0 10px 0;
+    margin-top: 8px;
     height: 36px;
     display: flex;
     flex-wrap: nowrap;
@@ -107,7 +106,7 @@ export const TagsContainer = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         flex-wrap: wrap;
         height: 46px;
-        margin:8px 0 12px 0;
+        margin-top: 8px;
     }
 `;
 
@@ -136,6 +135,10 @@ export const RatingContainer = styled.div`
     gap: 12px;
     align-items: center;
     flex-wrap: nowrap;
+    margin-top: 39px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        margin-top: 8px;
+    }
 `;
 
 export const StarIcon = styled.img`
