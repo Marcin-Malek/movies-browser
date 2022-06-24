@@ -52,8 +52,8 @@ https://marcin-malek.github.io/movies-browser/
 * To search for a movie or person enter your query on the input.
 ## Technologies
 Project is created with:
-* CSS4
-* HTML5
+* CSS
+* HTML
 * JavaScript (ES6+)
 * React
 * React Router v6.3.0
