@@ -31,7 +31,6 @@ export const NavbarWrapper = styled.div`
 
 export const StyledNavLink = styled(NavLink)`
     padding: 8px 24px;
-    gap: 10px;
     text-decoration: none;
     color: ${({ theme }) => theme.color.white};
     font-size: 14px;
