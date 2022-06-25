@@ -18,8 +18,8 @@ import {
 export const MovieTile = ({ title, year, tags, rate, votes }) => {
     return (
         <Content>
+            <Img src={Poster} />
             <Wrapper>
-                <Img src={Poster} />
                 <Title> {title} </Title>
                 <Year> {year} </Year>
                 <TagsContainer>
@@ -27,13 +27,13 @@ export const MovieTile = ({ title, year, tags, rate, votes }) => {
                         <Tag key={tagIndex}>{tag}</Tag>
                     ))}
                 </TagsContainer>
-            </Wrapper>
 
                 <RatingContainer>
                     <StyledStar />
                     <Rate>{rate}</Rate>
                     <Votes>{votes} votes</Votes>
                 </RatingContainer>
+            </Wrapper>
         </Content>
     )
 };

@@ -18,6 +18,7 @@ export const Title = styled.h1`
 
 export const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
     gap: 24px;
+    padding: 16px;
 `;
