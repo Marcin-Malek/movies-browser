@@ -123,11 +123,15 @@ export const Tags = styled.ul`
     grid-area: tags;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 16px;
     align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {   
+        gap: 8px;
+    }
 `;
 
 export const Tag = styled.li`
