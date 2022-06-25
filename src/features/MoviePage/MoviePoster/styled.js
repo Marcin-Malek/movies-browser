@@ -9,16 +9,18 @@ export const Shadow = styled.div`
 
 export const ImageWrapper = styled.div`
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width:100vw;
-        text-align: center;
         padding: 0 16px;
     }
 `;
 
 export const Image = styled.img`
-    position: relative;
     width: 70vw;
     aspect-ratio: 16/9;
     z-index: -1;
@@ -26,6 +28,7 @@ export const Image = styled.img`
 
 export const MainInfo = styled.div`
     position: absolute;
+    align-self: flex-start;
     bottom: 10%;
     color: ${({ theme }) => theme.color.white};
 `;
