@@ -10,7 +10,7 @@ export const NavbarContainer = styled.nav`
     justify-content: space-evenly;
     background-color: ${({ theme }) => theme.color.black};
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         flex-wrap: wrap;
         max-height: 144px;
     }
@@ -20,9 +20,9 @@ export const StyledNavbar = styled.ul`
     list-style-type: none;
     display: flex;
     align-items: center;
-    padding-right: 100px;
+    padding-right: 7vw;
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         padding: 0px;
     }
 `;
@@ -39,12 +39,11 @@ export const StyledNavLink = styled(NavLink)`
         border-radius: 24px;
     }
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         display: flex;
-        flex-direction: row;
         align-items: center;
-        padding: 8px 12px;
-        margin: 0px 12px;
+        padding: 8px 1vw;
+        margin: 0px 1vw;
         border-radius: 29px;
 }
 `;
@@ -54,7 +53,7 @@ export const StyledCameraIcon = styled(CameraIcon)`
         opacity: 1;
     }
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         width: 20px;
         height: 21px;
     }
@@ -65,10 +64,11 @@ export const StyledPageTitle = styled.h1`
     font-weight: 400;
     font-size: 24px;
     letter-spacing: -1.5px;
+    white-space: nowrap;
 
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         width: 95px;
         height: 17px;
         font-size: 13px;
@@ -89,7 +89,8 @@ export const StyledSearchBox = styled.input`
     border: 1px solid ${({ theme }) => theme.color.gray};
     border-radius: 33px;
     height: 40px;
-    aspect-ratio: 9/1;
+    width: 25vw;
+    min-width: 282px;
     text-indent: 17%;
 
     background-image: url(${img});
@@ -101,7 +102,7 @@ export const StyledSearchBox = styled.input`
         color: ${({ theme }) => theme.color.darkerGray};
     }
 
-    @media(max-width: ${({theme}) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         max-width: 90vw;
         padding: 0px;
         text-indent: 14%;
@@ -114,8 +115,9 @@ export const StyledSearchBox = styled.input`
 export const SearchBoxWrapper = styled.span`
     display: flex;
     align-items: center;
+    padding-right: 40px;
     
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    @media(max-width: 860px) {
         padding: 16px;
         justify-content: center;
     }
