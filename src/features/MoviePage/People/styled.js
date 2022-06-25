@@ -12,16 +12,14 @@ export const Header = styled.header`
 `;
 
 export const List = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(208px, 1fr));
     list-style-type: none;
     padding: 0;
     gap: 24px;
 `;
 
 export const Item = styled.li`
-    width: 208px;
     height: 339px;
     background-color: ${({theme}) => theme.color.white};
 `;
