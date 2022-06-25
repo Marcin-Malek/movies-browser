@@ -40,8 +40,6 @@ export const Title = styled.header`
     font-size: 36px;
     line-height: 120%;
     margin: 8px 0 0;
-    display: flex;
-    align-items: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-weight: 500;
@@ -55,8 +53,6 @@ export const Year = styled.span`
     grid-area: year;
     font-size: 22px;
     line-height: 120%;
-    display: flex;
-    align-items: center;
     color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
