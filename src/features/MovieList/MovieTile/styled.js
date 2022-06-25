@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 324px;
-    max-height: 650px;
+    height: 650px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
@@ -25,6 +25,8 @@ export const Container = styled.div`
             "poster rates"
             "poster empty";
             column-gap: 16px;
+            width: 288px;
+            height: 201px;
     }    
 `;
 

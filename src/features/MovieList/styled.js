@@ -6,8 +6,6 @@ export const Wrapper = styled.article`
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     gap: 24px;
     flex-wrap: wrap;
 `;
