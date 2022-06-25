@@ -17,14 +17,13 @@ export const MovieList = () => {
                 <MovieTile
                     title={"Mulan"}
                     year={"2020"}
-                    tags={["Action", "Adventure", "Drama"]}
+                    tags={[]}
                     rate={"7,8"}
                     votes={"35"}
                 />
                 <MovieTile
                     title={"Mulan"}
-                    year={"2020"}
-                    tags={["Action", "Adventure", "Drama"]}
+                    tags={["Action", "Drama"]}
                     rate={"7,8"}
                     votes={"35"}
                 />

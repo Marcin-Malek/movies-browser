@@ -1,28 +1,24 @@
 import styled from "styled-components";
+import {ReactComponent as Star} from "../../../images/star.svg";
 
 export const Content = styled.div`
-    position: relative;
-    overflow: hidden;
     padding: 16px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgb(186 199 213 / 50%) 0px 4px 12px;
+    background-color: ${({ theme }) => theme.color.white};
+    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     display: flex;
-    flex: 1 1 324px;
     flex-direction: column;
-    height: 100%; 
+    justify-content: space-between;
 `;
 
 export const Img = styled.img`
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 2/3;
     border-radius: 5px;
 `;
 
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    height: 100%;
 `;
 
 export const Title = styled.h3`
@@ -49,7 +45,7 @@ export const TagsContainer = styled.div`
 export const Tag = styled.p`
     margin: 0px;
     padding: 8px 16px;
-    background: rgb(228, 230, 240);
+    background-color: ${({ theme }) => theme.color.gray};
     border-radius: 5px;
     font-size: 14px;
 `;
@@ -57,16 +53,13 @@ export const Tag = styled.p`
 export const RatingContainer = styled.div`
     margin-top: 39px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     align-content: flex-end;
     gap: 12px;
 `;
 
-export const Svg = styled.svg`
-    width: 24;
-    height: 24;
-    fill: none;
+export const StyledStar = styled(Star)`
+    
 `;
 
 export const Rate = styled.p`
