@@ -1,29 +1,31 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as CameraIcon } from "../../images/camera.svg"
-import { ReactComponent as MagnifyingGlass } from "../../images/search.svg"
 import img from "../../images/search.svg";
 
 export const NavbarContainer = styled.nav`
-    max-height: 94px;
+    min-height: 94px;
     display: flex;
     justify-content: space-evenly;
     background-color: ${({ theme }) => theme.color.black};
-
-    @media(max-width: 860px) {
-        flex-wrap: wrap;
-        max-height: 144px;
-    }
+    flex-wrap: wrap;
 `;
 
 export const StyledNavbar = styled.ul`
     list-style-type: none;
     display: flex;
     align-items: center;
-    padding-right: 7vw;
 
     @media(max-width: 860px) {
-        padding: 0px;
+        padding: 0;
+    }
+`;
+
+export const NavbarWrapper = styled.div`
+    display: flex;
+
+    @media(max-width: 860px) {
+        padding: 0;
     }
 `;
 
@@ -43,25 +45,33 @@ export const StyledNavLink = styled(NavLink)`
         display: flex;
         align-items: center;
         padding: 8px 1vw;
-        margin: 0px 1vw;
+        margin: 0 1vw;
         border-radius: 29px;
+        font-size: 12px;
+        line-height: 18px;
 }
 `;
 
 export const StyledCameraIcon = styled(CameraIcon)`
+    path {
+        stroke-width: 2.5;
+    }
     g {
         opacity: 1;
     }
 
     @media(max-width: 860px) {
+        path {
+            stroke-width: 1.06;
+        }
         width: 20px;
         height: 21px;
     }
 `;
 
 export const StyledPageTitle = styled.h1`
-    padding: 0px 5vw 0px 16px;
-    font-weight: 400;
+    padding: 0 5vw 0 16px;
+    font-weight: 500;
     font-size: 24px;
     letter-spacing: -1.5px;
     white-space: nowrap;
@@ -73,6 +83,7 @@ export const StyledPageTitle = styled.h1`
         height: 17px;
         font-size: 13px;
         line-height: 130%;
+        letter-spacing: -0.5px;
 }
 `;
 
@@ -81,14 +92,10 @@ export const Logotype = styled.span`
     align-items: center;
 `;
 
-export const StyledMagnifyingGlass = styled(MagnifyingGlass)`
-    opacity: 0.5;
-`;
-
 export const StyledSearchBox = styled.input`
     border: 1px solid ${({ theme }) => theme.color.gray};
     border-radius: 33px;
-    height: 40px;
+    height: 48px;
     width: 25vw;
     min-width: 282px;
     text-indent: 17%;
