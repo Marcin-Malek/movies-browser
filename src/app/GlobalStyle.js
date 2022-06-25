@@ -5,12 +5,13 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     
-    ::before, ::after {
+    *, ::before, ::after {
         box-sizing: inherit;
     }
 
     body {
         font-family: 'Poppins', sans-serif;
         background-color: ${({theme}) => theme.color.lightGray};
+        color: ${({theme}) => theme.color.black};
     }
 `;
