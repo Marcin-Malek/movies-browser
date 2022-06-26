@@ -15,7 +15,8 @@ export const Content = styled.div`
 `;
 
 export const Img = styled.img`
-    aspect-ratio: 2/3;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -86,7 +87,7 @@ export const Tag = styled.p`
 `;
 
 export const RatingContainer = styled.div`
-    margin-top: 39px;
+    margin-top: 14px;
     display: flex;
     align-items: center;
     align-content: flex-end;
