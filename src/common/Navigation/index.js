@@ -1,4 +1,4 @@
-import { Logotype, NavbarContainer, StyledNavbar, StyledNavLink, StyledPageTitle, StyledCameraIcon, StyledSearchBox, SearchBoxWrapper, NavbarWrapper } from "./styled"
+import { Logotype, NavbarContainer, StyledNavbar, StyledNavLink, StyledPageTitle, StyledCameraIcon, StyledSearchBox, NavbarWrapper } from "./styled"
 
 
 export const Navigation = () => {
@@ -20,9 +20,7 @@ export const Navigation = () => {
                     </li>
                 </StyledNavbar>
             </NavbarWrapper>
-            <SearchBoxWrapper>
-                <StyledSearchBox placeholder="Search for movies..." />
-            </SearchBoxWrapper>
+            <StyledSearchBox placeholder="Search for movies..." />
         </NavbarContainer>
     )
 };

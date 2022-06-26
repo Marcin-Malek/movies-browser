@@ -7,6 +7,7 @@ export const NavbarContainer = styled.nav`
     min-height: 94px;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     background-color: ${({ theme }) => theme.color.black};
     flex-wrap: wrap;
 `;
@@ -110,22 +111,12 @@ export const StyledSearchBox = styled.input`
 
     @media(max-width: 860px) {
         max-width: 90vw;
+        margin: 16px 0px;
         padding: 0px;
         text-indent: 14%;
         background-position: 17px center;
         background-size: 14px 14px;
         font-size: 13px;
 }
-`;
-
-export const SearchBoxWrapper = styled.span`
-    display: flex;
-    align-items: center;
-    padding-right: 40px;
-    
-    @media(max-width: 860px) {
-        padding: 16px;
-        justify-content: center;
-    }
 `;
 
