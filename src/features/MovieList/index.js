@@ -23,7 +23,14 @@ export const MovieList = () => {
                 />
                 <MovieTile
                     title={"Mulan"}
-                    tags={["Action", "Drama"]}
+                    tags={["Action"]}
+                    rate={"7,8"}
+                    votes={"35"}
+                />
+                <MovieTile
+                    title={"Mulan long title long title Mulan long title long"}
+                    year={"2020"}
+                    tags={["Action"]}
                     rate={"7,8"}
                     votes={"35"}
                 />
@@ -36,6 +43,20 @@ export const MovieList = () => {
                 />
                 <MovieTile
                     title={"Mulan"}
+                    year={"2020"}
+                    tags={[]}
+                    rate={"7,8"}
+                    votes={"35"}
+                />
+                <MovieTile
+                    title={"Mulan"}
+                    year={"2020"}
+                    tags={["Action"]}
+                    rate={"7,8"}
+                    votes={"35"}
+                />
+                <MovieTile
+                    title={"Mulan long title long title Mulan long title long"}
                     year={"2020"}
                     tags={["Action", "Adventure", "Drama"]}
                     rate={"7,8"}
