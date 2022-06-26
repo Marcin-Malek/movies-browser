@@ -13,12 +13,13 @@ export const Title = styled.h1`
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
-    margin: 56px 0 24px 0;
+    margin: 0;
+    padding: 56px 16px 24px 16px;
 `;
 
 export const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(308px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
     gap: 24px;
     padding: 16px;
 `;

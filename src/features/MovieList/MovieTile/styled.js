@@ -8,7 +8,6 @@ export const Content = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         flex-direction: row;
@@ -18,6 +17,7 @@ export const Content = styled.div`
 export const Img = styled.img`
     aspect-ratio: 2/3;
     border-radius: 5px;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 50%;
     }
@@ -26,10 +26,21 @@ export const Img = styled.img`
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin-left: 16px;
         width: 50%;
+        display: flex;
+        justify-content: flex-start;
     }
+`;
+
+export const DescriptionContainer = styled.div`
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+          
+        }
 `;
 
 export const Title = styled.h3`
@@ -44,14 +55,19 @@ export const Title = styled.h3`
 `;
 
 export const Year = styled.p`
-    margin: 0px 0px 8px;
+    margin: 0;
     font-size: 16px;
-    color: rgb(126, 131, 154);
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }
 `;
 
 export const TagsContainer = styled.div`
+    margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -85,7 +101,6 @@ export const RatingContainer = styled.div`
 export const StyledStar = styled(Star)`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 16px;
-        height: 16px;
     }
 `;
 
@@ -102,7 +117,7 @@ export const Rate = styled.p`
 export const Votes = styled.p`
     margin: 0px;
     font-weight: 400;
-    color: rgb(126, 131, 154);
+    color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
