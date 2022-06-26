@@ -8,14 +8,14 @@ export const Shadow = styled.div`
     background: 
     linear-gradient(
         270deg, currentcolor 14.11%, 
-        rgba(24, 24, 27, 0.873268) 15.38%,
+        rgba(24, 24, 27, 0.873268) 15.08%,
         rgba(24, 24, 27, 0.720529) 16.51%, 
         rgba(24, 24, 27, 0.294577) 19.99%, 
         rgba(24, 24, 27, 0.159921) 21.88%, 
         rgba(24, 24, 27, 0) 25.68%),
     linear-gradient(
         90deg, currentcolor 13.6%,
-        rgba(24, 24, 27, 0.984059) 14.88%,
+        rgba(24, 24, 27, 0.984059) 14.58%,
         rgba(24, 24, 27, 0.967732) 15.44%,
         rgba(24, 24, 27, 0.865569) 16.3%,
         rgba(24, 24, 27, 0.230315) 22.87%,
@@ -50,7 +50,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 70vw;
+    max-width: 72vw;
     aspect-ratio: 16/9;
     z-index: -1;
 `;
