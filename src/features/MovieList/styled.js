@@ -22,4 +22,8 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
     gap: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    }
 `;
