@@ -46,7 +46,6 @@ export const ImageWrapper = styled.div`
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width:100vw;
-        padding: 0 16px;
     }
 `;
 
@@ -62,6 +61,11 @@ export const MainInfo = styled.div`
     align-self: flex-start;
     bottom: 10%;
     color: ${({ theme }) => theme.color.white};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        bottom: 0;
+        margin: 8px 16px
+    }
 `;
 
 export const Title = styled.h1`
