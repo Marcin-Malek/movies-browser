@@ -59,7 +59,7 @@ export const Title = styled.h3`
     }
 `;
 
-export const Year = styled.p`
+export const Year = styled.span`
     margin: 0;
     font-size: 16px;
     line-height: 150%;
@@ -78,6 +78,7 @@ export const TagsContainer = styled.ul`
     gap: 8px;
     padding: 0;
     list-style: none;
+    margin-bottom: 0;
 `;
 
 export const Tag = styled.li`
@@ -111,7 +112,7 @@ export const StyledStar = styled(Star)`
     }
 `;
 
-export const Rate = styled.p`
+export const Rate = styled.span`
     margin: 0px;
     font-weight: 600;
     font-size: 16px;
@@ -121,7 +122,7 @@ export const Rate = styled.p`
     }
 `;
 
-export const Votes = styled.p`
+export const Votes = styled.span`
     margin: 0px;
     font-weight: 400;
     color: ${({ theme }) => theme.color.darkerGray};
