@@ -68,7 +68,7 @@ export const MainInfo = styled.div`
     }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
     font-weight: 600;
     font-size: 64px;
     line-height: 120%;
