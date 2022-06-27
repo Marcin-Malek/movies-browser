@@ -8,7 +8,7 @@ export const Content = styled.section`
     flex-direction: column;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -21,9 +21,11 @@ export const Title = styled.h1`
 export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
-    gap: 24px;
+    justify-items: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+        grid-template-columns: repeat(auto-fit, 1fr);
+        justify-items: center;
+        gap: 24px;
     }
 `;
