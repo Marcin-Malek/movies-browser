@@ -71,14 +71,16 @@ export const Year = styled.p`
     }
 `;
 
-export const TagsContainer = styled.div`
+export const TagsContainer = styled.ul`
     margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    padding: 0;
+    list-style: none;
 `;
 
-export const Tag = styled.p`
+export const Tag = styled.li`
     margin: 0px;
     padding: 8px 16px;
     background-color: ${({ theme }) => theme.color.gray};
