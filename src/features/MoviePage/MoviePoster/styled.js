@@ -37,6 +37,7 @@ export const Shadow = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
+    width: 72vw;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -50,6 +51,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+    width: fill-available;
     max-width: 72vw;
     aspect-ratio: 16/9;
     z-index: -1;
