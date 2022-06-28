@@ -9,11 +9,7 @@ export const Content = styled.section`
 `;
 
 export const Title = styled.h2`
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
     font-size: 36px;
-    line-height: 120%;
     margin: 0;
     padding: 56px 0 24px;
 `;
