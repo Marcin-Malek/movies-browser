@@ -14,14 +14,15 @@ export const Content = styled.div`
     }
 `;
 
-export const Img = styled.img`
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-
+export const ImgWrapper = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 50%;
     }
+`;
+
+export const Img = styled.img`
+    border-radius: 5px;
+    width: 100%;
 `;
 
 export const Wrapper = styled.div`

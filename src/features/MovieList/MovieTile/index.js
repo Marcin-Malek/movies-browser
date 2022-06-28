@@ -14,12 +14,16 @@ import {
     Votes,
     StyledStar,
     DescriptionContainer,
+    ImgWrapper,
 } from "./styled";
 
 export const MovieTile = ({ title, year, tags, rate, votes }) => {
     return (
         <Content>
-            <Img src={Poster} />
+            <ImgWrapper>
+                <Img src={Poster} />
+            </ImgWrapper>
+
             <Wrapper>
                 <DescriptionContainer>
                     <Title> {title} </Title>
