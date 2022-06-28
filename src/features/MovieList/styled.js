@@ -12,6 +12,14 @@ export const Title = styled.h2`
     font-size: 36px;
     margin: 0;
     padding: 56px 0 24px;
+
+    @media (max-width: 1023px ) {
+        font-size:3.5vw;
+    }
+
+    @media (max-width: 500px) {
+        font-size:17.3px;
+    }
 `;
 
 export const Wrapper = styled.div`
