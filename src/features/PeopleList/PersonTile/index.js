@@ -1,11 +1,12 @@
 import portrait from "../../../images/portrait.jpg";
-import { Content, Img, Title } from "./styled.js";
+import { Content, Img, Name, Role } from "./styled.js";
 
-export const PersonTile = () => {
+export const PersonTile = ({name, role}) => {
     return (
         <Content>
             <Img src={portrait}/>
-            <Title>Liu Yifei</Title>
+            <Name> {name} </Name>
+            <Role> {role} </Role>
         </Content>
     )
 };

@@ -23,7 +23,7 @@ export const Img = styled.img`
     }
 `;
 
-export const Title = styled.h3`
+export const Name = styled.h3`
     margin: 16px 0px 8px;
     font-weight: 500;
     font-size: 22px;
@@ -32,5 +32,17 @@ export const Title = styled.h3`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
+    }
+`;
+
+export const Role = styled.h3`
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: ${({ theme }) => theme.color.darkerGray};
+    
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 13px;
+        line-height: 130%;
     }
 `;

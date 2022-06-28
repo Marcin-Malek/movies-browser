@@ -7,7 +7,30 @@ export const PeopleList = () => {
         <Content>
             <Title>Popular people</Title>
             <Wrapper>
-                <PersonTile/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
+                <PersonTile name={"Liu Yifei"}/>
             </Wrapper>
         </Content>
 
