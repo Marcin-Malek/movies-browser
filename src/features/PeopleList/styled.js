@@ -12,11 +12,25 @@ export const Title = styled.h1`
     line-height: 120%;
     margin: 0;
     padding: 56px 16px 24px 16px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 20px;
+        padding: 24px 16px 12px 16px;
+    }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.ul`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
-    gap: 24px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 200px);
+    list-style-type: none;
     padding: 16px;
+    gap: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-template-columns: repeat(auto-fit, 136px);
+        margin: 0 16px;
+        padding: 0;
+        gap: 16px;
+    }
 `;

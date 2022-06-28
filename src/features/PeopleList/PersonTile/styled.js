@@ -10,16 +10,24 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 136px;
+        height: 245px;
+        padding: 8px;
+    }
 `;
 
 export const Img = styled.img`
-    aspect-ratio: 2/3;
     border-radius: 5px;
     width: 176px;
     height: 231px;
+    object-fit: cover;
+    object-position: 100%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 50%;
+        width: 120px;
+        height: 178px;
     }
 `;
 
@@ -32,6 +40,7 @@ export const Name = styled.h3`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 14px;
+        margin: 8px 0px 8px;
     }
 `;
 
