@@ -14,18 +14,15 @@ export const NavbarContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: inherit;
     flex-wrap: wrap;
 `;
 
 export const NavbarWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+    
     @media(max-width: 860px) {
-        width: 90vw;
-        margin-top: 0;
+
+        justify-content: space-between;
         flex-grow: 1;
     }
 `;
@@ -68,11 +65,10 @@ export const StyledPageTitle = styled.h1`
     color: ${({ theme }) => theme.color.white};
 
     @media(max-width: 860px) {
-        height: 17px;
+        
         font-size: 13px;
         line-height: 16.9px;
         letter-spacing: -0.5px;
-        margin: 0;
         padding: 0 0 0 16px;
 }
 `;
@@ -100,11 +96,8 @@ export const StyledNavLink = styled(NavLink)`
     }
 
     @media(max-width: 860px) {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        display: block;
         padding: 8px 12px;
-        border-radius: 29px;
         font-size: 12px;
         line-height: 18px;
 }
@@ -131,7 +124,6 @@ export const StyledSearchBox = styled.input`
     @media(max-width: 860px) {
         width: 90vw;
         height: 44px;
-        padding: 0px;
         text-indent: 40px;
         background-position: 17px center;
         background-size: 14px 14px;
