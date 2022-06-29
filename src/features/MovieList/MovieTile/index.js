@@ -13,27 +13,21 @@ import {
     Rate,
     Votes,
     StyledStar,
-    DescriptionContainer,
-    ImgWrapper,
 } from "./styled";
 
 export const MovieTile = ({ title, year, tags, rate, votes }) => {
     return (
         <Content>
-            <ImgWrapper>
-                <Img src={Poster} />
-            </ImgWrapper>
+            <Img src={Poster} />
 
             <Wrapper>
-                <DescriptionContainer>
-                    <Title> {title} </Title>
-                    <Year> {year} </Year>
-                    <TagsContainer>
-                        {tags.map((tag, tagIndex) => (
-                            <Tag key={tagIndex}>{tag}</Tag>
-                        ))}
-                    </TagsContainer>
-                </DescriptionContainer>
+                <Title> {title} </Title>
+                <Year> {year} </Year>
+                <TagsContainer>
+                    {tags.map((tag, tagIndex) => (
+                        <Tag key={tagIndex}>{tag}</Tag>
+                    ))}
+                </TagsContainer>
 
                 <RatingContainer>
                     <StyledStar />

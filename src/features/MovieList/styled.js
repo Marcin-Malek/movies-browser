@@ -18,16 +18,21 @@ export const Title = styled.h2`
     }
 
     @media (max-width: 500px) {
-        font-size:17.3px;
+        font-size: 17.3px;
     }
 `;
 
 export const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap:24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px){
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 `;
