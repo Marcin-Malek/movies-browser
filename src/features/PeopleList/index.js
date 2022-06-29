@@ -1,5 +1,5 @@
 import { PersonTile } from "./PersonTile";
-import { Content, List, Title, Wrapper } from "./styled";
+import { Content, Title, Wrapper } from "./styled";
 
 export const PeopleList = () => {
     return (
