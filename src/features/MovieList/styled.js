@@ -4,8 +4,6 @@ export const Content = styled.section`
     max-width: 1400px;
     padding:0 16px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
 `;
 
 export const Title = styled.h2`
@@ -13,12 +11,12 @@ export const Title = styled.h2`
     margin: 0;
     padding: 56px 0 24px;
 
-    @media (max-width: 1023px ) {
-        font-size:3.5vw;
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
+        font-size:3.36vw;
     }
 
-    @media (max-width: 500px) {
-        font-size: 17.3px;
+    @media (max-width: 536px) {
+        font-size: 18px;
     }
 `;
 
