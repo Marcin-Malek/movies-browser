@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as prev } from "../../images/prev.svg"
-import { ReactComponent as next } from "../../images/next.svg"
+import { ReactComponent as prev } from "../../../images/prev.svg"
+import { ReactComponent as next } from "../../../images/next.svg"
 
 export const PaginationContainer = styled.footer`
     max-width: 525px;
@@ -15,7 +15,7 @@ export const PaginationContainer = styled.footer`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 8px;
         max-height: 23px;
-        margin: 32.5px auto 31.5px;
+        margin: 32px auto 31px;
     }
 `;
 
@@ -25,7 +25,7 @@ export const FirstPrevWrapper = styled.div`
     align-items: center;
     padding: 0px;
     gap: 12px;
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
     font-size: 14px;
     line-height: 140%;
 `;
@@ -37,7 +37,7 @@ export const First = styled.span`
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    background: #E4E6F0;
+    background: ${({theme}) => theme.color.gray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 4px;
@@ -52,7 +52,7 @@ export const Previous = styled.span`
     padding: 8px 16px;
     border-radius: 5px;
     gap: 8px;
-    background: #E4E6F0;
+    background: ${({theme}) => theme.color.gray};
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 4px;
         padding: 8px 12px;
@@ -65,19 +65,18 @@ export const PagesWrapper = styled.footer`
     align-items: center;
     padding: 0px;
     gap: 8px;
-    color: #7E839A;
+    color: ${({theme}) => theme.color.darkerGray};
     font-size: 16px;
     line-height: 150%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 10px;
-        line-height: 24px;
         gap: 2px;
     }
 `;
 
 export const CurrentPage = styled.span`
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
     font-weight: 600;
 `;
 
@@ -87,7 +86,7 @@ export const NextLastWrapper = styled.footer`
     align-items: center;
     padding: 0px;
     gap: 12px;
-    color: #18181B;
+    color: ${({theme}) => theme.color.black};
     font-size: 14px;
     line-height: 140%;
 `;
@@ -98,8 +97,9 @@ export const Next = styled.span`
     align-items: center;
     padding: 8px 16px;
     gap: 8px;
-    background: #D6E4FF;
+    background: ${({theme}) => theme.color.lightBlue};
     border-radius: 5px;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 4px;
         padding: 8px 12px;
@@ -112,7 +112,7 @@ export const Last = styled.span`
     align-items: center;
     padding: 8px 16px;
     gap: 8px;
-    background: #D6E4FF;
+    background: ${({theme}) => theme.color.lightBlue};
     border-radius: 5px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -124,14 +124,14 @@ export const Last = styled.span`
 
 export const StyledNextIcon = styled(next)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 5px;
-height: 8px;
+        width: 5px;
+        height: 8px;
     }
 `;
 
 export const StyledPrevIcon = styled(prev)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-    width: 5px;
-height: 8px;
+        width: 5px;
+        height: 8px;
     }
 `;
