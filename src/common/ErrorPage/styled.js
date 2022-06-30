@@ -24,13 +24,20 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
+    text-align: center;
     margin: 24px 82.73px 24px 82.73px;
     padding: 0;
 `;
 
 export const Button = styled.button`
     color: white;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+
     border: none;
+    width: 181px;
     padding: 16px 24px;
     background: #0044CC;
     border-radius: 5px;
