@@ -4,6 +4,7 @@ import { Navigation } from './common/Navigation';
 import { MovieList } from "./features/MovieList";
 import { MoviePage } from './features/MoviePage';
 import { PeopleList } from "./features/PeopleList";
+import { ErrorPage } from './common/ErrorPage';
 
 const App = () => (
   <HashRouter>
@@ -14,6 +15,7 @@ const App = () => (
       <Route path="people" element={<PeopleList />} />
       <Route path="movies/:id" element={<MoviePage />} />
       <Route path="people/:id" />
+      <Route path="error" element={<ErrorPage />} />
     </Routes>
   </HashRouter>
 );
