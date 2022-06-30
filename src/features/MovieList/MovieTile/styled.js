@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {ReactComponent as Star} from "../../../images/star.svg";
 
-export const Content = styled.div`
+export const Content = styled.li`
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -70,17 +70,17 @@ export const Year = styled.span`
 `;
 
 export const TagsContainer = styled.ul`
-    margin-top: 8px;
+    margin: 8px 0 0;
+    padding: 0;
+    gap: 8px;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 0;
     list-style: none;
     margin-bottom: 0;
 `;
 
 export const Tag = styled.li`
-    margin: 0px;
+    margin: 0;
     padding: 8px 16px;
     background-color: ${({ theme }) => theme.color.gray};
     border-radius: 5px;

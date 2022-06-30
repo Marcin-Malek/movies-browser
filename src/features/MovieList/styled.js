@@ -20,7 +20,8 @@ export const Title = styled.h2`
     }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.ul`
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap:24px;
