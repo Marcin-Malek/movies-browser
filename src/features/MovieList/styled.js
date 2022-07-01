@@ -13,10 +13,10 @@ export const Title = styled.h2`
     line-height: 120%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
-        font-size:3.36vw;
+        font-size:3.51vw;
     }
 
-    @media (max-width: 536px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 18px;
     }
 `;
