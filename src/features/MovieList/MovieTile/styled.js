@@ -8,7 +8,6 @@ export const Content = styled.div`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         flex-direction: row;
     }
@@ -17,7 +16,6 @@ export const Content = styled.div`
 export const Img = styled.img`
     aspect-ratio: 2/3;
     border-radius: 5px;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 50%;
     }
@@ -28,7 +26,6 @@ export const Wrapper = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin-left: 16px;
         width: 50%;
@@ -48,7 +45,6 @@ export const Title = styled.h3`
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 16px;
     }
@@ -59,7 +55,6 @@ export const Year = styled.p`
     font-size: 16px;
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 130%;
@@ -91,7 +86,6 @@ export const RatingContainer = styled.div`
     align-items: center;
     align-content: flex-end;
     gap: 12px;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 8px;
         margin-top: 12px;
@@ -108,7 +102,6 @@ export const Rate = styled.p`
     margin: 0px;
     font-weight: 600;
     font-size: 16px;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
     }
@@ -118,7 +111,6 @@ export const Votes = styled.p`
     margin: 0px;
     font-weight: 400;
     color: ${({ theme }) => theme.color.darkerGray};
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
     }
