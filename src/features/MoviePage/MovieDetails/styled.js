@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
     column-gap: 40px;
     row-gap: 24px;
     padding: 40px;
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     background-color: ${({ theme }) => theme.color.white};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -38,8 +38,6 @@ export const Title = styled.header`
     font-size: 36px;
     line-height: 120%;
     margin: 8px 0 0;
-    display: flex;
-    align-items: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-weight: 500;
@@ -53,8 +51,6 @@ export const Year = styled.span`
     grid-area: year;
     font-size: 22px;
     line-height: 120%;
-    display: flex;
-    align-items: center;
     color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -87,7 +83,6 @@ export const ProductionDetails = styled.dl`
     display: grid;
     row-gap: 8px;
     margin: 0;
-    align-items: center;
 `;
 
 export const DetailsWrapper = styled.div`
@@ -126,7 +121,6 @@ export const Tags = styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
