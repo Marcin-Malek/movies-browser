@@ -44,6 +44,7 @@ export const Title = styled.h3`
     font-size: 22px;
     line-height: 130%;
 
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
         font-size: 16px;
         margin: 0 0 4px;
@@ -56,6 +57,7 @@ export const Title = styled.h3`
 
 export const Year = styled.p`
     margin: 0;
+
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};
 
@@ -83,6 +85,7 @@ export const Tag = styled.li`
     background-color: ${({ theme }) => theme.color.gray};
     border-radius: 5px;
     font-size: 14px;
+
     
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         padding: 4px 8px;

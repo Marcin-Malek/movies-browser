@@ -1,6 +1,5 @@
 // import Camera from "../../../images/camera.svg";
 import Poster from "../../../../images/MulanPoster.jpg";
-
 import {
     Content,
     Wrapper,

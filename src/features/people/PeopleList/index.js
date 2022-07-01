@@ -3,7 +3,6 @@ import { Content, Title, Wrapper } from "./styled";
 
 export const PeopleList = () => {
     return (
-
         <Content>
             <Title>Popular people</Title>
             <Wrapper>
@@ -33,6 +32,5 @@ export const PeopleList = () => {
                 <PersonTile name={"Liu Yifei"} />
             </Wrapper>
         </Content>
-
     )
 };
