@@ -54,7 +54,7 @@ export const Title = styled.h3`
     }
 `;
 
-export const Year = styled.span`
+export const Year = styled.p`
     margin: 0;
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};

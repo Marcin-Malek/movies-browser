@@ -19,7 +19,6 @@ export const MovieTile = ({ title, year, tags, rate, votes }) => {
     return (
         <Content>
             <Img src={Poster} />
-
             <Wrapper>
                 <Title> {title} </Title>
                 <Year> {year} </Year>
