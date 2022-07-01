@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     moviesList: [],
-    fetchStatus: "initial",
+    fetchStatus: "initiated",
 };
 
 export const moviesSlice = createSlice({
@@ -25,7 +25,7 @@ export const moviesSlice = createSlice({
     },
 });
 
-export const { fetchMovies: fetchPopularMovies } = moviesSlice.actions;
+export const { fetchMovies: fetchMovies } = moviesSlice.actions;
 
 export const selectMovies = (state) => state.movies.moviesList;
 
