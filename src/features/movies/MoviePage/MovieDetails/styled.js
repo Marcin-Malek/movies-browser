@@ -15,7 +15,7 @@ export const Wrapper = styled.section`
     column-gap: 40px;
     row-gap: 24px;
     padding: 40px;
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     background-color: ${({ theme }) => theme.color.white};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -83,7 +83,6 @@ export const ProductionDetails = styled.dl`
     display: grid;
     row-gap: 8px;
     margin: 0;
-    align-items: center;
 `;
 
 export const DetailsWrapper = styled.div`
@@ -121,8 +120,7 @@ export const Tags = styled.ul`
     grid-area: tags;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    align-items: center;
+    gap: 10px;
     list-style: none;
     padding: 0;
     margin: 0;

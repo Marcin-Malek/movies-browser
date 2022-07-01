@@ -6,7 +6,7 @@ export const MoviePoster = (props) => (
         <ImageWrapper>
             <Image src={props.image} />
             <MainInfo>
-                <Title>Mulan longer title</Title>
+                <Title>{props.title}</Title>
                 <Rating>
                     <StyledStar />
                     <Numerator>{props.rating}</Numerator>
