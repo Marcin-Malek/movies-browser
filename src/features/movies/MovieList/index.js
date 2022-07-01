@@ -1,5 +1,6 @@
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
+import { Pagination } from "../../../common/Pagination";
 
 export const MovieList = () => {
     return (
@@ -42,7 +43,7 @@ export const MovieList = () => {
                     votes={"35"}
                 />
             </Wrapper>
+            <Pagination />
         </Content>
-
     )
 };
