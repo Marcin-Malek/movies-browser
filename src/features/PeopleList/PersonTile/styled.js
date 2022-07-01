@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-    width: 208px;
+    /* width: 208px; */
     height: 339px;
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
@@ -31,7 +31,7 @@ export const Img = styled.img`
     }
 `;
 
-export const Name = styled.h3`
+export const Name = styled.h2`
     margin: 16px 0px 8px;
     font-weight: 500;
     font-size: 22px;
