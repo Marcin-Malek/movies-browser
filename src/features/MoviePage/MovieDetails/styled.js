@@ -124,6 +124,10 @@ export const Tags = styled.ul`
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {   
+        gap: 8px;
+    }
 `;
 
 export const Tag = styled.li`
