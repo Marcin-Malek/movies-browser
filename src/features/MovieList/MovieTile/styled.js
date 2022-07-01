@@ -56,7 +56,6 @@ export const Title = styled.h3`
 
 export const Year = styled.span`
     margin: 0;
-    font-size: 16px;
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};
 
@@ -76,7 +75,6 @@ export const TagsContainer = styled.ul`
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin-bottom: 0;
 `;
 
 export const Tag = styled.li`
@@ -104,20 +102,17 @@ export const RatingContainer = styled.div`
     align-items: center;
     align-content: flex-end;
     gap: 12px;
+    flex: 1;
     
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         gap: 8px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoint.tablet}px){
-        flex: 1;
+        flex:0;
     }
 `;
 
 export const StyledStar = styled(Star)`
     width: 24px;
     height: 24px;
-    fill: none;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         width: 16px;
@@ -132,7 +127,6 @@ export const StyledStar = styled(Star)`
 
 export const Rate = styled.span`
     font-weight: 600;
-    font-size: 16px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         font-size: 13px;
@@ -144,8 +138,6 @@ export const Rate = styled.span`
 `;
 
 export const Votes = styled.span`
-    font-weight: 400;
-    font-size: 16px;
     color: ${({ theme }) => theme.color.darkerGray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
