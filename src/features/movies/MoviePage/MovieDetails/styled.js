@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "../../../images/star.svg";
+import { ReactComponent as Star } from "../../../../images/star.svg";
 
 export const Wrapper = styled.section`
     display: grid;
@@ -124,6 +124,10 @@ export const Tags = styled.ul`
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {   
+        gap: 8px;
+    }
 `;
 
 export const Tag = styled.li`

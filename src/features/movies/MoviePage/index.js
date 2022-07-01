@@ -3,7 +3,7 @@ import { MovieDetails } from './MovieDetails';
 import { MoviePoster } from './MoviePoster';
 import { People } from './People';
 import { MainWrapper } from './styled';
-import image from "../../images/BigPoster.jpg"
+import image from "../../../images/BigPoster.jpg"
 
 export const MoviePage = () => (
     <>
