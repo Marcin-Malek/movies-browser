@@ -1,29 +1,23 @@
 import styled from "styled-components";
-import { ReactComponent as prev } from "../../../images/prev.svg"
-import { ReactComponent as next } from "../../../images/next.svg"
+import { ReactComponent as PrevIcon } from "../../../images/prev.svg"
+import { ReactComponent as NextIcon } from "../../../images/next.svg"
 
 export const PaginationContainer = styled.footer`
-    max-width: 525px;
-    max-height: 36px;
+
     margin: 40px auto 103px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
     gap: 24px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 8px;
-        max-height: 23px;
         margin: 32px auto 31px;
     }
 `;
 
 export const FirstPrevWrapper = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 12px;
     color: ${({theme}) => theme.color.black};
     font-size: 14px;
@@ -34,7 +28,6 @@ export const First = styled.span`
     padding: 8px 16px;
     border-radius: 5px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 8px;
     background: ${({theme}) => theme.color.gray};
@@ -47,7 +40,6 @@ export const First = styled.span`
 
 export const Previous = styled.span`
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 8px 16px;
     border-radius: 5px;
@@ -59,9 +51,8 @@ export const Previous = styled.span`
     }
 `;
 
-export const PagesWrapper = styled.footer`
+export const PagesWrapper = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 0px;
     gap: 8px;
@@ -80,9 +71,8 @@ export const CurrentPage = styled.span`
     font-weight: 600;
 `;
 
-export const NextLastWrapper = styled.footer`
+export const NextLastWrapper = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 0px;
     gap: 12px;
@@ -93,7 +83,6 @@ export const NextLastWrapper = styled.footer`
 
 export const Next = styled.span`
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 8px 16px;
     gap: 8px;
@@ -108,7 +97,6 @@ export const Next = styled.span`
 
 export const Last = styled.span`
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 8px 16px;
     gap: 8px;
@@ -122,14 +110,14 @@ export const Last = styled.span`
 `;
 
 
-export const StyledNextIcon = styled(next)`
+export const StyledNextIcon = styled(NextIcon)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 5px;
         height: 8px;
     }
 `;
 
-export const StyledPrevIcon = styled(prev)`
+export const StyledPrevIcon = styled(PrevIcon)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 5px;
         height: 8px;
