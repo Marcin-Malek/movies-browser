@@ -8,6 +8,7 @@ import image from "../../images/Poster.jpg"
 export const MoviePage = () => (
     <>
         <MoviePoster
+            title={"Mulan longer title"}
             image={image}
             rating={"7,8"}
             votes={"335"} />
