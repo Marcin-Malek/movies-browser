@@ -35,9 +35,9 @@ export const MovieList = () => {
                 </Content>
             );
         case "error":
-            return (<span>error</span>)
+            return (<span>error</span>);
         default:
-            return (<span>loading</span>)
+            return (<span>loading</span>);
     }
 
 };
