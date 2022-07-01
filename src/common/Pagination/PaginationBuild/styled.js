@@ -3,7 +3,6 @@ import { ReactComponent as PrevIcon } from "../../../images/prev.svg"
 import { ReactComponent as NextIcon } from "../../../images/next.svg"
 
 export const PaginationContainer = styled.footer`
-
     margin: 40px auto 103px;
     display: flex;
     justify-content: center;
@@ -17,7 +16,6 @@ export const PaginationContainer = styled.footer`
 
 export const FirstPrevWrapper = styled.div`
     display: flex;
-    align-items: center;
     gap: 12px;
     color: ${({theme}) => theme.color.black};
     font-size: 14px;
@@ -40,7 +38,6 @@ export const First = styled.span`
 
 export const Previous = styled.span`
     display: flex;
-    align-items: center;
     padding: 8px 16px;
     border-radius: 5px;
     gap: 8px;
@@ -54,7 +51,6 @@ export const Previous = styled.span`
 export const PagesWrapper = styled.div`
     display: flex;
     align-items: center;
-    padding: 0px;
     gap: 8px;
     color: ${({theme}) => theme.color.darkerGray};
     font-size: 16px;
@@ -73,8 +69,6 @@ export const CurrentPage = styled.span`
 
 export const NextLastWrapper = styled.div`
     display: flex;
-    align-items: center;
-    padding: 0px;
     gap: 12px;
     color: ${({theme}) => theme.color.black};
     font-size: 14px;
@@ -83,7 +77,6 @@ export const NextLastWrapper = styled.div`
 
 export const Next = styled.span`
     display: flex;
-    align-items: center;
     padding: 8px 16px;
     gap: 8px;
     background: ${({theme}) => theme.color.lightBlue};
