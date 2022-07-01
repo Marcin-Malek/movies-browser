@@ -31,4 +31,4 @@ export const selectMovies = (state) => state.movies.moviesList;
 
 export const selectFetchStatus = (state) => state.movies.moviesList;
 
-export default counterSlice.reducer;
+export default moviesSlice.reducer;

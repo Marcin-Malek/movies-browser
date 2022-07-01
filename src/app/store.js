@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from '@redux-saga/core';
-import counterReducer from '../features/counter/counterSlice';
+import moviesReducer from '../features/movies/moviesSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    movies: moviesReducer,
   },
   middleware: [sagaMiddleware],
 });
