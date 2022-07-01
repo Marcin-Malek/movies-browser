@@ -33,7 +33,7 @@ export const {
     fetchMovies,
 } = moviesSlice.actions;
 
-export const selectMovies = (state) => state.movies.moviesList;
+export const selectMoviesList = (state) => state.movies.moviesList.payload;
 
 export const selectFetchStatus = (state) => state.movies.fetchStatus;
 
