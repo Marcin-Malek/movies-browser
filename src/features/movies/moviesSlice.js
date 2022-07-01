@@ -29,6 +29,6 @@ export const { fetchMovies } = moviesSlice.actions;
 
 export const selectMovies = (state) => state.movies.moviesList;
 
-export const selectFetchStatus = (state) => state.movies.moviesList;
+export const selectFetchStatus = (state) => state.movies.fetchStatus;
 
 export default moviesSlice.reducer;
