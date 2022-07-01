@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, selectFetchStatus, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
+import { Pagination } from "../../../common/Pagination";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export const MovieList = () => {
                             />
                         )}
                     </Wrapper>
+                  <Pagination />
                 </Content>
             );
         case "error":
@@ -37,4 +39,5 @@ export const MovieList = () => {
         default:
             return (<span>loading</span>)
     }
+
 };
