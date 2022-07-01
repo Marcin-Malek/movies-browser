@@ -19,7 +19,7 @@ export const Title = styled.h1`
     font-weight: 600;
     font-size: 35px;
     line-height: 120%;
-    margin: 0;
+    margin: 38.16px 0 0;
     padding: 0;
 `;
 
