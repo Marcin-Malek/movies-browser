@@ -18,7 +18,7 @@ import {
     Wrapper,
     Year
 } from './styled';
-import { ReactComponent as CameraIcon } from "../../../images/camera.svg";
+import { ReactComponent as CameraIcon } from "../../../../images/camera.svg";
 
 export const MovieDetails = (props) => (
     <Wrapper>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as Star} from "../../../images/star.svg";
+import {ReactComponent as Star} from "../../../../images/star.svg";
 
 export const Content = styled.li`
     padding: 16px;
