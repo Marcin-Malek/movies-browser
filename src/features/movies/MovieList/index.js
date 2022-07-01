@@ -1,6 +1,6 @@
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
-import { Pagination } from "../../common/Pagination";
+import { Pagination } from "../../../common/Pagination";
 
 export const MovieList = () => {
     return (
