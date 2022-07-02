@@ -14,7 +14,9 @@ export const MovieList = () => {
         dispatch(fetchMovies());
     }, [dispatch]);
 
-    //movie.release_date
+    const formatDate = (date) => {
+        return date.substr(0, 4);
+    };
 
     switch (fetchStatus) {
         case "completed":
@@ -26,7 +28,7 @@ export const MovieList = () => {
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
-                                year={movie.release_date}
+                                year={formatDate(movie.release_date)}
                                 tags={["Action", "Adventure", "Drama"]}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
