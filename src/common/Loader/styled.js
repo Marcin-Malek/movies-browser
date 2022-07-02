@@ -79,6 +79,10 @@ export const Spinner = styled.progress`
     &:indeterminate {
         mask-image: linear-gradient(transparent 50%, black 50%), linear-gradient(to right, transparent 50%, black 50%);
         animation: ${ProgressBackgroundAnimation} 5s infinite cubic-bezier(0.3, 0.6, 1, 1);
+
+        @-moz-document url-prefix() { 
+            mask-image: linear-gradient(transparent 100%, currentColor 100%), linear-gradient(to right, transparent 55%, currentColor 100%);
+        }
     }
     &:indeterminate::before,
     &:indeterminate::-webkit-progress-value {
@@ -97,6 +101,5 @@ export const Spinner = styled.progress`
         width: 100% !important;
         height: 100%;
         background-color: transparent;
-        animation: ${ProgressForegroundAnimation} 0.625s infinite linear alternate;
     }
 `;
