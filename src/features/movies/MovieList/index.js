@@ -14,9 +14,11 @@ export const MovieList = () => {
         dispatch(fetchMovies());
     }, [dispatch]);
 
+    //movie.release_date
+
     switch (fetchStatus) {
         case "completed":
-            const moviesData = movies.data
+            const moviesData = movies.data;
             return (
                 <Content>
                     <Title>Popular movies</Title>
@@ -24,7 +26,7 @@ export const MovieList = () => {
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
-                                year={"2020"}
+                                year={movie.release_date}
                                 tags={["Action", "Adventure", "Drama"]}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
