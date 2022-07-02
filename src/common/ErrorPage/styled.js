@@ -8,10 +8,22 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
+        margin-top: 120px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        margin-top: 50px;
+    }
 `;
 
 export const StyledDangerIcon = styled(DangerIcon)`
     width: 120px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 80px;
+    }
 `;
 
 export const Title = styled.h1`
@@ -20,26 +32,39 @@ export const Title = styled.h1`
     font-size: 35px;
     line-height: 120%;
     margin: 38.16px 0 0;
-    padding: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 18px;
+        margin-top: 0;
+    }
 `;
 
 export const Text = styled.p`
     text-align: center;
-    margin: 24px 82.73px 24px 82.73px;
+    margin: 24px 82.73px;
     padding: 0;
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 12px;
+        margin: 15px 40px;
+    }
 `;
 
 export const Button = styled.button`
-    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 5px;
+    background: ${({ theme }) => theme.color.blue};
+    color: ${({ theme }) => theme.color.white};
     font-weight: 700;
     font-size: 14px;
     line-height: 19px;
 
-    border: none;
-    padding: 16px 24px;
-    background: #0044CC;
-    border-radius: 5px;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 10px;
+        padding: 12px 20px;
+    }
 `;
