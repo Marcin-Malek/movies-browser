@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { ReactComponent as DangerIcon } from "../../images/danger.svg";
 
 export const Wrapper = styled.div`
-    max-width: 592px;
-    width: 100%;
     margin: 195px auto;
     display: flex;
     flex-direction: column;
@@ -19,8 +17,6 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledDangerIcon = styled(DangerIcon)`
-    width: 120px;
-
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 80px;
     }
@@ -41,15 +37,14 @@ export const Title = styled.h1`
 
 export const Text = styled.p`
     text-align: center;
-    margin: 24px 82.73px;
-    padding: 0;
+    margin: 24px;
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 12px;
-        margin: 15px 40px;
+        margin: 15px;
     }
 `;
 
@@ -62,9 +57,19 @@ export const Button = styled.button`
     font-weight: 700;
     font-size: 14px;
     line-height: 19px;
+    transition: 0.3s;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 10px;
         padding: 12px 20px;
+        line-height: 15px;
+    }
+
+    &:hover{
+        filter: brightness(115%);
+    }
+
+    &:active{
+        filter: brightness(150%);
     }
 `;
