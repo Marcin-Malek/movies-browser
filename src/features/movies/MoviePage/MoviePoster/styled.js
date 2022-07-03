@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "../../../images/star.svg";
+import { ReactComponent as Star } from "../../../../images/star.svg";
 
 export const Shadow = styled.div`
     display: flex;
@@ -37,6 +37,7 @@ export const Shadow = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
+    width: 72vw;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -45,11 +46,11 @@ export const ImageWrapper = styled.div`
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width:100vw;
-        padding: 0 16px;
     }
 `;
 
 export const Image = styled.img`
+    width: fill-available;
     max-width: 72vw;
     aspect-ratio: 16/9;
     z-index: -1;
@@ -60,13 +61,18 @@ export const MainInfo = styled.div`
     align-self: flex-start;
     bottom: 10%;
     color: ${({ theme }) => theme.color.white};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        bottom: 0;
+        margin: 8px 16px
+    }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
     font-weight: 600;
-    font-size: 64px;
+    font-size: 4vw;
     line-height: 120%;
-    margin: 24px 0;
+    margin: 1.2vw 0;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 24px;
@@ -80,21 +86,21 @@ export const Rating = styled.div`
     grid-template-areas: 
     "star numerator denominator"
     "votes votes votes";
-    align-items: flex-end;
-    column-gap: 8px;
-    row-gap: 16px;
+    align-items: center;
+    column-gap: 0.4vw;
+    row-gap: 0.8vw;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         display: flex;
-        column-gap: 0;
-        row-gap: 0;
+        align-items: flex-end;
+        gap: 0;
     }
 `;
 
 export const StyledStar = styled(Star)`
     grid-area: star;
-    width: 40px;
-    height: 40px;
+    width: 2.1vw;
+    height: 2.1vw;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 16px;
@@ -105,7 +111,7 @@ export const StyledStar = styled(Star)`
 export const Numerator = styled.span`
     grid-area: numerator;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 1.6vw;
     line-height: 130%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -117,9 +123,8 @@ export const Numerator = styled.span`
 
 export const Denominator = styled.span`
     grid-area: denominator;
-    font-size: 16px;
+    font-size: 0.83vw;
     line-height: 120%;
-    margin-bottom: 6px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 10px;
@@ -129,7 +134,7 @@ export const Denominator = styled.span`
 
 export const VoteCount = styled.span`
     grid-area: votes;
-    font-size: 16px;
+    font-size: 0.83vw;
     line-height: 120%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {

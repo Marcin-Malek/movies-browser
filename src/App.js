@@ -1,9 +1,9 @@
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './common/Navigation';
-import { MovieList } from "./features/MovieList";
-import { MoviePage } from './features/MoviePage';
-import { PeopleList } from "./features/PeopleList";
+import { MovieList } from "./features/movies/MovieList";
+import { MoviePage } from './features/movies/MoviePage';
+import { PeopleList } from "./features/people/PeopleList";
 import { ErrorPage } from './common/ErrorPage';
 
 const App = () => (
