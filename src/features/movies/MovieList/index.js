@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectFetchStatus, selectMoviesList, } from "../moviesSlice";
+import { fetchMovies, selectFetchStatus, selectMovieGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
@@ -9,6 +9,7 @@ export const MovieList = () => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
     const movies = useSelector(selectMoviesList);
+    const genres = useSelector(selectMovieGenres);
 
     useEffect(() => {
         dispatch(fetchMovies());
@@ -16,7 +17,7 @@ export const MovieList = () => {
 
     switch (fetchStatus) {
         case "completed":
-            const moviesData = movies.data
+            const moviesData = movies.data;
             return (
                 <Content>
                     <Title>Popular movies</Title>
@@ -25,13 +26,13 @@ export const MovieList = () => {
                             <MovieTile key={movie.id}
                                 title={movie.title}
                                 year={"2020"}
-                                tags={["Action", "Adventure", "Drama"]}
+                                tags={movie.genre_ids.map((genreId) => genres.data.genres.find((genre) => genre.id === genreId).name)}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />
                         )}
                     </Wrapper>
-                  <Pagination />
+                    <Pagination />
                 </Content>
             );
         case "error":
