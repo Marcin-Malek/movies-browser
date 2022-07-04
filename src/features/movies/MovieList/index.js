@@ -4,6 +4,7 @@ import { fetchMovies, selectFetchStatus, selectMovieGenres, selectMoviesList, } 
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
+import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const MovieList = () => {
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
-                                year={"2020"}
+                                year={movie.release_date.slice(0,4)}
                                 tags={movie.genre_ids.map((genreId) => genres.data.genres.find((genre) => genre.id === genreId).name)}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
@@ -38,7 +39,7 @@ export const MovieList = () => {
         case "error":
             return (<span>error</span>);
         default:
-            return (<span>loading</span>);
+            return (<Loader />);
     }
 
 };
