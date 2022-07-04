@@ -5,6 +5,7 @@ import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
+import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const MovieList = () => {
 
     switch (fetchStatus) {
         case "completed":
-            const moviesData = movies.data
+            const moviesData = movies.data;
             return (
                 <Content>
                     <Title>Popular movies</Title>
@@ -25,7 +26,7 @@ export const MovieList = () => {
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
-                                year={"2020"}
+                                year={movie.release_date.slice(0,4)}
                                 tags={["Action", "Adventure", "Drama"]}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
@@ -38,7 +39,7 @@ export const MovieList = () => {
         case "error":
             return (<ErrorPage />);
         default:
-            return (<span>loading</span>);
+            return (<Loader />);
     }
 
 };
