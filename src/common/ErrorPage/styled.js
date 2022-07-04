@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as DangerIcon } from "../../images/danger.svg";
 
@@ -48,7 +49,7 @@ export const Text = styled.p`
     }
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     padding: 16px 24px;
     border: none;
     border-radius: 5px;
@@ -58,6 +59,7 @@ export const Button = styled.button`
     font-size: 14px;
     line-height: 19px;
     transition: 0.3s;
+    text-decoration: none;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 10px;
