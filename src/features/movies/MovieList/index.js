@@ -4,6 +4,7 @@ import { fetchMovies, selectFetchStatus, selectMoviesList, } from "../moviesSlic
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
+import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
@@ -36,7 +37,7 @@ export const MovieList = () => {
                 </Content>
             );
         case "error":
-            return (<span>error</span>);
+            return (<ErrorPage />);
         default:
             return (<Loader />);
     }
