@@ -1,15 +1,11 @@
 import {
     PaginationContainer,
-    FirstPrevWrapper,
+    ButtonsWrapper,
+    Button,
     PagesWrapper,
-    NextLastWrapper,
-    First,
-    Previous,
-    Next,
-    Last,
+    BoldText,
     StyledNextIcon,
     StyledPrevIcon,
-    CurrentPage
 } from "./styled";
 import { theme } from "../../app/theme.js";
 import { useWindowSize } from "../useWindowSize";
@@ -19,31 +15,31 @@ export const Pagination = ({ currentPage, allPages }) => {
 
     return (
         <PaginationContainer>
-            <FirstPrevWrapper>
-                <First>
+            <ButtonsWrapper>
+                <Button>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? <StyledPrevIcon /> : "First"}
-                </First>
-                <Previous>
+                </Button>
+                <Button>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? "" : "Previous"}
-                </Previous>
-            </FirstPrevWrapper>
+                </Button>
+            </ButtonsWrapper>
 
             <PagesWrapper>
-                Page <CurrentPage>{currentPage}</CurrentPage> of <CurrentPage>{allPages}</CurrentPage>
+                Page <BoldText>{currentPage}</BoldText> of <BoldText>{allPages}</BoldText>
             </PagesWrapper>
 
-            <NextLastWrapper>
-                <Next>
+            <ButtonsWrapper>
+                <Button>
                     {width <= theme.breakpoint.mobile ? "" : "Next"}
                     <StyledNextIcon />
-                </Next>
-                <Last>
+                </Button>
+                <Button>
                     {width <= theme.breakpoint.mobile ? <StyledNextIcon /> : "Last"}
                     <StyledNextIcon />
-                </Last>
-            </NextLastWrapper>
+                </Button>
+            </ButtonsWrapper>
         </PaginationContainer>
     )
 };
