@@ -18,12 +18,16 @@ export const PaginationContainer = styled.footer`
 export const ButtonsWrapper = styled.div`
     display: flex;
     gap: 12px;
-    color: ${({theme}) => theme.color.black};
+    color: ${(props) => props.disabled ? props.theme.color.black : props.theme.color.mineShaft};
     font-size: 14px;
     line-height: 140%;
 
     & > * {
-        background: ${({theme}) => theme.color.gray};
+        background: ${(props) => props.disabled ? props.theme.color.gray : props.theme.color.lightBlue};
+    }
+
+    & path {
+        fill: ${(props) => props.disabled ? props.theme.color.darkerGray : props.theme.color.blue};
     }
 `;
 
