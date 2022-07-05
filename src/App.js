@@ -9,8 +9,8 @@ const App = () => (
   <HashRouter>
     <Navigation/>
     <Routes>
-      <Route path="/" element={<Navigate to="movies" replace />} />
-      <Route path="movies" element={<MovieList />} />
+      <Route path="/" element={<Navigate to="movies/page=1" replace />} />
+      <Route path="movies/page=:page" element={<MovieList />} />
       <Route path="people" element={<PeopleList />} />
       <Route path="movies/:id" element={<MoviePage />} />
       <Route path="people/:id" />
