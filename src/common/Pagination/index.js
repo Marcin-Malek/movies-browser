@@ -43,5 +43,5 @@ export const Pagination = ({ currentPage, allPages }) => {
                 </Button>
             </ButtonsWrapper>
         </PaginationContainer>
-    )
+    );
 };

@@ -50,7 +50,7 @@ export const PagesWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-    color: ${({theme}) => theme.color.darkerGray};
+    color: ${({ theme }) => theme.color.darkerGray};
     font-size: 16px;
     line-height: 150%;
 
@@ -61,7 +61,7 @@ export const PagesWrapper = styled.div`
 `;
 
 export const BoldText = styled.span`
-    color: ${({theme}) => theme.color.black};
+    color: ${({ theme }) => theme.color.black};
     font-weight: 600;
 `;
 
