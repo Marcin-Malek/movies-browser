@@ -19,7 +19,7 @@ export const MovieTile = ({ title, year, tags, rate, votes, id }) => {
     const navigate = useNavigate();
 
     return (
-        <Content onClick={() => navigate(`${id}`)}>
+        <Content onClick={() => navigate(`../movies/${id}`)}>
             <Img src={Poster} />
             <Wrapper>
                 <Title> {title} </Title>
