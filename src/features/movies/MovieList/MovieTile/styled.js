@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as Star} from "../../../../images/star.svg";
+import { ReactComponent as Star } from "../../../../images/star.svg";
 
 export const Content = styled.li`
     padding: 16px;
@@ -8,10 +8,11 @@ export const Content = styled.li`
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    transition: 2s cubic-bezier(0.68, 0.14, 0.59, 0.88);
+    transition: 0.2s;
+    
     &:hover {
-        transform: translate3d(0, 0, 1px);
-        box-shadow: 0 0 16px 2px;
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(186, 199, 213, 0.9);
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
