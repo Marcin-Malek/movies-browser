@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as PrevIcon } from "../../images/prev.svg"
-import { ReactComponent as NextIcon } from "../../images/next.svg"
+import { ReactComponent as PrevIcon } from "../../images/prev.svg";
+import { ReactComponent as NextIcon } from "../../images/next.svg";
+import { Link } from "react-router-dom";
 
 export const PaginationContainer = styled.footer`
     margin: 40px auto 103px;
@@ -20,15 +21,20 @@ export const ButtonsWrapper = styled.div`
     color: ${({theme}) => theme.color.black};
     font-size: 14px;
     line-height: 140%;
+
+    & > * {
+        background: ${({theme}) => theme.color.gray};
+    }
 `;
 
-export const Button = styled.span`
+export const Button = styled(Link)`
     padding: 8px 16px;
     border-radius: 5px;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: inherit;
     gap: 8px;
-    background: ${({theme}) => theme.color.gray};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         gap: 4px;
