@@ -23,7 +23,9 @@ export const MovieList = () => {
                     <Title>Popular movies</Title>
                     <Wrapper>
                         {moviesData.results.map((movie) =>
-                            <MovieTile key={movie.id}
+                            <MovieTile 
+                                key={movie.id}
+                                id={movie.id}
                                 title={movie.title}
                                 year={"2020"}
                                 tags={["Action", "Adventure", "Drama"]}
@@ -32,7 +34,7 @@ export const MovieList = () => {
                             />
                         )}
                     </Wrapper>
-                  <Pagination />
+                    <Pagination />
                 </Content>
             );
         case "error":
