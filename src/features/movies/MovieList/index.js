@@ -26,8 +26,12 @@ export const MovieList = () => {
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
-                                year={movie.release_date.slice(0,4)}
-                                tags={movie.genre_ids.map((genreId) => genres.data.genres.find((genre) => genre.id === genreId).name)}
+                                year={movie.release_date.slice(0, 4)}
+                                tags={movie.genre_ids.map(
+                                    (genreId) => genres.data.genres.find(
+                                        (genre) => genre.id === genreId).name
+                                    )
+                                }
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />
