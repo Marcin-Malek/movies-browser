@@ -4,10 +4,16 @@ import {ReactComponent as Star} from "../../../../images/star.svg";
 export const Content = styled.li`
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    transition: 2s cubic-bezier(0.68, 0.14, 0.59, 0.88);
+    &:hover {
+        transform: translate3d(0, 0, 1px);
+        box-shadow: 0 0 16px 2px;
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
         flex-direction: row;
     }
