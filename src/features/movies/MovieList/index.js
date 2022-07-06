@@ -26,7 +26,9 @@ export const MovieList = () => {
                     <Title>Popular movies</Title>
                     <Wrapper>
                         {movies.map((movie) =>
-                            <MovieTile key={movie.id}
+                            <MovieTile 
+                                key={movie.id}
+                                id={movie.id}
                                 title={movie.title}
                                 year={movie.release_date.slice(0, 4)}
                                 tags={movie.genre_ids.map(

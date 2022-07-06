@@ -1,13 +1,24 @@
 import styled from "styled-components";
-import {ReactComponent as Star} from "../../../../images/star.svg";
+import { ReactComponent as Star } from "../../../../images/star.svg";
 
 export const Content = styled.li`
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    transition: 0.2s;
+    
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(186, 199, 213, 0.9);
+    }
+
+    &:active {
+        transform: scale(1.03);
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
         flex-direction: row;
     }

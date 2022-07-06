@@ -1,4 +1,5 @@
 // import Camera from "../../../images/camera.svg";
+import { useNavigate } from "react-router-dom";
 import Poster from "../../../../images/MulanPoster.jpg";
 import {
     Content,
@@ -14,9 +15,11 @@ import {
     StyledStar,
 } from "./styled";
 
-export const MovieTile = ({ title, year, tags, rate, votes }) => {
+export const MovieTile = ({ title, year, tags, rate, votes, id }) => {
+    const navigate = useNavigate();
+
     return (
-        <Content>
+        <Content onClick={() => navigate(`../movies/${id}`)}>
             <Img src={Poster} />
             <Wrapper>
                 <Title> {title} </Title>

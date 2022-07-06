@@ -24,6 +24,7 @@ export const Wrapper = styled.ul`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap:24px;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         grid-template-columns: 1fr 1fr;
     }
