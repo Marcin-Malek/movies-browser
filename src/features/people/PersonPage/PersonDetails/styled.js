@@ -37,29 +37,33 @@ export const Name = styled.header`
         font-weight: 500;
         font-size: 14px;
         line-height: 130%;
-        margin: 0 0 -4px;
+        margin: 0 0 8px;
     }
 `;
 
-export const Poster = styled.div`
-    grid-area: poster;
-    width: 399px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background: ${({ theme }) => theme.color.silver};
+// export const Poster = styled.div`
+//     grid-area: poster;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 116px;
-    }
-`;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-radius: 5px;
+//     background: ${({ theme }) => theme.color.silver};
+
+//     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+//         width: 116px;
+//     }
+// `;
 
 export const Image = styled.img`
-    object-fit: contain;
+    max-width: 20.78vw;
+    max-height: 29.37vw;
+    border-radius: 5px;
+    grid-area: poster;
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 116px;
+        min-width: 116px;
+        min-height: 163px;
     }
 `;
 
@@ -76,8 +80,16 @@ export const DetailsWrapper = styled.div`
     column-gap: 10px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        
+        column-gap: 4px;
     }
+
+    ${props =>
+    props.wraps &&
+    css`
+        @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
+            grid-template-columns: max-content;
+    }
+    `};
 `;
 
 export const Property = styled.dt`
