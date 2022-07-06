@@ -1,4 +1,3 @@
-// import Camera from "../../../images/camera.svg";
 import Poster from "../../../../images/MulanPoster.jpg";
 import {
     Content,
@@ -14,13 +13,13 @@ import {
     StyledStar,
 } from "./styled";
 
-export const MovieTile = ({ title, year, tags, rate, votes }) => {
+export const MovieTile = ({ title, year, tags, rate, votes, featured }) => {
     return (
         <Content>
             <Img src={Poster} />
             <Wrapper>
                 <Title> {title} </Title>
-                <Year> {year} </Year>
+                <Year> {featured ? `${featured} (${year})` : year} </Year>
                 <TagsContainer>
                     {tags.map((tag, tagIndex) => (
                         <Tag key={tagIndex}>{tag}</Tag>

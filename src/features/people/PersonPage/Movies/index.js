@@ -16,18 +16,20 @@ export const Movies = (props) => {
             )
         case "completed":
             const { header, list } = props;
+            console.log(list);
             return (
                 <Content>
                     <Title>Movies - {header} ({list.length})</Title>
                     <Wrapper>
                         {list.map((movie) =>
                             <MovieTile key={movie.id}
-                                title={movie.title}
-                                year={movie.release_date}
+                                title={movie.title || movie.name}
+                                year={movie.release_date || movie.first_air_date }
                                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 tags={["Action", "Adventure", "Drama"]}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
+                                featured={movie.character}
                             />
                         )}
                     </Wrapper>
