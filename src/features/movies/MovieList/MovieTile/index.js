@@ -14,10 +14,10 @@ import {
     StyledStar,
 } from "./styled";
 
-export const MovieTile = ({ title, year, tags, rate, votes }) => {
+export const MovieTile = ({poster, title, year, tags, rate, votes }) => {
     return (
         <Content>
-            <Img src={Poster} />
+            <Img src={poster} alt={title}/>
             <Wrapper>
                 <Title> {title} </Title>
                 <Year> {year} </Year>

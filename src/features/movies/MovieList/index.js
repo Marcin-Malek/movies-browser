@@ -15,7 +15,7 @@ export const MovieList = () => {
     useEffect(() => {
         dispatch(fetchMovies());
     }, [dispatch]);
-
+    
     switch (fetchStatus) {
         case "completed":
             const moviesData = movies.data;
@@ -25,6 +25,7 @@ export const MovieList = () => {
                     <Wrapper>
                         {moviesData.results.map((movie) =>
                             <MovieTile key={movie.id}
+                                poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 title={movie.title}
                                 year={movie.release_date.slice(0,4)}
                                 tags={["Action", "Adventure", "Drama"]}

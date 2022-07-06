@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import {ReactComponent as Star} from "../../../../images/star.svg";
+import {ReactComponent as Camera} from "../../../../images/camera.svg";
+import camera from "../../../../images/camera.svg"
+import Poster from "../../../../images/MulanPoster.jpg";
 
 export const Content = styled.li`
     padding: 16px;
@@ -16,19 +19,32 @@ export const Content = styled.li`
 export const Img = styled.img`
     width: 100%;
     height: 100%;
+    aspect-ratio: 2/3;
     border-radius: 5px;
+    background-color: ${({ theme }) => theme.color.silver};
+    background-image: url(${camera});
+    background-position: center;
+    background-repeat: no-repeat;
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         width: 50%;
+        flex-basis: unset;
+        flex-shrink: 1;
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px){
         width: 40%;
     }
 `;
 
+export const StyledCamera = styled(Camera)`
+    width: 48px;
+    height: 48px;
+`;
+
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         margin-left: 16px;
     }
