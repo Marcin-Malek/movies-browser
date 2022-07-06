@@ -9,7 +9,7 @@ export const Navigation = () => {
                 <NavbarWrapper>
                     <Logotype>
                         <StyledCameraIcon />
-                        <StyledPageTitle>Movies Browser</StyledPageTitle>
+                        <StyledPageTitle to="/">Movies Browser</StyledPageTitle>
                     </Logotype>
                     <StyledNavbar>
 
