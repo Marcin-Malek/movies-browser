@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     moviesList: [],
+    moviesGenres: [],
     fetchStatus: "initiated",
 };
 
@@ -11,6 +12,9 @@ export const moviesSlice = createSlice({
     reducers: {
         setMoviesList: (state, payload) => {
             state.moviesList = payload;
+        },
+        setMoviesGenres: (state, payload) => {
+            state.moviesGenres = payload;
         },
         startFetching: (state) => {
             state.fetchStatus = "initiated"
@@ -27,6 +31,7 @@ export const moviesSlice = createSlice({
 
 export const {
     setMoviesList,
+    setMoviesGenres,
     startFetching,
     handleFetchingError,
     finishFetching,
@@ -36,5 +41,7 @@ export const {
 export const selectMoviesList = (state) => state.movies.moviesList.payload;
 
 export const selectFetchStatus = (state) => state.movies.fetchStatus;
+
+export const selectMoviesGenres = (state) => state.movies.moviesGenres.payload;
 
 export default moviesSlice.reducer;
