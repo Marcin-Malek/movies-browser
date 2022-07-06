@@ -12,12 +12,12 @@ import {
     StyledStar,
 } from "./styled";
 
-export const MovieTile = ({ poster, title, year, tags, rate, votes }) => {
+export const MovieTile = ({ poster, title, year, tags, rate, votes, id }) => {
     const navigate = useNavigate();
 
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
-            <Img src={poster} />
+            <Img src={poster} alt={title} />
             <Title> {title} </Title>
             <Year> {year} </Year>
             <TagsContainer>

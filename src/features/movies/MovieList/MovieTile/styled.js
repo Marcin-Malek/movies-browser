@@ -8,6 +8,7 @@ export const Content = styled.li`
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
+    transition: 0.2s;
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr;
