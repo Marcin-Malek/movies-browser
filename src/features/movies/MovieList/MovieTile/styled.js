@@ -10,8 +10,7 @@ export const Content = styled.li`
     border-radius: 5px;
     transition: 0.2s;
     display: grid;
-    justify-content: center;
-    grid-template-columns: 1fr;
+    grid-template-rows: max-content repeat(3, min-content);
     grid-template-areas: 
         "image"
         "title"
@@ -25,7 +24,6 @@ export const Content = styled.li`
         grid-template-columns:1fr 1fr;
         column-gap: 16px;
         grid-template-areas: 
-        "image title"
         "image title"
         "image year"
         "image tags"
@@ -71,7 +69,7 @@ export const Title = styled.h3`
     }
 `;
 
-export const Year = styled.p`
+export const Year = styled.time`
     grid-area: year;
     margin: 0;
     line-height: 150%;
@@ -117,9 +115,7 @@ export const RatingContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    align-content: flex-end;
     gap: 12px;
-    flex: 1;
     
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
         gap: 8px;

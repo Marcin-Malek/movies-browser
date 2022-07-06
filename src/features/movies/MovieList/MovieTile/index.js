@@ -19,7 +19,7 @@ export const MovieTile = ({ poster, title, year, tags, rate, votes, id }) => {
         <Content onClick={() => navigate(`../movies/${id}`)}>
             <Img src={poster} alt={title} />
             <Title> {title} </Title>
-            <Year> {year} </Year>
+            <Year datetime={year}> {year.slice(0, 4)} </Year>
             <TagsContainer>
               {tags.map((tag, tagIndex) => (
                   <Tag key={tagIndex}>{tag}</Tag>
