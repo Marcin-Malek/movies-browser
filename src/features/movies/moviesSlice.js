@@ -42,6 +42,6 @@ export const selectMoviesList = (state) => state.movies.moviesList.payload;
 
 export const selectFetchStatus = (state) => state.movies.fetchStatus;
 
-export const selectMovieGenres = (state) => state.movies.moviesGenres.payload;
+export const selectMoviesGenres = (state) => state.movies.moviesGenres.payload;
 
 export default moviesSlice.reducer;
