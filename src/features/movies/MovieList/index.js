@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 import { fetchMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
@@ -12,10 +13,11 @@ export const MovieList = () => {
     const fetchStatus = useSelector(selectFetchStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
+    const { page } = useParams();
 
     useEffect(() => {
-        dispatch(fetchMovies());
-    }, [dispatch]);
+        dispatch(fetchMovies(page));
+    }, [dispatch, page]);
 
     switch (fetchStatus) {
         case "completed":
@@ -30,14 +32,14 @@ export const MovieList = () => {
                                 tags={movie.genre_ids.map(
                                     (genreId) => genres.find(
                                         (genre) => genre.id === genreId).name
-                                )
+                                    )
                                 }
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />
                         )}
                     </Wrapper>
-                    <Pagination />
+                    <Pagination currentPage={page} allPages={500} />
                 </Content>
             );
         case "error":
