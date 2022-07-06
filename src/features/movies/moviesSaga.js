@@ -12,7 +12,7 @@ import {
 function* fetchMoviesHandler({ payload: page }) {
     yield put(startFetching());
     try {
-        const moviesList = yield axios.get("https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=1");
+        const moviesList = yield axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=${page}`);
         const moviesGenres = yield axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US");
         yield put(setMoviesList(moviesList.data.results));
         yield put(setMoviesGenres(moviesGenres.data.genres));
