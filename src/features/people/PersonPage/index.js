@@ -1,7 +1,8 @@
 import React from 'react';
-import { MainWrapper, Content } from './styled';
+import { MainWrapper} from './styled';
 import { PersonDetails } from "./PersonDetails";
 import image from "../../../images/BigPortrait.jpg"
+import { Movies } from './Movies';
 
 export const PersonPage = () => (
     <MainWrapper>
@@ -12,7 +13,7 @@ export const PersonPage = () => (
             birthplace={"Wuhan, Hubei, China"}
             biography={"Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years."}
         />
-        {/* <Movies header={"Cast"}/>
-            <Movies header={"Crew"}/> */}
+        <Movies header={"Cast"}/>
+        <Movies header={"Crew"}/>
     </MainWrapper>
 );
