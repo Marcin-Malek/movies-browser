@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     peopleList: [],
+    personDetails: {},
     fetchStatus: "initiated",
 };
 
@@ -11,6 +12,9 @@ export const peopleSlice = createSlice({
     reducers: {
         setPeopleList: (state, payload) => {
             state.peopleList = payload;
+        },
+        setPersonDetails: (state, payload) => {
+            state.personDetails = payload;
         },
         startFetching: (state) => {
             state.fetchStatus = "initiated"
@@ -27,14 +31,16 @@ export const peopleSlice = createSlice({
 
 export const {
     setPeopleList,
+    setPersonDetails,
     startFetching,
     handleFetchingError,
     finishFetching,
     fetchPeople,
-    fetchMovies,
 } = peopleSlice.actions;
 
 export const selectPeopleList = (state) => state.people.peopleList.payload;
+
+export const selectPersonDetails = state => state.people.personDetails.payload;
 
 export const selectFetchStatus = (state) => state.people.fetchStatus;
 
