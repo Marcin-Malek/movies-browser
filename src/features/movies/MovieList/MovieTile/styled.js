@@ -1,56 +1,52 @@
 import styled from "styled-components";
 import {ReactComponent as Star} from "../../../../images/star.svg";
-import {ReactComponent as Camera} from "../../../../images/camera.svg";
-import camera from "../../../../images/camera.svg"
-import Poster from "../../../../images/MulanPoster.jpg";
+import camera from "../../../../images/camera.svg";
 
 export const Content = styled.li`
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "image"
+        "title"
+        "year"
+        "tags"
+        "empty"
+        "rating"
+    ;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
-        flex-direction: row;
+        grid-template-columns:1fr 1fr;
+        column-gap: 16px;
+        grid-template-areas: 
+        "image title"
+        "image title"
+        "image year"
+        "image tags"
+        "image rating"
+        "image empty"
+        ;
     }
 `;
 
 export const Img = styled.img`
-    width: 100%;
-    height: 100%;
+    grid-area: image;
+    width: 100%; 
     aspect-ratio: 2/3;
     border-radius: 5px;
     background-color: ${({ theme }) => theme.color.silver};
     background-image: url(${camera});
     background-position: center;
     background-repeat: no-repeat;
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
-        width: 50%;
-        flex-basis: unset;
-        flex-shrink: 1;
-    }
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px){
-        width: 40%;
-    }
-`;
-
-export const StyledCamera = styled(Camera)`
-    width: 48px;
-    height: 48px;
-`;
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px){
-        margin-left: 16px;
-    }
+    background-size: 42%;
 `;
 
 export const Title = styled.h3`
+    grid-area: title;
     margin: 16px 0 8px;
     font-weight: 500;
     font-size: 22px;
@@ -65,6 +61,7 @@ export const Title = styled.h3`
 `;
 
 export const Year = styled.p`
+    grid-area: year;
     margin: 0;
     line-height: 150%;
     color: ${({ theme }) => theme.color.darkerGray};
@@ -77,6 +74,7 @@ export const Year = styled.p`
 `;
 
 export const TagsContainer = styled.ul`
+    grid-area: tags;
     margin: 8px 0 0;
     padding: 0;
     gap: 8px;
@@ -103,6 +101,7 @@ export const Tag = styled.li`
 `;
 
 export const RatingContainer = styled.div`
+    grid-area: rating;
     margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
