@@ -10,7 +10,8 @@ export const PersonDetails = (props) => (
         <Name>{props.name}</Name>
         <ProductionDetails>
             <DetailsWrapper>
-                <Property>Date of Birth:</Property>
+                <Property long>Date of Birth:</Property>
+                <Property short>Birth:</Property>
                 <Detail>{props.birthday}</Detail>
             </DetailsWrapper>
             <DetailsWrapper>

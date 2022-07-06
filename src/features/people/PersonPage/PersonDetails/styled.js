@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.section`
     display: grid;
@@ -6,7 +6,8 @@ export const Wrapper = styled.section`
     grid-template-areas: 
         "poster name"
         "poster property"
-        "poster biography";
+        "poster biography"
+        "poster empty";
     column-gap: 40px;
     row-gap: 24px;
     padding: 40px;
@@ -14,6 +15,11 @@ export const Wrapper = styled.section`
     background-color: ${({ theme }) => theme.color.white};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-template-areas: 
+            "poster name"
+            "poster property"
+            "poster empty"
+            "biography biography";
         column-gap: 16px;
         row-gap: 8px;
         padding: 16px;
@@ -29,7 +35,7 @@ export const Name = styled.header`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 130%;
         margin: 0 0 -4px;
     }
@@ -37,21 +43,24 @@ export const Name = styled.header`
 
 export const Poster = styled.div`
     grid-area: poster;
+    width: 399px;
     display: flex;
-    aspect-ratio: 2/3;
-    width: 312px;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background: ${({theme}) => theme.color.silver};
+    background: ${({ theme }) => theme.color.silver};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 114px;
+        width: 116px;
     }
 `;
 
 export const Image = styled.img`
     object-fit: contain;
+    
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 116px;
+    }
 `;
 
 export const ProductionDetails = styled.dl`
@@ -67,7 +76,7 @@ export const DetailsWrapper = styled.div`
     column-gap: 10px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        grid-template-columns: 1fr;
+        
     }
 `;
 
@@ -76,8 +85,26 @@ export const Property = styled.dt`
     line-height: 120%;
     color: ${({ theme }) => theme.color.stormGray};
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    ${props =>
+    props.short &&
+    css`
         display: none;
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+            display: inherit;
+    }
+    `};
+
+    ${props =>
+    props.long &&
+    css`
+        @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+            display: none;
+    }
+    `};
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 12px;
+        
     }
 `;
 
@@ -87,8 +114,9 @@ export const Detail = styled.dd`
     line-height: 120%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        display: flex;
+        flex-shrink: 0;
         font-size: 12px;
-        line-height: 130%;
     }
 `;
 
