@@ -6,7 +6,7 @@ export const Content = styled.li`
     cursor: pointer;
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     display: grid;
     justify-content: center;
@@ -31,6 +31,15 @@ export const Content = styled.li`
         "image rating"
         "image empty"
         ;
+    }
+    
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(186, 199, 213, 0.9);
+    }
+
+    &:active {
+        transform: scale(1.03);
     }
 `;
 

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
     Content,
     TagsContainer,
@@ -12,14 +13,16 @@ import {
 } from "./styled";
 
 export const MovieTile = ({ poster, title, year, tags, rate, votes }) => {
+    const navigate = useNavigate();
+
     return (
-        <Content>
-            <Img src={poster} alt={title} />
+        <Content onClick={() => navigate(`../movies/${id}`)}>
+            <Img src={poster} />
             <Title> {title} </Title>
             <Year> {year} </Year>
             <TagsContainer>
-                {tags.map((tag, tagIndex) => (
-                    <Tag key={tagIndex}>{tag}</Tag>
+              {tags.map((tag, tagIndex) => (
+                  <Tag key={tagIndex}>{tag}</Tag>
                 ))}
             </TagsContainer>
 
