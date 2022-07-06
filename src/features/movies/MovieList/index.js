@@ -1,16 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchMovies, selectFetchStatus, selectMoviesList, } from "../moviesSlice";
+import { fetchMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
+import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
     const movies = useSelector(selectMoviesList);
+    const genres = useSelector(selectMoviesGenres);
     const { page } = useParams();
 
     useEffect(() => {
@@ -19,16 +21,19 @@ export const MovieList = () => {
 
     switch (fetchStatus) {
         case "completed":
-            const moviesData = movies.data;
             return (
                 <Content>
                     <Title>Popular movies</Title>
                     <Wrapper>
-                        {moviesData.results.map((movie) =>
+                        {movies.map((movie) =>
                             <MovieTile key={movie.id}
                                 title={movie.title}
                                 year={movie.release_date.slice(0, 4)}
-                                tags={["Action", "Adventure", "Drama"]}
+                                tags={movie.genre_ids.map(
+                                    (genreId) => genres.find(
+                                        (genre) => genre.id === genreId).name
+                                    )
+                                }
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />
@@ -38,7 +43,7 @@ export const MovieList = () => {
                 </Content>
             );
         case "error":
-            return (<span>error</span>);
+            return (<ErrorPage />);
         default:
             return (<Loader />);
     }
