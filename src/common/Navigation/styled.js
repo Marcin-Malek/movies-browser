@@ -27,20 +27,20 @@ export const NavbarWrapper = styled.div`
     }
 `;
 
-export const Logotype = styled.span`
+export const Logotype = styled(Link)`
     display: flex;
     align-items: center;
     margin: 27px 16px;
     transition: 0.2s;
+    text-decoration: none;
     
-
     @media(max-width: 860px) {
         margin-bottom: 18px;
     }
     
     &:hover {
         transform: scale(1.02);
-        text-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        text-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
 
     &:active {
@@ -64,7 +64,7 @@ export const StyledCameraIcon = styled(CameraIcon)`
     }
 `;
 
-export const StyledPageTitle = styled(Link)`
+export const StyledPageTitle = styled.h1`
     padding: 0 5vw 0 16px;
     font-weight: 500;
     font-size: 23px;
@@ -72,7 +72,6 @@ export const StyledPageTitle = styled(Link)`
     letter-spacing: -1.5px;
     white-space: nowrap;
     margin: 0;
-    text-decoration: none;
     color: ${({ theme }) => theme.color.white};
 
     @media(max-width: 860px) {
