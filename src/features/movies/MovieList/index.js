@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
+import { fetchMovies, fetchSearchedMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
@@ -18,8 +18,12 @@ export const MovieList = () => {
     const searchQuery = useQueryParameter("search");
 
     useEffect(() => {
-        dispatch(fetchMovies(page));
-    }, [dispatch, page]);
+        if (!searchQuery) {
+            dispatch(fetchMovies(page));
+        } else {
+            dispatch(fetchSearchedMovies(searchQuery));
+        }
+    }, [dispatch, page, searchQuery]);
 
     switch (fetchStatus) {
         case "completed":
@@ -37,7 +41,7 @@ export const MovieList = () => {
                                 tags={movie.genre_ids.map(
                                     (genreId) => genres.find(
                                         (genre) => genre.id === genreId).name
-                                    )
+                                )
                                 }
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
