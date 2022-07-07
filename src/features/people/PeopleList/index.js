@@ -27,7 +27,7 @@ export const PeopleList = (props) => {
                         {people.map((person) =>
                             <PersonTile key={person.id}
                                 name={person.name}
-                                portrait={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                                portrait={ person.profile_path ? `https://image.tmdb.org/t/p/w185/${person.profile_path}` : null}
                                 id={person.id}
                                 // role={props.role}
                                 />

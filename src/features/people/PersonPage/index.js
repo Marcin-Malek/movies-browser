@@ -26,7 +26,7 @@ export const PersonPage = () => {
             return (
                 <MainWrapper>
                     <PersonDetails
-                        image={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
+                        image={person.profile_path ? `https://image.tmdb.org/t/p/w500/${person.profile_path}` : null}
                         name={person.name}
                         birthday={person.birthday}
                         birthplace={person.place_of_birth}
