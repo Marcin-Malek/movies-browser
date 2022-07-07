@@ -44,6 +44,17 @@ export const Button = styled(Link)`
         gap: 4px;
         padding: 8px 12px;
     }
+
+    transition: 0.2s;
+    
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(186, 199, 213, 0.3);
+    }
+
+    &:active {
+        transform: scale(1.08);
+    }
 `;
 
 export const PagesWrapper = styled.div`
