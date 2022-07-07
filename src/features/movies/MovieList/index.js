@@ -31,12 +31,12 @@ export const MovieList = () => {
                             <MovieTile
                                 key={movie.id}
                                 id={movie.id}
+                                poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 title={movie.title}
-                                year={movie.release_date.slice(0, 4)}
-                                tags={
-                                    movie.genre_ids.map(
-                                        (genreId) => genres.find(
-                                            (genre) => genre.id === genreId).name
+                                date={movie.release_date}
+                                tags={movie.genre_ids.map(
+                                    (genreId) => genres.find(
+                                        (genre) => genre.id === genreId).name
                                     )
                                 }
                                 rate={movie.vote_average}

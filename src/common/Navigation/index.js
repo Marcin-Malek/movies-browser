@@ -18,7 +18,7 @@ export const Navigation = () => {
         <BlackBar>
             <NavbarContainer>
                 <NavbarWrapper>
-                    <Logotype>
+                    <Logotype to="/">
                         <StyledCameraIcon />
                         <StyledPageTitle>Movies Browser</StyledPageTitle>
                     </Logotype>
