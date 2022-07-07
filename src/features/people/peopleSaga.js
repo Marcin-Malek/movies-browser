@@ -13,7 +13,7 @@ import {
 function* fetchPeopleHandler() {
     yield put(startFetching());
     try {
-        const peopleList = yield axios.get("https://api.themoviedb.org/3/person/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=1");
+        const peopleList = yield axios.get("https://api.themoviedb.org/3/person/popular?api_key=b6338a2fff00b848e44db36dd695b802&page=1");
         yield put(setPeopleList(peopleList));
         yield put(finishFetching());
     } catch (error) {
@@ -35,6 +35,6 @@ function* fetchPersonHandler() {
 }
 
 export function* peopleSaga() {
-    // yield takeLatest(fetchPeople.type, fetchPeopleHandler);
+    yield takeLatest(fetchPeople.type, fetchPeopleHandler);
     yield takeLatest(fetchPeople.type, fetchPersonHandler);
 }

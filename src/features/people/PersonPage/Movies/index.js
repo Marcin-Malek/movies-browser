@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ErrorPage } from "../../../../common/ErrorPage";
+import { useSelector } from "react-redux";
 import Loader from "../../../../common/Loader";
 import { MovieTile } from "../../../movies/MovieList/MovieTile";
-import { fetchMovies, selectFetchStatus, selectMoviesList } from "../../../people/peopleSlice";
+import { selectFetchStatus } from "../../../people/peopleSlice";
 import { Content, Title, Wrapper } from "./styled";
 
 export const Movies = (props) => {
