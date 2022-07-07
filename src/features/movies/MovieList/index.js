@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchMovies, fetchSearchedMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
+import { fetchGenres, fetchMovies, fetchSearchedMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
@@ -18,12 +18,16 @@ export const MovieList = () => {
     const searchQuery = useQueryParameter("search");
 
     useEffect(() => {
-        if (!searchQuery) {
-            dispatch(fetchMovies(page));
+        if (!genres.length > 0) {
+            dispatch(fetchGenres());
         } else {
-            dispatch(fetchSearchedMovies(searchQuery));
+            if (!searchQuery) {
+                dispatch(fetchMovies(page));
+            } else {
+                dispatch(fetchSearchedMovies(searchQuery));
+            }
         }
-    }, [dispatch, page, searchQuery]);
+    }, [dispatch, page, searchQuery, genres]);
 
     switch (fetchStatus) {
         case "completed":

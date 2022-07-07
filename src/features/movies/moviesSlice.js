@@ -10,12 +10,15 @@ export const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
+        fetchGenres: () => { },
+        fetchGenresSuccess: (state, { payload }) => {
+            state.moviesGenres = payload.genres;
+        },
         fetchMovies: (state) => {
             state.fetchStatus = "initiated";
         },
         fetchMoviesSuccess: (state, { payload }) => {
             state.moviesList = payload.movies;
-            state.moviesGenres = payload.genres;
             state.fetchStatus = "completed";
         },
         fetchSearchedMovies: (state) => {
@@ -32,6 +35,8 @@ export const moviesSlice = createSlice({
 });
 
 export const {
+    fetchGenres,
+    fetchGenresSuccess,
     fetchMovies,
     fetchMoviesSuccess,
     fetchSearchedMovies,
