@@ -10,7 +10,7 @@ export const Content = styled.li`
     border-radius: 5px;
     transition: 0.2s;
     display: grid;
-    grid-template-rows: max-content repeat(3, min-content) 1fr;
+    grid-template-rows: repeat(4, min-content) 1fr;
     grid-template-areas: 
         "image"
         "title"
