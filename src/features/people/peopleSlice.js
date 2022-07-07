@@ -26,6 +26,7 @@ export const peopleSlice = createSlice({
             state.fetchStatus = "completed"
         },
         fetchPeople: () => { },
+        fetchPerson: () => { }
     },
 });
 
@@ -36,6 +37,7 @@ export const {
     handleFetchingError,
     finishFetching,
     fetchPeople,
+    fetchPerson
 } = peopleSlice.actions;
 
 export const selectPeopleList = (state) => state.people.peopleList.payload;

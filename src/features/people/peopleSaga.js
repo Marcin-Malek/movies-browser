@@ -7,6 +7,7 @@ import {
     finishFetching,
     fetchPeople,
     setPersonDetails,
+    fetchPerson,
 } from "./peopleSlice";
 
 
@@ -36,5 +37,5 @@ function* fetchPersonHandler() {
 
 export function* peopleSaga() {
     yield takeLatest(fetchPeople.type, fetchPeopleHandler);
-    yield takeLatest(fetchPeople.type, fetchPersonHandler);
+    yield takeLatest(fetchPerson.type, fetchPersonHandler);
 }

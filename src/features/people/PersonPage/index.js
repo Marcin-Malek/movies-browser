@@ -3,7 +3,7 @@ import { MainWrapper } from './styled';
 import { PersonDetails } from "./PersonDetails";
 import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPeople, selectFetchStatus, selectPersonDetails } from '../peopleSlice';
+import { fetchPerson, selectFetchStatus, selectPersonDetails } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
 import Loader from '../../../common/Loader';
 
@@ -15,7 +15,7 @@ export const PersonPage = () => {
     const personDetails = useSelector(selectPersonDetails);
 
     useEffect(() => {
-        dispatch(fetchPeople());
+        dispatch(fetchPerson());
     }, [dispatch]);
 
     switch (fetchStatus) {
