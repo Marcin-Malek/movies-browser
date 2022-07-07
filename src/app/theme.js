@@ -1,6 +1,7 @@
 export const theme = {
     color: {
         black: "#18181B",
+        mineShaft: "#333333",
         darkerGray: "#7E839A",
         stormGray: "#74788B",
         gray: "#E4E6F0",
