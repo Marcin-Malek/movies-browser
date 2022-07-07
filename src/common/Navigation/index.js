@@ -1,7 +1,18 @@
+import { useQueryParameter } from "../useQueryParameter";
+import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
 import { Logotype, NavbarContainer, StyledNavbar, StyledNavLink, StyledPageTitle, StyledCameraIcon, StyledSearchBox, NavbarWrapper, BlackBar } from "./styled"
 
 
 export const Navigation = () => {
+    const searchQuery = useQueryParameter("search");
+    const replaceQueryParameter = useReplaceQueryParameter();
+
+    const onInputChange = ({ target }) => {
+        replaceQueryParameter({
+            key: "search",
+            value: target.value.trim() !== "" ? target.value : undefined,
+        });
+    };
 
     return (
         <BlackBar>
@@ -21,7 +32,7 @@ export const Navigation = () => {
                         </li>
                     </StyledNavbar>
                 </NavbarWrapper>
-                <StyledSearchBox placeholder="Search for movies..." />
+                <StyledSearchBox placeholder="Search for movies..." value={searchQuery || ""} onChange={(e) => onInputChange(e)} />
             </NavbarContainer>
         </BlackBar>
     )
