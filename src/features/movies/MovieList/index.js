@@ -60,7 +60,12 @@ export const MovieList = () => {
         case "error":
             return (<ErrorPage />);
         default:
-            return (<Loader />);
+            return (
+                <Content>
+                    {searchQuery && <Title>Search results for {searchQuery}</Title>}
+                    <Loader />
+                </Content>
+            );
     }
 
 };
