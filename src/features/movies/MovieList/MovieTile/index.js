@@ -13,13 +13,13 @@ import {
     StyledStar,
 } from "./styled";
 
-export const MovieTile = ({ title, year, tags, rate, votes, featured }) => {
+export const MovieTile = ({ title, date, tags, rate, votes, featured }) => {
     return (
         <Content>
             <Img src={Poster} />
             <Wrapper>
                 <Title> {title} </Title>
-                <Year> {featured ? `${featured} (${year})` : year} </Year>
+                <Year> {featured ? `${featured} (${date.slice(0,4)})` : date} </Year>
                 <TagsContainer>
                     {tags.map((tag, tagIndex) => (
                         <Tag key={tagIndex}>{tag}</Tag>

@@ -13,7 +13,7 @@ export const Movies = (props) => {
                 {list.map((movie) =>
                     <MovieTile key={list.indexOf(movie)}
                         title={movie.title || movie.name}
-                        year={movie.release_date || movie.first_air_date}
+                        date={movie.release_date || movie.first_air_date}
                         poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                         tags={["Action", "Adventure", "Drama"]}
                         rate={movie.vote_average}
