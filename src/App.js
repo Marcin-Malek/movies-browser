@@ -4,6 +4,7 @@ import { Navigation } from './common/Navigation';
 import { MovieList } from "./features/movies/MovieList";
 import { MoviePage } from './features/movies/MoviePage';
 import { PeopleList } from "./features/people/PeopleList";
+import { NoResults } from './common/NoResults';
 
 const App = () => (
   <HashRouter>
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="movies/:id" element={<MoviePage />} />
       <Route path="people" element={<PeopleList />} />
       <Route path="people/:id" />
+      <Route path="movies/noResults" element={<NoResults result="Search" />} />
     </Routes>
   </HashRouter>
 );
