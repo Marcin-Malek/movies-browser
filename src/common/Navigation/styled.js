@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as CameraIcon } from "../../images/camera.svg"
 import img from "../../images/search.svg";
@@ -27,13 +27,24 @@ export const NavbarWrapper = styled.div`
     }
 `;
 
-export const Logotype = styled.span`
+export const Logotype = styled(Link)`
     display: flex;
     align-items: center;
     margin: 27px 16px;
-
+    transition: 0.2s;
+    text-decoration: none;
+    
     @media(max-width: 860px) {
         margin-bottom: 18px;
+    }
+    
+    &:hover {
+        transform: scale(1.02);
+        text-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+        transform: scale(1.03);
     }
 `;
 
@@ -61,16 +72,14 @@ export const StyledPageTitle = styled.h1`
     letter-spacing: -1.5px;
     white-space: nowrap;
     margin: 0;
-
     color: ${({ theme }) => theme.color.white};
 
     @media(max-width: 860px) {
-        
         font-size: 13px;
         line-height: 16.9px;
         letter-spacing: -0.5px;
         padding: 0 0 0 16px;
-}
+    }
 `;
 
 export const StyledNavbar = styled.ul`
