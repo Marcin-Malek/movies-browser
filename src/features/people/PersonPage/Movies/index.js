@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
-import Loader from "../../../../common/Loader";
 import { MovieTile } from "../../../movies/MovieList/MovieTile";
-import { selectFetchStatus } from "../../../people/peopleSlice";
 import { Content, Title, Wrapper } from "./styled";
 
 export const Movies = (props) => {

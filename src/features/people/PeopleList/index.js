@@ -16,14 +16,13 @@ export const PeopleList = (props) => {
         dispatch(fetchPeople());
     }, [dispatch]);
 
-    switch (fetchStatus) {
-        case "completed":
-            const peopleData = people.data;
+    switch (true) {
+        case (fetchStatus === "completed" && people !== undefined):
             return (
                 <Content>
                     <Title>Popular people</Title>
                     <Wrapper>
-                        {peopleData.results.map((person) =>
+                        {people.map((person) =>
                             <PersonTile key={person.id}
                                 name={person.name}
                                 portrait={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
@@ -35,7 +34,7 @@ export const PeopleList = (props) => {
                   <Pagination />
                 </Content>
             );
-        case "error":
+        case (fetchStatus === "error"):
             return (<ErrorPage />);
         default:
             return (<Loader />);

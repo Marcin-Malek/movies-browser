@@ -10,39 +10,35 @@ export const peopleSlice = createSlice({
     name: 'people',
     initialState,
     reducers: {
-        setPeopleList: (state, payload) => {
-            state.peopleList = payload;
-        },
-        setPersonDetails: (state, payload) => {
-            state.personDetails = payload;
-        },
-        startFetching: (state) => {
+        fetchPeople: (state) => {
             state.fetchStatus = "initiated"
         },
-        handleFetchingError: (state) => {
-            state.fetchStatus = "error"
+        fetchPerson: (state) => {
+            state.fetchStatus = "initiated"
         },
-        finishFetching: (state) => {
+        fetchPeopleSuccess: (state, { payload }) => {
+            state.peopleList = payload.people;
+            state.personDetails = payload.person;
             state.fetchStatus = "completed"
         },
-        fetchPeople: () => { },
-        fetchPerson: () => { }
+        fetchPeopleError: (state) => {
+            state.fetchStatus = "error"
+        },
+
+        
     },
 });
 
 export const {
-    setPeopleList,
-    setPersonDetails,
-    startFetching,
-    handleFetchingError,
-    finishFetching,
+    fetchPeopleSuccess,
+    fetchPeopleError,
     fetchPeople,
     fetchPerson
 } = peopleSlice.actions;
 
-export const selectPeopleList = (state) => state.people.peopleList.payload;
+export const selectPeopleList = (state) => state.people.peopleList;
 
-export const selectPersonDetails = state => state.people.personDetails.payload;
+export const selectPersonDetails = (state) => state.people.personDetails;
 
 export const selectFetchStatus = (state) => state.people.fetchStatus;
 

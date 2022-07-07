@@ -15,15 +15,14 @@ export const PersonPage = () => {
 
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
-    const personDetails = useSelector(selectPersonDetails);
+    const person = useSelector(selectPersonDetails);
 
     useEffect(() => {
         dispatch(fetchPerson(id));
     }, [dispatch, id]);
 
-    switch (fetchStatus) {
-        case "completed":
-            const person = personDetails.data;
+    switch (true) {
+        case (fetchStatus === "completed" && person !== undefined):
             return (
                 <MainWrapper>
                     <PersonDetails
@@ -37,7 +36,7 @@ export const PersonPage = () => {
                     <Movies header={"Crew"} list={person.combined_credits.crew} />
                 </MainWrapper>
             );
-        case "error":
+        case fetchStatus === "completed":
             return (<ErrorPage />);
         default:
             return (<Loader />);
