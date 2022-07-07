@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import profile from "../../../../images/profile.svg";
 
 export const Content = styled.div`
+    cursor: pointer;
     /* width: 208px; */
     height: 339px;
     padding: 16px;
@@ -24,6 +26,11 @@ export const Img = styled.img`
     height: 231px;
     object-fit: cover;
     object-position: 100%;
+
+    background-color: ${({ theme }) => theme.color.silver};
+    background-image: url(${profile});
+    background-position: center;
+    background-repeat: no-repeat;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 120px;
