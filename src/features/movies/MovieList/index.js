@@ -7,6 +7,7 @@ import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
+import { useQueryParameter } from "../../../common/useQueryParameter";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const MovieList = () => {
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
     const { page } = useParams();
+    const searchQuery = useQueryParameter("search");
 
     useEffect(() => {
         dispatch(fetchMovies(page));
@@ -26,14 +28,15 @@ export const MovieList = () => {
                     <Title>Popular movies</Title>
                     <Wrapper>
                         {movies.map((movie) =>
-                            <MovieTile 
+                            <MovieTile
                                 key={movie.id}
                                 id={movie.id}
                                 title={movie.title}
                                 year={movie.release_date.slice(0, 4)}
-                                tags={movie.genre_ids.map(
-                                    (genreId) => genres.find(
-                                        (genre) => genre.id === genreId).name
+                                tags={
+                                    movie.genre_ids.map(
+                                        (genreId) => genres.find(
+                                            (genre) => genre.id === genreId).name
                                     )
                                 }
                                 rate={movie.vote_average}
