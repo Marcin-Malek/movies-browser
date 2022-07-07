@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrapper = styled.section`
     display: grid;
@@ -41,20 +41,6 @@ export const Name = styled.header`
     }
 `;
 
-// export const Poster = styled.div`
-//     grid-area: poster;
-
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 5px;
-//     background: ${({ theme }) => theme.color.silver};
-
-//     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-//         width: 116px;
-//     }
-// `;
-
 export const Image = styled.img`
     max-width: 20.78vw;
     max-height: 29.37vw;
@@ -75,44 +61,19 @@ export const ProductionDetails = styled.dl`
 `;
 
 export const DetailsWrapper = styled.div`
-    display: grid;
-    grid-template-columns: max-content 1fr;
+    display: flex;
+    flex-wrap: wrap;
     column-gap: 10px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         column-gap: 4px;
     }
-
-    ${props =>
-    props.wraps &&
-    css`
-        @media (max-width: ${({ theme }) => theme.breakpoint.tablet}px) {
-            grid-template-columns: max-content;
-    }
-    `};
 `;
 
 export const Property = styled.dt`
     font-size: 18px;
     line-height: 120%;
     color: ${({ theme }) => theme.color.stormGray};
-
-    ${props =>
-    props.short &&
-    css`
-        display: none;
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-            display: inherit;
-    }
-    `};
-
-    ${props =>
-    props.long &&
-    css`
-        @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-            display: none;
-    }
-    `};
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 12px;
@@ -126,8 +87,6 @@ export const Detail = styled.dd`
     line-height: 120%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        display: flex;
-        flex-shrink: 0;
         font-size: 12px;
     }
 `;
