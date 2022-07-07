@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { Pagination } from "../../../common/Pagination";
@@ -11,10 +12,11 @@ export const PeopleList = (props) => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
     const people = useSelector(selectPeopleList);
+    const { page } = useParams();
 
     useEffect(() => {
-        dispatch(fetchPeople());
-    }, [dispatch]);
+        dispatch(fetchPeople(page));
+    }, [dispatch, page]);
 
     switch (true) {
         case (fetchStatus === "completed" && people !== undefined):
@@ -31,7 +33,7 @@ export const PeopleList = (props) => {
                                 />
                         )}
                     </Wrapper>
-                  <Pagination />
+                  <Pagination currentPage={page} allPages={500}/>
                 </Content>
             );
         case (fetchStatus === "error"):
