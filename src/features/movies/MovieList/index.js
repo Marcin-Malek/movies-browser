@@ -1,13 +1,19 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchGenres, fetchMovies, fetchSearchedMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
+import {
+    fetchGenres,
+    fetchMovies,
+    selectFetchStatus,
+    selectMoviesGenres,
+    selectMoviesList,
+} from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
-import Loader from "../../../common/Loader";
 import { useQueryParameter } from "../../../common/useQueryParameter";
+import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -21,11 +27,7 @@ export const MovieList = () => {
         if (!genres.length > 0) {
             dispatch(fetchGenres());
         } else {
-            if (!searchQuery) {
-                dispatch(fetchMovies(page));
-            } else {
-                dispatch(fetchSearchedMovies(searchQuery));
-            }
+            dispatch(fetchMovies({ page, query: searchQuery }));
         }
     }, [dispatch, page, searchQuery, genres]);
 

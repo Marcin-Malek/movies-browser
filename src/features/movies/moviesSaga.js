@@ -6,8 +6,6 @@ import {
     fetchGenresSuccess,
     fetchMovies,
     fetchMoviesSuccess,
-    fetchSearchedMovies,
-    fetchSearchedMoviesSuccess,
 } from "./moviesSlice";
 
 function* fetchGenresHandler() {
@@ -20,29 +18,21 @@ function* fetchGenresHandler() {
     }
 }
 
-function* fetchMoviesHandler({ payload: page }) {
+function* fetchMoviesHandler({ payload }) {
     try {
-        const moviesList = yield axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=${page}`);
+        const { page, query } = payload;
+        yield query && delay(400);
+        const moviesList = query ?
+            yield axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b6338a2fff00b848e44db36dd695b802&query=${query}`)
+            : yield axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=${page}`);
         yield put(fetchMoviesSuccess({ movies: moviesList.data.results }));
     } catch (error) {
         yield put(fetchError());
-        yield console.error(error);
-    }
-}
-
-function* fetchSearchedMoviesHandler({ payload: query }) {
-    try {
-        const searchedMovies = yield axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b6338a2fff00b848e44db36dd695b802&query=${query}`);
-        yield delay(300);
-        yield put(fetchSearchedMoviesSuccess({ movies: searchedMovies.data.results }));
-    } catch (error) {
-        yield put(fetchError());
-        yield console.error(error);
+        console.error(error);
     }
 }
 
 export function* moviesSaga() {
     yield takeLatest(fetchGenres.type, fetchGenresHandler);
     yield takeLatest(fetchMovies.type, fetchMoviesHandler);
-    yield takeLatest(fetchSearchedMovies.type, fetchSearchedMoviesHandler);
 }

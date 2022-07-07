@@ -21,13 +21,6 @@ export const moviesSlice = createSlice({
             state.moviesList = payload.movies;
             state.fetchStatus = "completed";
         },
-        fetchSearchedMovies: (state) => {
-            state.fetchStatus = "initiated";
-        },
-        fetchSearchedMoviesSuccess: (state, { payload }) => {
-            state.moviesList = payload.movies;
-            state.fetchStatus = "completed";
-        },
         fetchError: (state) => {
             state.fetchStatus = "error";
         },
