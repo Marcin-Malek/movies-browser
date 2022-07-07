@@ -18,7 +18,7 @@ export const Movies = (props) => {
                         tags={["Action", "Adventure", "Drama"]}
                         rate={movie.vote_average}
                         votes={movie.vote_count}
-                        featured={movie.character}
+                        featured={movie.character || movie.job}
                     />
                 )}
             </Wrapper>

@@ -23,10 +23,10 @@ function* fetchPeopleHandler() {
     }
 }
 
-function* fetchPersonHandler() {
+function* fetchPersonHandler({ payload: id }) {
     yield put(startFetching());
     try {
-        const personDetails = yield axios.get("https://api.themoviedb.org/3/person/86654?api_key=b6338a2fff00b848e44db36dd695b802&append_to_response=combined_credits");
+        const personDetails = yield axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=b6338a2fff00b848e44db36dd695b802&append_to_response=combined_credits`);
         yield put(setPersonDetails(personDetails));
         yield put(finishFetching());
     } catch (error) {

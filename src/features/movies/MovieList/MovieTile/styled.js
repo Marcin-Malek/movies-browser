@@ -69,7 +69,7 @@ export const Title = styled.h3`
     }
 `;
 
-export const Year = styled.time`
+export const FeaturedDate = styled.div`
     grid-area: year;
     margin: 0;
     line-height: 150%;

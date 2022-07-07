@@ -4,22 +4,25 @@ import {
     TagsContainer,
     Tag,
     Title,
-    Year,
     RatingContainer,
     Img,
     Rate,
     Votes,
     StyledStar,
+    FeaturedDate
 } from "./styled";
 
-export const MovieTile = ({ poster, title, date, tags, rate, votes, id }) => {
+export const MovieTile = ({ poster, title, date, tags, rate, votes, id, featured }) => {
     const navigate = useNavigate();
 
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
             <Img src={poster} alt={title} />
             <Title> {title} </Title>
-            <Year datetime={date}> {date.slice(0, 4)} </Year>
+            <FeaturedDate>
+                <span>{featured ? featured : ""}</span>
+                <time dateTime={date}> {date ? (featured ? `(${date.slice(0,4)})` : date) : ""} </time>
+            </FeaturedDate>
             <TagsContainer>
               {tags.map((tag, tagIndex) => (
                   <Tag key={tagIndex}>{tag}</Tag>

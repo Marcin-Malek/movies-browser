@@ -6,17 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPerson, selectFetchStatus, selectPersonDetails } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
 import Loader from '../../../common/Loader';
+import { useParams } from 'react-router-dom';
 
 
 
 export const PersonPage = () => {
+    const { id } = useParams();
+
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
     const personDetails = useSelector(selectPersonDetails);
 
     useEffect(() => {
-        dispatch(fetchPerson());
-    }, [dispatch]);
+        dispatch(fetchPerson(id));
+    }, [dispatch, id]);
 
     switch (fetchStatus) {
         case "completed":
@@ -30,8 +33,8 @@ export const PersonPage = () => {
                         birthplace={person.place_of_birth}
                         biography={person.biography}
                     />
-                    <Movies header={"Cast"} list={person.combined_credits.cast}/>
-                    <Movies header={"Crew"} list={person.combined_credits.crew}/>
+                    <Movies header={"Cast"} list={person.combined_credits.cast} />
+                    <Movies header={"Crew"} list={person.combined_credits.crew} />
                 </MainWrapper>
             );
         case "error":

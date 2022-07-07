@@ -19,7 +19,6 @@ export const PeopleList = (props) => {
     switch (fetchStatus) {
         case "completed":
             const peopleData = people.data;
-            console.log(peopleData)
             return (
                 <Content>
                     <Title>Popular people</Title>
@@ -28,6 +27,7 @@ export const PeopleList = (props) => {
                             <PersonTile key={person.id}
                                 name={person.name}
                                 portrait={`https://image.tmdb.org/t/p/w185/${person.profile_path}`}
+                                id={person.id}
                                 // role={props.role}
                                 />
                         )}
