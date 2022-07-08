@@ -35,7 +35,7 @@ export const MovieList = () => {
         case "completed":
             return (
                 <Content>
-                    <Title>Popular movies</Title>
+                    <Title>{searchQuery ? `Search results for ${searchQuery}` : "Popular movies"}</Title>
                     <Wrapper>
                         {movies.map((movie) =>
                             <MovieTile
