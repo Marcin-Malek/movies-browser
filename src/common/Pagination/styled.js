@@ -31,13 +31,12 @@ export const ButtonsWrapper = styled.div`
     }
 `;
 
-export const Button = styled(Link)`
+export const Button = styled.button`
     padding: 8px 16px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: inherit;
+    border: none;
     gap: 8px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {

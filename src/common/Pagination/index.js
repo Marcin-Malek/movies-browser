@@ -1,3 +1,10 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useWindowSize } from "../useWindowSize";
+import { useQueryParameter } from "../useQueryParameter";
+import { selectPage, selectPageCount, setPage } from "../../features/movies/moviesSlice";
+import { theme } from "../../app/theme.js";
 import {
     PaginationContainer,
     ButtonsWrapper,
@@ -7,22 +14,28 @@ import {
     StyledNextIcon,
     StyledPrevIcon,
 } from "./styled";
-import { theme } from "../../app/theme.js";
-import { useWindowSize } from "../useWindowSize";
-import { useLocation } from "react-router-dom";
 
-export const Pagination = ({ currentPage, allPages }) => {
+export const Pagination = () => {
     const [width] = useWindowSize();
-    const { pathname } = useLocation();
+    const searchQuery = useQueryParameter("search");
+    const currentPage = useSelector(selectPage);
+    const pageCount = useSelector(selectPageCount);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const allPages = pageCount < 500 ? pageCount : 500;
+
+    useEffect(() => {
+        navigate(`../movies/page=${currentPage}${searchQuery && `?search=${searchQuery}` || ""}`);
+    }, [currentPage]);
 
     return (
         <PaginationContainer>
             <ButtonsWrapper disabled={parseInt(currentPage) <= 1}>
-                <Button to={parseInt(currentPage) <= 1 ? "" : pathname.replace(currentPage, 1)}>
+                <Button onClick={() => parseInt(currentPage) > 1 && dispatch(setPage(1))}>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? <StyledPrevIcon /> : "First"}
                 </Button>
-                <Button to={parseInt(currentPage) <= 1 ? "" : pathname.replace(currentPage, parseInt(currentPage) - 1)}>
+                <Button onClick={() => parseInt(currentPage) > 1 && dispatch(setPage(parseInt(currentPage) - 1))}>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? "" : "Previous"}
                 </Button>
@@ -33,15 +46,15 @@ export const Pagination = ({ currentPage, allPages }) => {
             </PagesWrapper>
 
             <ButtonsWrapper disabled={parseInt(currentPage) === allPages}>
-                <Button to={parseInt(currentPage) === allPages ? "" : pathname.replace(currentPage, parseInt(currentPage) + 1)}>
+                <Button onClick={() => parseInt(currentPage) !== allPages && dispatch(setPage(parseInt(currentPage) + 1))}>
                     {width <= theme.breakpoint.mobile ? "" : "Next"}
                     <StyledNextIcon />
                 </Button>
-                <Button to={parseInt(currentPage) === allPages ? "" : pathname.replace(currentPage, allPages)}>
+                <Button onClick={() => parseInt(currentPage) !== allPages && dispatch(setPage(allPages))}>
                     {width <= theme.breakpoint.mobile ? <StyledNextIcon /> : "Last"}
                     <StyledNextIcon />
                 </Button>
             </ButtonsWrapper>
-        </PaginationContainer>
+        </PaginationContainer >
     );
 };

@@ -54,7 +54,7 @@ export const MovieList = () => {
                             />
                         )}
                     </Wrapper>
-                    <Pagination currentPage={page} allPages={500} />
+                    <Pagination />
                 </Content>
             );
         case "error":

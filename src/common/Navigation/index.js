@@ -1,13 +1,27 @@
+import { useDispatch } from "react-redux";
+import { setPage } from "../../features/movies/moviesSlice";
 import { useQueryParameter } from "../useQueryParameter";
 import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
-import { Logotype, NavbarContainer, StyledNavbar, StyledNavLink, StyledPageTitle, StyledCameraIcon, StyledSearchBox, NavbarWrapper, BlackBar } from "./styled"
+import {
+    Logotype,
+    NavbarContainer,
+    StyledNavbar,
+    StyledNavLink,
+    StyledPageTitle,
+    StyledCameraIcon,
+    StyledSearchBox,
+    NavbarWrapper,
+    BlackBar
+} from "./styled"
 
 
 export const Navigation = () => {
     const searchQuery = useQueryParameter("search");
     const replaceQueryParameter = useReplaceQueryParameter();
+    const dispatch = useDispatch();
 
     const onInputChange = ({ target }) => {
+        dispatch(setPage(1));
         replaceQueryParameter({
             key: "search",
             value: target.value.trim() !== "" ? target.value : undefined,
