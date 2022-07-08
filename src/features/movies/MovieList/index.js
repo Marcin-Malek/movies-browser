@@ -18,7 +18,6 @@ export const MovieList = () => {
     useEffect(() => {
         dispatch(fetchMovies(page));
     }, [dispatch, page]);
-
     switch (fetchStatus) {
         case "completed":
             return (

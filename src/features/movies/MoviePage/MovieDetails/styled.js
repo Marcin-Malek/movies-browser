@@ -75,7 +75,11 @@ export const Poster = styled.div`
 `;
 
 export const Image = styled.img`
-    object-fit: contain;
+    width: 312px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 114px;
+    }
 `;
 
 export const ProductionDetails = styled.dl`

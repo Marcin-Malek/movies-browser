@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     moviesList: [],
-    moviesGenres: [],
+    movieDetails: [],
     fetchStatus: "initiated",
 };
 
@@ -11,15 +11,22 @@ export const moviesSlice = createSlice({
     initialState,
     reducers: {
         fetchMovies: (state) => {
-            state.fetchStatus = "initiated"
+            state.fetchStatus = "initiated";
         },
         fetchMoviesSuccess: (state, { payload }) => {
             state.moviesList = payload.movies;
             state.moviesGenres = payload.genres;
-            state.fetchStatus = "completed"
+            state.fetchStatus = "completed";
         },
-        fetchMoviesError: (state) => {
-            state.fetchStatus = "error"
+        fetchError: (state) => {
+            state.fetchStatus = "error";
+        },
+        fetchMovie: (state) => {
+            state.fetchStatus = "initiated";
+        },
+        fetchMovieSuccess: (state, { payload }) => {
+            state.movieDetails = payload.movie;
+            state.fetchStatus = "completed";
         },
     },
 });
@@ -27,7 +34,9 @@ export const moviesSlice = createSlice({
 export const {
     fetchMovies,
     fetchMoviesSuccess,
-    fetchMoviesError,
+    fetchError,
+    fetchMovie,
+    fetchMovieSuccess,
 } = moviesSlice.actions;
 
 export const selectMoviesList = (state) => state.movies.moviesList;
@@ -35,5 +44,7 @@ export const selectMoviesList = (state) => state.movies.moviesList;
 export const selectMoviesGenres = (state) => state.movies.moviesGenres;
 
 export const selectFetchStatus = (state) => state.movies.fetchStatus;
+
+export const selectMovieDetails = (state) => state.movies.movieDetails;
 
 export default moviesSlice.reducer;
