@@ -4,6 +4,8 @@ export const Content = styled.section`
     max-width: 1400px;
     padding:0 16px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Title = styled.h2`
@@ -33,3 +35,4 @@ export const Wrapper = styled.ul`
         gap: 16px;
     }
 `;
+
