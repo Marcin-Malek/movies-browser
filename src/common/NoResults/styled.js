@@ -19,6 +19,11 @@ export const Title = styled.h2`
         font-size: 3.3vw;
         margin-top: 4vw;
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        font-size: 18px;
+        margin-top: 4vw;
+    }
 `;
 
 export const StyledNoResults = styled(noresults)`
