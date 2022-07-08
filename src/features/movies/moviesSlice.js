@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     page: 1,
+    searchPage: 1,
     pageCount: 500,
     moviesList: [],
     moviesGenres: [],
@@ -25,11 +26,23 @@ export const moviesSlice = createSlice({
             state.pageCount = payload.movies.total_pages;
             state.fetchStatus = "completed";
         },
+        fetchSearchedMovies: (state) => {
+            state.fetchStatus = "initiated";
+        },
+        fetchSearchedMoviesSuccess: (state, { payload }) => {
+            state.moviesList = payload.movies.results;
+            state.searchPage = payload.movies.page;
+            state.pageCount = payload.movies.total_pages;
+            state.fetchStatus = "completed";
+        },
         fetchError: (state) => {
             state.fetchStatus = "error";
         },
         setPage: (state, { payload }) => {
             state.page = payload;
+        },
+        setSearchPage: (state, { payload }) => {
+            state.searchPage = payload;
         },
     },
 });
@@ -39,11 +52,16 @@ export const {
     fetchGenresSuccess,
     fetchMovies,
     fetchMoviesSuccess,
+    fetchSearchedMovies,
+    fetchSearchedMoviesSuccess,
     fetchError,
     setPage,
+    setSearchPage,
 } = moviesSlice.actions;
 
 export const selectPage = (state) => state.movies.page;
+
+export const selectSearchPage = (state) => state.movies.searchPage;
 
 export const selectPageCount = (state) => state.movies.pageCount;
 

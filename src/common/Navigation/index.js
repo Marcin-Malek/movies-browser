@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setPage } from "../../features/movies/moviesSlice";
+import { setSearchPage } from "../../features/movies/moviesSlice";
 import { useQueryParameter } from "../useQueryParameter";
 import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
 import {
@@ -21,7 +21,7 @@ export const Navigation = () => {
     const dispatch = useDispatch();
 
     const onInputChange = ({ target }) => {
-        dispatch(setPage(1));
+        dispatch(setSearchPage(1));
         replaceQueryParameter({
             key: "search",
             value: target.value.trim() !== "" ? target.value : undefined,

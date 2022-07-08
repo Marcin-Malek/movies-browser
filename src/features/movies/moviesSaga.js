@@ -1,12 +1,15 @@
 import axios from "axios";
-import { takeLatest, delay, put, select } from "redux-saga/effects";
+import { takeLatest, delay, put, select, debounce } from "redux-saga/effects";
 import {
     fetchError,
     fetchGenres,
     fetchGenresSuccess,
     fetchMovies,
     fetchMoviesSuccess,
+    fetchSearchedMovies,
+    fetchSearchedMoviesSuccess,
     selectPage,
+    selectSearchPage,
 } from "./moviesSlice";
 
 function* fetchGenresHandler() {
@@ -19,14 +22,10 @@ function* fetchGenresHandler() {
     }
 }
 
-function* fetchMoviesHandler({ payload }) {
+function* fetchMoviesHandler() {
     try {
-        const { query } = payload;
         const page = yield select(selectPage);
-        yield query && delay(400);
-        const moviesList = query ?
-            yield axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b6338a2fff00b848e44db36dd695b802&query=${query}&page=${page}`)
-            : yield axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=${page}`);
+        const moviesList = yield axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=b6338a2fff00b848e44db36dd695b802&language=en-US&page=${page}`);
         yield put(fetchMoviesSuccess({ movies: moviesList.data }));
     } catch (error) {
         yield put(fetchError());
@@ -34,7 +33,19 @@ function* fetchMoviesHandler({ payload }) {
     }
 }
 
+function* fetchSearchedMoviesHandler({ payload }) {
+    try {
+        const searchPage = yield select(selectSearchPage);
+        const moviesList = yield axios.get(`https://api.themoviedb.org/3/search/movie?api_key=b6338a2fff00b848e44db36dd695b802&query=${payload.query}&page=${searchPage}`);
+        yield put(fetchSearchedMoviesSuccess({ movies: moviesList.data }));
+    } catch (error) {
+        yield put(fetchError());
+        console.error(error);
+    }
+}
+
 export function* moviesSaga() {
-    yield takeLatest(fetchGenres.type, fetchGenresHandler);
+    yield debounce(100, fetchGenres.type, fetchGenresHandler);
     yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+    yield debounce(300, fetchSearchedMovies.type, fetchSearchedMoviesHandler);
 }

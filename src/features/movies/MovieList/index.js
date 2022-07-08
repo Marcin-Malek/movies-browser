@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
     fetchGenres,
     fetchMovies,
+    fetchSearchedMovies,
     selectFetchStatus,
     selectMoviesGenres,
     selectMoviesList,
@@ -26,8 +27,10 @@ export const MovieList = () => {
     useEffect(() => {
         if (!genres.length > 0) {
             dispatch(fetchGenres());
+        } else if (searchQuery) {
+            dispatch(fetchSearchedMovies({ query: searchQuery }));
         } else {
-            dispatch(fetchMovies({ page, query: searchQuery }));
+            dispatch(fetchMovies());
         }
     }, [dispatch, page, searchQuery, genres]);
 
