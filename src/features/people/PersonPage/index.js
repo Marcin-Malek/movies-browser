@@ -33,7 +33,7 @@ export const PersonPage = () => {
                         biography={person.biography}
                     />
                     <Movies header={"Cast"} list={person.combined_credits.cast.filter(cast => cast.media_type === "movie")} />
-                    <Movies header={"Crew"} list={person.combined_credits.cast.filter(cast => cast.media_type === "movie")} />
+                    <Movies header={"Crew"} list={person.combined_credits.crew.filter(crew => crew.media_type === "movie")} />
                 </MainWrapper>
             );
         case fetchStatus === "completed":
