@@ -6,7 +6,6 @@ import { Content, Title, Wrapper } from "./styled";
 export const Movies = (props) => {
     const { header, list } = props;
     const genres = useSelector(selectMoviesGenres);
-    console.log(list)
     return (
         <Content>
             <Title>Movies - {header} ({list.length})</Title>
