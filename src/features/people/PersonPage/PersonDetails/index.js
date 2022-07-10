@@ -9,8 +9,8 @@ export const PersonDetails = (props) => {
 
     const [width] = useWindowSize();
 
-    const formatBirthday = (birthdate) => {
-        const date = new Date(birthdate);
+    const formatBirthday = (birthday) => {
+        const date = new Date(birthday);
         return date.toLocaleString(
             "pl", {
                 day: "2-digit",
