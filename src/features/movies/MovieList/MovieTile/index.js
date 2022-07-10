@@ -21,7 +21,7 @@ export const MovieTile = ({ poster, title, date, tags, rate, votes, id, featured
             <Title> {title} </Title>
             <FeaturedDate>
                 <span>{featured ? featured : ""}</span>
-                <time dateTime={date}> {date ? (featured ? `(${date.slice(0,4)})` : date.slice(0,4)) : "No info"} </time>
+                <time dateTime={date}> {date ? (featured ? `(${date.slice(0,4)})` : date.slice(0,4)) : "(No release date)"} </time>
             </FeaturedDate>
             <TagsContainer>
               {tags.map((tag, tagIndex) => (
