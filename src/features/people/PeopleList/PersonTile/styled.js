@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import profile from "../../../../images/profile.svg";
 
 export const Content = styled.div`
+    cursor: pointer;
     /* width: 208px; */
     height: 339px;
     padding: 16px;
@@ -10,6 +12,15 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    transition: 0.2s;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(186, 199, 213, 0.9);
+    }
+    &:active {
+        transform: scale(1.03);
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 136px;
@@ -24,6 +35,12 @@ export const Img = styled.img`
     height: 231px;
     object-fit: cover;
     object-position: 100%;
+    flex-shrink: 0;
+
+    background-color: ${({ theme }) => theme.color.silver};
+    background-image: url(${profile});
+    background-position: center;
+    background-repeat: no-repeat;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 120px;

@@ -4,6 +4,7 @@ import { Navigation } from './common/Navigation';
 import { MovieList } from "./features/movies/MovieList";
 import { MoviePage } from './features/movies/MoviePage';
 import { PeopleList } from "./features/people/PeopleList";
+import { PersonPage } from './features/people/PersonPage';
 
 const App = () => (
   <HashRouter>
@@ -11,10 +12,11 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Navigate to="movies" />} />
       <Route path="/movies" element={<Navigate to="page=1" />} />
+      <Route path="/people" element={<Navigate to="page=1" />} />
       <Route path="movies/page=:page" element={<MovieList />} />
+      <Route path="people/page=:page" element={<PeopleList />} />
       <Route path="movies/:id" element={<MoviePage />} />
-      <Route path="people" element={<PeopleList />} />
-      <Route path="people/:id" />
+      <Route path="people/:id" element={<PersonPage />} />
     </Routes>
   </HashRouter>
 );
