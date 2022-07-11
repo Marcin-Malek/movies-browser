@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchMovies, selectFetchStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
+import { fetchMovies, selectFetchMoviesStatus, selectMoviesGenres, selectMoviesList, } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
@@ -10,7 +10,7 @@ import Loader from "../../../common/Loader";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchStatus);
+    const fetchStatus = useSelector(selectFetchMoviesStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
     const { page } = useParams();
