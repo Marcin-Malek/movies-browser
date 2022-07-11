@@ -25,16 +25,16 @@ export const MovieTile = ({ poster, title, date, tags, rate, votes, id, featured
                 : <span>(No release date)</span>}
             </FeaturedDate>
             <TagsContainer>
-              {tags.map((tag, tagIndex) => (
-                  <Tag key={tagIndex}>{tag}</Tag>
+                {tags.map((tag, tagIndex) => (
+                    <Tag key={tagIndex}>{tag}</Tag>
                 ))}
             </TagsContainer>
 
-            <RatingContainer>
+            {(votes && rate && <RatingContainer>
                 <StyledStar />
                 <Rate>{rate}</Rate>
                 <Votes>{votes} votes</Votes>
-            </RatingContainer>
+            </RatingContainer>) || null}
         </Content>
     )
 };
