@@ -1,50 +1,25 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
-import {
-    fetchGenres,
-    fetchMovies,
-    selectFetchStatus,
-    selectMoviesGenres,
-    selectMoviesList,
-    selectPageCount,
-} from "../moviesSlice";
-import { MovieTile } from "./MovieTile";
-import { Content, Title, Wrapper } from "./styled";
-import { Pagination } from "../../../common/Pagination";
-import { ErrorPage } from "../../../common/ErrorPage";
-import Loader from "../../../common/Loader";
-import { SearchResults } from "../../../common/SearchResults";
-import { useQueryParameter } from "../../../common/useQueryParameter";
+import { useSelector } from "react-redux";
+import { MovieTile } from "../../features/movies/MovieList/MovieTile";
+import { Content, Title, Wrapper } from "../../features/movies/MovieList/styled";
+import { selectFetchStatus, selectMoviesGenres, selectMoviesList, selectPageCount } from "../../features/movies/moviesSlice";
+import { ErrorPage } from "../ErrorPage";
+import Loader from "../Loader";
+import { Pagination } from "../Pagination";
+import { useQueryParameter } from "../useQueryParameter";
 
-export const MovieList = () => {
-    const dispatch = useDispatch();
+export const SearchResults = () => {
     const fetchStatus = useSelector(selectFetchStatus);
-    const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
+    const movies = useSelector(selectMoviesList);
     const pageCount = useSelector(selectPageCount);
-    const pageQuery = useQueryParameter("p");
     const searchQuery = useQueryParameter("search");
-    const { page } = useParams();
-    const currentPage = searchQuery ? pageQuery : page;
-
-    useEffect(() => {
-        if (!genres.length > 0) {
-            dispatch(fetchGenres());
-        } else {
-            dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
-        }
-    }, [dispatch, currentPage, genres, searchQuery]);
-
-    if (searchQuery) {
-        return <SearchResults />
-    }
+    const pageQuery = useQueryParameter("p");
 
     switch (fetchStatus) {
         case "completed":
             return (
                 <Content>
-                    <Title>Popular movies</Title>
+                    <Title>Search results for {searchQuery}</Title>
                     <Wrapper>
                         {movies.map((movie) =>
                             <MovieTile
@@ -63,7 +38,7 @@ export const MovieList = () => {
                             />
                         )}
                     </Wrapper>
-                    <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} />
+                    <Pagination currentPage={pageQuery || 1} allPages={pageCount > 500 ? 500 : pageCount} searchPages={true} />
                 </Content>
             );
         case "error":
@@ -71,9 +46,9 @@ export const MovieList = () => {
         default:
             return (
                 <Content>
+                    <Title>Search results for {searchQuery}</Title>
                     <Loader />
                 </Content>
             );
     }
-
 };
