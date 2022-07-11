@@ -1,22 +1,15 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ErrorPage } from "../../../../common/ErrorPage";
 import Loader from "../../../../common/Loader";
 import { MovieTile } from "../../../movies/MovieList/MovieTile";
-import { fetchGenres, selectMoviesGenres, selectFetchGenresStatus } from "../../../movies/moviesSlice";
+import { selectMoviesGenres, selectFetchGenresStatus } from "../../../movies/moviesSlice";
 import { Content, Title, Wrapper } from "./styled";
 
 export const Movies = (props) => {
     const { header, list } = props;
-    const dispatch = useDispatch();
+
     const genres = useSelector(selectMoviesGenres);
     const fetchStatus = useSelector(selectFetchGenresStatus);
-
-    useEffect(() => {
-        if (genres === []) {
-            dispatch(fetchGenres());
-        }
-    }, [dispatch, genres])
     
     switch (fetchStatus) {
         case "completed":
