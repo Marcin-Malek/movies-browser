@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    pageCount: 500,
     moviesList: [],
     moviesGenres: [],
     movieDetails: {},
@@ -12,12 +13,16 @@ export const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
+        fetchGenres: () => { },
+        fetchGenresSuccess: (state, { payload }) => {
+            state.moviesGenres = payload.genres;
+        },
         fetchMovies: (state) => {
             state.fetchMoviesStatus = "initiated";
         },
         fetchMoviesSuccess: (state, { payload }) => {
-            state.moviesList = payload.movies;
-            state.moviesGenres = payload.genres;
+            state.moviesList = payload.movies.results;
+            state.pageCount = payload.movies.total_pages;
             state.fetchMoviesStatus = "completed";
         },
         fetchError: (state) => {
@@ -35,12 +40,16 @@ export const moviesSlice = createSlice({
 });
 
 export const {
+    fetchGenres,
+    fetchGenresSuccess,
     fetchMovies,
     fetchMoviesSuccess,
     fetchError,
     fetchMovie,
     fetchMovieSuccess,
 } = moviesSlice.actions;
+
+export const selectPageCount = (state) => state.movies.pageCount;
 
 export const selectMoviesList = (state) => state.movies.moviesList;
 
