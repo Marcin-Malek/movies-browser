@@ -19,30 +19,14 @@ import {
     Year
 } from './styled';
 import { ReactComponent as CameraIcon } from "../../../../images/camera.svg";
+import { useFormatDate } from '../../../../common/useFormatDate';
 
 export const MovieDetails = (props) => {
-
-    const formatYear = (releaseDate) => {
-        const date = new Date(releaseDate);
-        return date.getFullYear();
-    };
-
-    const formatDate = (releaseDate) => {
-        const date = new Date(releaseDate);
-        return date.toLocaleString(
-            undefined, 
-            {
-                day: "numeric",
-                month: "numeric",
-                year: "numeric"
-            }
-        )
-    };
 
     return (
         <Wrapper>
             <Title>{props.title}</Title>
-            <Year>{formatYear(props.date)}</Year>
+            <Year>{useFormatDate(props.date, "year")}</Year>
             <Poster>
                 {(props.image && <Image src={props.image} />) || <CameraIcon />}
             </Poster>
@@ -55,7 +39,7 @@ export const MovieDetails = (props) => {
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Release date:</Property>
-                    <Detail>{formatDate(props.date)}</Detail>
+                    <Detail>{useFormatDate(props.date)}</Detail>
                 </DetailsWrapper>
             </ProductionDetails>
             <Tags>
