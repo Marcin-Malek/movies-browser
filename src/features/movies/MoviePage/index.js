@@ -15,7 +15,7 @@ export const MoviePage = () => {
     const dispatch = useDispatch();
     const movieDetails = useSelector(selectMovieDetails);
     const fetchStatus = useSelector(selectFetchStatus);
-
+    
     useEffect(() => {
         dispatch(fetchMovie(id));
     }, [id, dispatch]);
@@ -33,9 +33,8 @@ export const MoviePage = () => {
                         <MovieDetails
                             image={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
                             title={movieDetails.original_title}
-                            year={movieDetails.release_date}
-                            production={movieDetails.production_countries[0].name}
-                            release={movieDetails.release_date}
+                            date={movieDetails.release_date}
+                            production={movieDetails.production_countries}
                             tags={movieDetails.genres}
                             rating={movieDetails.vote_average}
                             votes={movieDetails.vote_count}

@@ -24,10 +24,17 @@ export const MovieDetails = (props) => {
 
     const formatYear = (releaseDate) => {
         const date = new Date(releaseDate);
+        return date.getFullYear();
+    };
+
+    const formatDate = (releaseDate) => {
+        const date = new Date(releaseDate);
         return date.toLocaleString(
             undefined, 
             {
-                year: "numeric",
+                day: "numeric",
+                month: "numeric",
+                year: "numeric"
             }
         )
     };
@@ -35,18 +42,20 @@ export const MovieDetails = (props) => {
     return (
         <Wrapper>
             <Title>{props.title}</Title>
-            <Year>{formatYear(props.year)}</Year>
+            <Year>{formatYear(props.date)}</Year>
             <Poster>
                 {(props.image && <Image src={props.image} />) || <CameraIcon />}
             </Poster>
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>
-                    <Detail>{props.production}</Detail>
+                    <Detail>{props.production.map((country, index) => {
+                        return `${index + 1 < props.production.length ?  `${country.name}, ` : country.name}`;
+                    })}</Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Release date:</Property>
-                    <Detail>{props.release}</Detail>
+                    <Detail>{formatDate(props.date)}</Detail>
                 </DetailsWrapper>
             </ProductionDetails>
             <Tags>

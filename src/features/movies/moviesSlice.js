@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     moviesList: [],
-    movieDetails: [],
+    moviesGenres: [],
+    movieDetails: {},
     fetchStatus: "initiated",
 };
 
