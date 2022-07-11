@@ -26,20 +26,24 @@ export const MovieDetails = (props) => {
     return (
         <Wrapper>
             <Title>{props.title}</Title>
-            <Year>{useFormatDate(props.date, "year")}</Year>
+            <Year dateTime={props.date}>{useFormatDate(props.date, "year")}</Year>
             <Poster>
                 {(props.image && <Image src={props.image} />) || <CameraIcon />}
             </Poster>
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>
-                    <Detail>{props.production.map((country, index) => {
-                        return `${index + 1 < props.production.length ?  `${country.name}, ` : country.name}`;
-                    })}</Detail>
+                    <Detail>
+                        {props.production.map(
+                            (country, index) => index + 1 < props.production.length ?
+                                `${country.name}, ` :
+                                country.name
+                        )}
+                    </Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Release date:</Property>
-                    <Detail>{useFormatDate(props.date)}</Detail>
+                    <Detail><time dateTime={props.date}>{useFormatDate(props.date)}</time></Detail>
                 </DetailsWrapper>
             </ProductionDetails>
             <Tags>

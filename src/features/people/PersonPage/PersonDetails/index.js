@@ -23,7 +23,7 @@ export const PersonDetails = (props) => {
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>{width >= theme.breakpoint.mobile ? "Date of Birth: " : "Birth: "}</Property>
-                    <Detail>{useFormatDate(props.birthday)}</Detail>
+                    <Detail><time dateTime={props.birthday}>{useFormatDate(props.birthday)}</time></Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Place of birth:</Property>
