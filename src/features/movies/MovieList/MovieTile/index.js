@@ -20,9 +20,9 @@ export const MovieTile = ({ poster, title, date, tags, rate, votes, id, featured
             <Img src={poster} alt={title} />
             <Title> {title} </Title>
             <FeaturedDate>
-                {featured && <span>{featured}</span>}
-                <span>{featured ? featured : ""}</span>
-                <time dateTime={date}> {date ? (featured ? `(${date.slice(0,4)})` : date.slice(0,4)) : "(No release date)"} </time>
+                {featured && <span>{featured} </span>}
+                {date ? <time dateTime={date}>{featured ? `(${date.slice(0,4)})` : date.slice(0,4)} </time> 
+                : <span>(No release date)</span>}
             </FeaturedDate>
             <TagsContainer>
               {tags.map((tag, tagIndex) => (
