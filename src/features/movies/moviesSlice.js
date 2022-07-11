@@ -7,6 +7,7 @@ const initialState = {
     movieDetails: {},
     fetchMoviesStatus: "initiated",
     fetchMovieStatus: "initiated",
+    fetchGenresStatus: "initiated",
 };
 
 export const moviesSlice = createSlice({
@@ -16,6 +17,7 @@ export const moviesSlice = createSlice({
         fetchGenres: () => { },
         fetchGenresSuccess: (state, { payload }) => {
             state.moviesGenres = payload.genres;
+            state.fetchGenresStatus = "completed";
         },
         fetchMovies: (state) => {
             state.fetchMoviesStatus = "initiated";
@@ -42,6 +44,7 @@ export const moviesSlice = createSlice({
 export const {
     fetchGenres,
     fetchGenresSuccess,
+    fetchGenresStatus,
     fetchMovies,
     fetchMoviesSuccess,
     fetchError,
@@ -58,6 +61,8 @@ export const selectMoviesGenres = (state) => state.movies.moviesGenres;
 export const selectFetchMoviesStatus = (state) => state.movies.fetchMoviesStatus;
 
 export const selectFetchMovieStatus = (state) => state.movies.fetchMovieStatus;
+
+export const selectFetchGenresStatus = (state) => state.movies.fetchGenresStatus;
 
 export const selectMovieDetails = (state) => state.movies.movieDetails;
 

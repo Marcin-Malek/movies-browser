@@ -3,10 +3,11 @@ import { MainWrapper } from './styled';
 import { PersonDetails } from "./PersonDetails";
 import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPerson, selectFetchStatus, selectPersonDetails } from '../peopleSlice';
+import { fetchPerson, selectFetchPersonStatus, selectPersonDetails } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
 import Loader from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
+import { fetchGenres } from '../../movies/moviesSlice';
 
 
 
@@ -14,15 +15,16 @@ export const PersonPage = () => {
     const { id } = useParams();
 
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchStatus);
+    const fetchStatus = useSelector(selectFetchPersonStatus);
     const person = useSelector(selectPersonDetails);
 
     useEffect(() => {
         dispatch(fetchPerson(id));
+        dispatch(fetchGenres());
     }, [dispatch, id]);
 
-    switch (true) {
-        case (fetchStatus === "completed" && person !== undefined):
+    switch (fetchStatus) {
+        case "completed":
             return (
                 <MainWrapper>
                     <PersonDetails
@@ -36,7 +38,7 @@ export const PersonPage = () => {
                     <Movies header={"Crew"} list={person.combined_credits.crew.filter(crew => crew.media_type === "movie")} />
                 </MainWrapper>
             );
-        case fetchStatus === "completed":
+        case "error":
             return (<ErrorPage />);
         default:
             return (<Loader />);
