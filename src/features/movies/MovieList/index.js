@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import {
     fetchGenres,
     fetchMovies,
-    fetchSearchedMovies,
     selectFetchStatus,
     selectMoviesGenres,
     selectMoviesList,
+    selectPageCount,
 } from "../moviesSlice";
 import { MovieTile } from "./MovieTile";
 import { Content, Title, Wrapper } from "./styled";
@@ -21,18 +21,19 @@ export const MovieList = () => {
     const fetchStatus = useSelector(selectFetchStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
-    const { page } = useParams();
+    const pageCount = useSelector(selectPageCount);
+    const searchPage = useQueryParameter("p");
     const searchQuery = useQueryParameter("search");
+    const { page } = useParams();
+    const currentPage = searchQuery ? searchPage : page; 
 
     useEffect(() => {
         if (!genres.length > 0) {
             dispatch(fetchGenres());
-        } else if (searchQuery) {
-            dispatch(fetchSearchedMovies({ query: searchQuery }));
         } else {
-            dispatch(fetchMovies());
+            dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
         }
-    }, [dispatch, page, searchQuery, genres]);
+    }, [dispatch, currentPage, genres, searchQuery]);
 
     switch (fetchStatus) {
         case "completed":
@@ -57,7 +58,7 @@ export const MovieList = () => {
                             />
                         )}
                     </Wrapper>
-                    <Pagination />
+                    <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} searchPages={searchQuery}/>
                 </Content>
             );
         case "error":

@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-import { setSearchPage } from "../../features/movies/moviesSlice";
 import { useQueryParameter } from "../useQueryParameter";
 import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
 import {
@@ -14,14 +12,15 @@ import {
     BlackBar
 } from "./styled"
 
-
 export const Navigation = () => {
     const searchQuery = useQueryParameter("search");
     const replaceQueryParameter = useReplaceQueryParameter();
-    const dispatch = useDispatch();
 
     const onInputChange = ({ target }) => {
-        dispatch(setSearchPage(1));
+        replaceQueryParameter({
+            key: "p",
+            value: undefined,
+        });
         replaceQueryParameter({
             key: "search",
             value: target.value.trim() !== "" ? target.value : undefined,
@@ -37,7 +36,6 @@ export const Navigation = () => {
                         <StyledPageTitle>Movies Browser</StyledPageTitle>
                     </Logotype>
                     <StyledNavbar>
-
                         <li>
                             <StyledNavLink to="/movies">MOVIES</StyledNavLink>
                         </li>

@@ -1,9 +1,6 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
 import { useWindowSize } from "../useWindowSize";
-import { useQueryParameter } from "../useQueryParameter";
-import { selectPage, selectPageCount, selectSearchPage, setPage, setSearchPage } from "../../features/movies/moviesSlice";
 import { theme } from "../../app/theme.js";
 import {
     PaginationContainer,
@@ -15,48 +12,69 @@ import {
     StyledPrevIcon,
 } from "./styled";
 
-export const Pagination = () => {
+export const Pagination = ({ currentPage, allPages, searchPages }) => {
     const [width] = useWindowSize();
-    const searchQuery = useQueryParameter("search");
-    const page = useSelector(selectPage);
-    const searchPage = useSelector(selectSearchPage);
-    const pageCount = useSelector(selectPageCount);
+    const { pathname } = useLocation();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const currentPage = searchQuery ? searchPage : page
-    const allPages = pageCount < 500 ? pageCount : 500;
-
-    useEffect(() => {
-        if (searchQuery) {
-            navigate(`../movies/page=${searchPage}?search=${searchQuery}`);
-        } else {
-            navigate(`../movies/page=${currentPage}`);
-        }
-    }, [currentPage, searchPage]);
+    const replaceQueryParameter = useReplaceQueryParameter();
 
     return (
         <PaginationContainer>
             <ButtonsWrapper disabled={parseInt(currentPage) <= 1}>
-                <Button onClick={() => parseInt(currentPage) > 1 && dispatch(searchQuery ? setSearchPage(1) : setPage(1))}>
+                <Button
+                    onClick={() => {
+                        if (parseInt(currentPage) > 1) {
+                            if (searchPages) {
+                                replaceQueryParameter({ key: "p", value: 1 });
+                            } else {
+                                navigate(pathname.replace(currentPage, 1));
+                            }
+                        }
+                    }}>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? <StyledPrevIcon /> : "First"}
                 </Button>
-                <Button onClick={() => parseInt(currentPage) > 1 && dispatch(searchQuery ? setSearchPage(parseInt(currentPage) - 1) : setPage(parseInt(currentPage) - 1))}>
+                <Button
+                    onClick={() => {
+                        if (parseInt(currentPage) > 1) {
+                            if (searchPages) {
+                                replaceQueryParameter({ key: "p", value: parseInt(currentPage) - 1 });
+                            } else {
+                                navigate(pathname.replace(currentPage, parseInt(currentPage) - 1));
+                            }
+                        }
+                    }}>
                     <StyledPrevIcon />
                     {width <= theme.breakpoint.mobile ? "" : "Previous"}
                 </Button>
             </ButtonsWrapper>
-
             <PagesWrapper>
                 Page <BoldText>{currentPage}</BoldText> of <BoldText>{allPages}</BoldText>
             </PagesWrapper>
-
             <ButtonsWrapper disabled={parseInt(currentPage) === allPages}>
-                <Button onClick={() => parseInt(currentPage) !== allPages && dispatch(searchQuery ? setSearchPage(parseInt(currentPage) + 1) : setPage(parseInt(currentPage) + 1))}>
+                <Button
+                    onClick={() => {
+                        if (parseInt(currentPage) !== allPages) {
+                            if (searchPages) {
+                                replaceQueryParameter({ key: "p", value: parseInt(currentPage) + 1 || 2 });
+                            } else {
+                                navigate(pathname.replace(currentPage, parseInt(currentPage) + 1));
+                            }
+                        }
+                    }}>
                     {width <= theme.breakpoint.mobile ? "" : "Next"}
                     <StyledNextIcon />
                 </Button>
-                <Button onClick={() => parseInt(currentPage) !== allPages && dispatch(searchQuery ? setSearchPage(allPages) : setPage(allPages))}>
+                <Button
+                    onClick={() => {
+                        if (parseInt(currentPage) !== allPages) {
+                            if (searchPages) {
+                                replaceQueryParameter({ key: "p", value: allPages });
+                            } else {
+                                navigate(pathname.replace(currentPage, allPages));
+                            }
+                        }
+                    }}>
                     {width <= theme.breakpoint.mobile ? <StyledNextIcon /> : "Last"}
                     <StyledNextIcon />
                 </Button>
