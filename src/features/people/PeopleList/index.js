@@ -8,7 +8,7 @@ import { fetchPeople, selectFetchStatus, selectPeopleList } from "../peopleSlice
 import { PersonTile } from "./PersonTile";
 import { Content, Title, Wrapper } from "./styled";
 
-export const PeopleList = (props) => {
+export const PeopleList = () => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectFetchStatus);
     const people = useSelector(selectPeopleList);
@@ -29,7 +29,6 @@ export const PeopleList = (props) => {
                                 name={person.name}
                                 portrait={ person.profile_path ? `https://image.tmdb.org/t/p/w185/${person.profile_path}` : null}
                                 id={person.id}
-                                // role={props.role}
                                 />
                         )}
                     </Wrapper>
