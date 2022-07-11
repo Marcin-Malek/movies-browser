@@ -4,7 +4,9 @@ const initialState = {
     pageCount: 500,
     moviesList: [],
     moviesGenres: [],
-    fetchStatus: "initiated",
+    movieDetails: {},
+    fetchMoviesStatus: "initiated",
+    fetchMovieStatus: "initiated",
 };
 
 export const moviesSlice = createSlice({
@@ -16,15 +18,23 @@ export const moviesSlice = createSlice({
             state.moviesGenres = payload.genres;
         },
         fetchMovies: (state) => {
-            state.fetchStatus = "initiated";
+            state.fetchMoviesStatus = "initiated";
         },
         fetchMoviesSuccess: (state, { payload }) => {
             state.moviesList = payload.movies.results;
             state.pageCount = payload.movies.total_pages;
-            state.fetchStatus = "completed";
+            state.fetchMoviesStatus = "completed";
         },
         fetchError: (state) => {
-            state.fetchStatus = "error";
+            state.fetchMoviesStatus = "error";
+            state.fetchMovieStatus = "error";
+        },
+        fetchMovie: (state) => {
+            state.fetchMovieStatus = "initiated";
+        },
+        fetchMovieSuccess: (state, { payload }) => {
+            state.movieDetails = payload.movie;
+            state.fetchMovieStatus = "completed";
         },
     },
 });
@@ -35,6 +45,8 @@ export const {
     fetchMovies,
     fetchMoviesSuccess,
     fetchError,
+    fetchMovie,
+    fetchMovieSuccess,
 } = moviesSlice.actions;
 
 export const selectPageCount = (state) => state.movies.pageCount;
@@ -43,6 +55,10 @@ export const selectMoviesList = (state) => state.movies.moviesList;
 
 export const selectMoviesGenres = (state) => state.movies.moviesGenres;
 
-export const selectFetchStatus = (state) => state.movies.fetchStatus;
+export const selectFetchMoviesStatus = (state) => state.movies.fetchMoviesStatus;
+
+export const selectFetchMovieStatus = (state) => state.movies.fetchMovieStatus;
+
+export const selectMovieDetails = (state) => state.movies.movieDetails;
 
 export default moviesSlice.reducer;

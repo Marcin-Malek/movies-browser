@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
     fetchGenres,
     fetchMovies,
-    selectFetchStatus,
+    selectFetchMoviesStatus,
     selectMoviesGenres,
     selectMoviesList,
     selectPageCount,
@@ -20,7 +20,7 @@ import { useQueryParameter } from "../../../common/useQueryParameter";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchStatus);
+    const fetchStatus = useSelector(selectFetchMoviesStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
     const pageCount = useSelector(selectPageCount);
@@ -40,7 +40,7 @@ export const MovieList = () => {
     if (searchQuery) {
         return <SearchResults />
     }
-
+    
     switch (fetchStatus) {
         case "completed":
             if(movies.length === 0) {
