@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    pageCount: 500,
     moviesList: [],
     moviesGenres: [],
     fetchStatus: "initiated",
@@ -10,38 +11,38 @@ export const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        setMoviesList: (state, payload) => {
-            state.moviesList = payload;
+        fetchGenres: () => { },
+        fetchGenresSuccess: (state, { payload }) => {
+            state.moviesGenres = payload.genres;
         },
-        setMoviesGenres: (state, payload) => {
-            state.moviesGenres = payload;
+        fetchMovies: (state) => {
+            state.fetchStatus = "initiated";
         },
-        startFetching: (state) => {
-            state.fetchStatus = "initiated"
+        fetchMoviesSuccess: (state, { payload }) => {
+            state.moviesList = payload.movies.results;
+            state.pageCount = payload.movies.total_pages;
+            state.fetchStatus = "completed";
         },
-        handleFetchingError: (state) => {
-            state.fetchStatus = "error"
+        fetchError: (state) => {
+            state.fetchStatus = "error";
         },
-        finishFetching: (state) => {
-            state.fetchStatus = "completed"
-        },
-        fetchMovies: () => { },
     },
 });
 
 export const {
-    setMoviesList,
-    setMoviesGenres,
-    startFetching,
-    handleFetchingError,
-    finishFetching,
+    fetchGenres,
+    fetchGenresSuccess,
     fetchMovies,
+    fetchMoviesSuccess,
+    fetchError,
 } = moviesSlice.actions;
 
-export const selectMoviesList = (state) => state.movies.moviesList.payload;
+export const selectPageCount = (state) => state.movies.pageCount;
+
+export const selectMoviesList = (state) => state.movies.moviesList;
+
+export const selectMoviesGenres = (state) => state.movies.moviesGenres;
 
 export const selectFetchStatus = (state) => state.movies.fetchStatus;
-
-export const selectMoviesGenres = (state) => state.movies.moviesGenres.payload;
 
 export default moviesSlice.reducer;
