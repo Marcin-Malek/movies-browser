@@ -14,6 +14,7 @@ import { Content, Title, Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
+import {StyledNoResults} from "../../../common/NoResults/styled.js"
 import { SearchResults } from "../../../common/SearchResults";
 import { useQueryParameter } from "../../../common/useQueryParameter";
 
@@ -42,6 +43,14 @@ export const MovieList = () => {
 
     switch (fetchStatus) {
         case "completed":
+            if(movies.length === 0) {
+                return (
+                    <Content>
+                        <Title>Sorry, there are no results for “Muan”</Title>
+                        <StyledNoResults />
+                    </Content>
+                )
+            }
             return (
                 <Content>
                     <Title>Popular movies</Title>
