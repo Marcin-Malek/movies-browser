@@ -26,11 +26,11 @@ export const MovieTile = ({ poster, title, date, tags, rate, votes, id }) => {
                 ))}
             </TagsContainer>
 
-            {(votes && rate) && <RatingContainer>
+            {(votes && rate && <RatingContainer>
                 <StyledStar />
                 <Rate>{rate}</Rate>
                 <Votes>{votes} votes</Votes>
-            </RatingContainer>}
+            </RatingContainer>) || null}
         </Content>
     )
 };
