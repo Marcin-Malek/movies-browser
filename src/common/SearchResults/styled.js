@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as noresults } from "../../images/noresults.svg";
+import { ReactComponent as NoResults } from "../../images/noresults.svg";
 
-export const StyledNoResults = styled(noresults)`
+export const StyledNoResults = styled(NoResults)`
     width: 668px;
     height: 508px;
     align-self: center;
