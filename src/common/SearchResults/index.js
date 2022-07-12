@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { MovieTile } from "../../features/movies/MovieList/MovieTile";
 import { Content, Title, Wrapper } from "../../features/movies/MovieList/styled";
-import { selectFetchMoviesStatus, selectMoviesGenres, selectMoviesList, selectPageCount, selectResultCount } from "../../features/movies/moviesSlice";
+import { selectMoviesFetchStatus, selectMoviesGenres, selectMoviesList, selectPageCount, selectResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
 import Loader from "../Loader";
 import { Pagination } from "../Pagination";
@@ -9,7 +9,7 @@ import { useQueryParameter } from "../useQueryParameter";
 import { StyledNoResults } from "./styled";
 
 export const SearchResults = () => {
-    const fetchStatus = useSelector(selectFetchMoviesStatus);
+    const fetchStatus = useSelector(selectMoviesFetchStatus);
     const genres = useSelector(selectMoviesGenres);
     const movies = useSelector(selectMoviesList);
     const resultCount = useSelector(selectResultCount);

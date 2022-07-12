@@ -8,7 +8,7 @@ export const PersonTile = ({name, role, portrait, id}) => {
         <Content onClick={() => navigate(`../people/${id}`)}>
             <Img src={portrait} alt={name}/>
             <Name> {name} </Name>
-            <Role> {role} </Role>
+            {role && <Role> {role} </Role>}
         </Content>
     )
 };

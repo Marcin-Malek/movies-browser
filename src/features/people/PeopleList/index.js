@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import { ErrorPage } from "../../../common/ErrorPage";
 import Loader from "../../../common/Loader";
 import { Pagination } from "../../../common/Pagination";
-import { fetchPeople, selectFetchStatus, selectPeopleList } from "../peopleSlice";
+import { fetchPeople, selectPeopleFetchStatus, selectPeopleList } from "../peopleSlice";
 import { PersonTile } from "./PersonTile";
 import { Content, Title, Wrapper } from "./styled";
 
 export const PeopleList = () => {
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchStatus);
+    const fetchStatus = useSelector(selectPeopleFetchStatus);
     const people = useSelector(selectPeopleList);
     const { page } = useParams();
 
