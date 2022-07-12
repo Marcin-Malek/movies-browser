@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import profile from "../../../../images/profile.svg";
 
-export const Content = styled.div`
+export const Content = styled.li`
     cursor: pointer;
-    /* width: 208px; */
-    height: 339px;
+    height: 100%;
     padding: 16px;
     background-color: ${({ theme }) => theme.color.white};
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     transition: 0.2s;
 
     &:hover {
@@ -24,7 +24,6 @@ export const Content = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 136px;
-        height: 245px;
         padding: 8px;
     }
 `;
@@ -65,6 +64,7 @@ export const Role = styled.h3`
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+    margin: 0;
     color: ${({ theme }) => theme.color.darkerGray};
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
