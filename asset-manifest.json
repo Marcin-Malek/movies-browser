@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/movies-browser/static/js/main.e1f4efa6.js",
+    "main.js": "/movies-browser/static/js/main.509a862c.js",
     "static/js/787.94542015.chunk.js": "/movies-browser/static/js/787.94542015.chunk.js",
-    "static/media/noresults.svg": "/movies-browser/static/media/noresults.d286a671797f1244d0ba26eeaa04cf6f.svg",
-    "static/media/star.svg": "/movies-browser/static/media/star.8663155c38d2739a01d98dddbf5d2ae1.svg",
-    "static/media/profile.svg": "/movies-browser/static/media/profile.cf6ada77b63e8e3ff5aa77fd490c7a41.svg",
-    "static/media/danger.svg": "/movies-browser/static/media/danger.a514e9c64a76d5cf149bdd7443857605.svg",
+    "static/media/noresults.svg": "/movies-browser/static/media/noresults.03778e104c236c2e6f3a37f0afbb2311.svg",
+    "static/media/star.svg": "/movies-browser/static/media/star.291f146da8ec732e66d3333dc945ea1b.svg",
+    "static/media/profile.svg": "/movies-browser/static/media/profile.50fa67ba8b05e42674fce5c3bc99f766.svg",
+    "static/media/danger.svg": "/movies-browser/static/media/danger.1a50ec90bf2543fe78aca794450d3b21.svg",
     "index.html": "/movies-browser/index.html",
-    "static/media/camera.svg": "/movies-browser/static/media/camera.c54ec4eb7cea38ded00457dc7aed2d5d.svg",
-    "static/media/next.svg": "/movies-browser/static/media/next.c22fe6c9cd43f5eac2cf6e458c5b9f38.svg",
-    "static/media/prev.svg": "/movies-browser/static/media/prev.99798cae29ce9ad8582f7ab91a3c109c.svg",
-    "static/media/search.svg": "/movies-browser/static/media/search.5aa061ea8ce958db2e2c813d81e21cf7.svg",
-    "main.e1f4efa6.js.map": "/movies-browser/static/js/main.e1f4efa6.js.map",
+    "static/media/next.svg": "/movies-browser/static/media/next.820ee764258d03ab9b2e7f891fbae6b3.svg",
+    "static/media/camera.svg": "/movies-browser/static/media/camera.88a352691d679e1db33ee3469ebd99c9.svg",
+    "static/media/prev.svg": "/movies-browser/static/media/prev.812e61d176f0c19d73692bf85676736c.svg",
+    "static/media/search.svg": "/movies-browser/static/media/search.42b33b28838ad572d0edd6577d464050.svg",
+    "main.509a862c.js.map": "/movies-browser/static/js/main.509a862c.js.map",
     "787.94542015.chunk.js.map": "/movies-browser/static/js/787.94542015.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.e1f4efa6.js"
+    "static/js/main.509a862c.js"
   ]
 }
