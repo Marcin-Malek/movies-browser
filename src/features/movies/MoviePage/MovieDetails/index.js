@@ -19,43 +19,31 @@ import {
     Year
 } from './styled';
 import { ReactComponent as CameraIcon } from "../../../../images/camera.svg";
+import { useFormatDate } from '../../../../common/useFormatDate';
 
 export const MovieDetails = (props) => {
-
-    const formatYear = (releaseDate) => {
-        const date = new Date(releaseDate);
-        return date.getFullYear();
-    };
-
-    const formatDate = (releaseDate) => {
-        const date = new Date(releaseDate);
-        return date.toLocaleString(
-            undefined, 
-            {
-                day: "numeric",
-                month: "numeric",
-                year: "numeric"
-            }
-        )
-    };
 
     return (
         <Wrapper>
             <Title>{props.title}</Title>
-            <Year>{formatYear(props.date)}</Year>
+            <Year dateTime={props.date}>{useFormatDate(props.date, "year")}</Year>
             <Poster>
                 {(props.image && <Image src={props.image} />) || <CameraIcon />}
             </Poster>
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>
-                    <Detail>{props.production.map((country, index) => {
-                        return `${index + 1 < props.production.length ?  `${country.name}, ` : country.name}`;
-                    })}</Detail>
+                    <Detail>
+                        {props.production.map(
+                            (country, index) => index + 1 < props.production.length ?
+                                `${country.name}, ` :
+                                country.name
+                        )}
+                    </Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Release date:</Property>
-                    <Detail>{formatDate(props.date)}</Detail>
+                    <Detail><time dateTime={props.date}>{useFormatDate(props.date)}</time></Detail>
                 </DetailsWrapper>
             </ProductionDetails>
             <Tags>
