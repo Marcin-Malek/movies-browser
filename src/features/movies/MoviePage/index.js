@@ -40,8 +40,8 @@ export const MoviePage = () => {
                             votes={movieDetails.vote_count}
                             description={movieDetails.overview}
                         />
-                        <People header={"Cast"} />
-                        <People header={"Crew"} />
+                        <People header={"Cast"} credits={movieDetails.credits.cast} />
+                        <People header={"Crew"} credits={movieDetails.credits.crew}/>
                     </MainWrapper>
                 </>
             );
