@@ -13,7 +13,6 @@ export const Header = styled.header`
 
 export const List = styled.ul`
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(208px, 1fr)); */
     grid-template-columns: repeat(auto-fit,208px);
     justify-content: center;
     list-style-type: none;
@@ -21,7 +20,6 @@ export const List = styled.ul`
     gap: 24px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        /* grid-template-columns: repeat(2, 1fr); */
         grid-template-columns: repeat(auto-fit,136px);
         gap: 16px;
     }
