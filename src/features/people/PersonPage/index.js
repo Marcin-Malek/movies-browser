@@ -3,7 +3,7 @@ import { MainWrapper } from './styled';
 import { PersonDetails } from "./PersonDetails";
 import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPerson, selectFetchPersonStatus, selectPersonDetails } from '../peopleSlice';
+import { fetchPerson, selectPersonFetchStatus, selectPersonDetails } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
 import Loader from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
@@ -15,7 +15,7 @@ export const PersonPage = () => {
     const { id } = useParams();
 
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchPersonStatus);
+    const fetchStatus = useSelector(selectPersonFetchStatus);
     const person = useSelector(selectPersonDetails);
 
     useEffect(() => {

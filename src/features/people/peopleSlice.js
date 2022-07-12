@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     peopleList: [],
     personDetails: {},
-    fetchPeopleStatus: "initiated",
-    fetchPersonStatus: "initiated"
+    peopleFetchStatus: "initiated",
+    personFetchStatus: "initiated"
 };
 
 export const peopleSlice = createSlice({
@@ -12,22 +12,22 @@ export const peopleSlice = createSlice({
     initialState,
     reducers: {
         fetchPeople: (state) => {
-            state.fetchPeopleStatus = "initiated"
+            state.peopleFetchStatus = "initiated"
         },
         fetchPerson: (state) => {
-            state.fetchPersonStatus = "initiated"
+            state.personFetchStatus = "initiated"
         },
         fetchPeopleSuccess: (state, { payload }) => {
             state.peopleList = payload.people;
-            state.fetchPeopleStatus = "completed"
+            state.peopleFetchStatus = "completed"
         },
         fetchPersonSuccess: (state, { payload }) => {
             state.personDetails = payload.person;
-            state.fetchPersonStatus = "completed"
+            state.personFetchStatus = "completed"
         },
         fetchPeopleError: (state) => {
-            state.fetchPeopleStatus = "error"
-            state.fetchPersonStatus = "error"
+            state.peopleFetchStatus = "error"
+            state.personFetchStatus = "error"
         },
 
 
@@ -46,8 +46,8 @@ export const selectPeopleList = (state) => state.people.peopleList;
 
 export const selectPersonDetails = (state) => state.people.personDetails;
 
-export const selectFetchPeopleStatus = (state) => state.people.fetchPeopleStatus;
+export const selectPeopleFetchStatus = (state) => state.people.peopleFetchStatus;
 
-export const selectFetchPersonStatus = (state) => state.people.fetchPersonStatus;
+export const selectPersonFetchStatus = (state) => state.people.personFetchStatus;
 
 export default peopleSlice.reducer;

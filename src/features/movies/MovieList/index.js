@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
     fetchGenres,
     fetchMovies,
-    selectFetchMoviesStatus,
+    selectMoviesFetchStatus,
     selectMoviesGenres,
     selectMoviesList,
     selectPageCount,
@@ -20,7 +20,7 @@ import { useQueryParameter } from "../../../common/useQueryParameter";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
-    const fetchStatus = useSelector(selectFetchMoviesStatus);
+    const fetchStatus = useSelector(selectMoviesFetchStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
     const pageCount = useSelector(selectPageCount);

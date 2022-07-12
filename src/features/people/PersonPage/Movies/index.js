@@ -2,14 +2,14 @@ import { useSelector } from "react-redux";
 import { ErrorPage } from "../../../../common/ErrorPage";
 import Loader from "../../../../common/Loader";
 import { MovieTile } from "../../../movies/MovieList/MovieTile";
-import { selectMoviesGenres, selectFetchGenresStatus } from "../../../movies/moviesSlice";
+import { selectMoviesGenres, selectGenresFetchStatus } from "../../../movies/moviesSlice";
 import { Content, Title, Wrapper } from "./styled";
 
 export const Movies = (props) => {
     const { header, list } = props;
 
     const genres = useSelector(selectMoviesGenres);
-    const fetchStatus = useSelector(selectFetchGenresStatus);
+    const fetchStatus = useSelector(selectGenresFetchStatus);
     
     switch (fetchStatus) {
         case "completed":

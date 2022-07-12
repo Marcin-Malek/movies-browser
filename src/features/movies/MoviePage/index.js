@@ -4,7 +4,7 @@ import { MoviePoster } from './MoviePoster';
 import { People } from './People';
 import { MainWrapper } from './styled';
 import { useParams } from "react-router-dom";
-import { fetchMovie, selectFetchMovieStatus } from '../moviesSlice';
+import { fetchMovie, selectMovieFetchStatus } from '../moviesSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieDetails } from "../moviesSlice";
 import Loader from '../../../common/Loader';
@@ -14,7 +14,7 @@ export const MoviePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const movieDetails = useSelector(selectMovieDetails);
-    const fetchStatus = useSelector(selectFetchMovieStatus);
+    const fetchStatus = useSelector(selectMovieFetchStatus);
     
     useEffect(() => {
         dispatch(fetchMovie(id));

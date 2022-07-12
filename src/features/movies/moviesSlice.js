@@ -5,9 +5,9 @@ const initialState = {
     moviesList: [],
     moviesGenres: [],
     movieDetails: {},
-    fetchMoviesStatus: "initiated",
-    fetchMovieStatus: "initiated",
-    fetchGenresStatus: "initiated",
+    moviesFetchStatus: "initiated",
+    movieFetchStatus: "initiated",
+    genresFetchStatus: "initiated",
 };
 
 export const moviesSlice = createSlice({
@@ -17,26 +17,26 @@ export const moviesSlice = createSlice({
         fetchGenres: () => { },
         fetchGenresSuccess: (state, { payload }) => {
             state.moviesGenres = payload.genres;
-            state.fetchGenresStatus = "completed";
+            state.genresFetchStatus = "completed";
         },
         fetchMovies: (state) => {
-            state.fetchMoviesStatus = "initiated";
+            state.moviesFetchStatus = "initiated";
         },
         fetchMoviesSuccess: (state, { payload }) => {
             state.moviesList = payload.movies.results;
             state.pageCount = payload.movies.total_pages;
-            state.fetchMoviesStatus = "completed";
+            state.moviesFetchStatus = "completed";
         },
         fetchError: (state) => {
-            state.fetchMoviesStatus = "error";
-            state.fetchMovieStatus = "error";
+            state.moviesFetchStatus = "error";
+            state.movieFetchStatus = "error";
         },
         fetchMovie: (state) => {
-            state.fetchMovieStatus = "initiated";
+            state.movieFetchStatus = "initiated";
         },
         fetchMovieSuccess: (state, { payload }) => {
             state.movieDetails = payload.movie;
-            state.fetchMovieStatus = "completed";
+            state.movieFetchStatus = "completed";
         },
     },
 });
@@ -44,7 +44,6 @@ export const moviesSlice = createSlice({
 export const {
     fetchGenres,
     fetchGenresSuccess,
-    fetchGenresStatus,
     fetchMovies,
     fetchMoviesSuccess,
     fetchError,
@@ -58,11 +57,11 @@ export const selectMoviesList = (state) => state.movies.moviesList;
 
 export const selectMoviesGenres = (state) => state.movies.moviesGenres;
 
-export const selectFetchMoviesStatus = (state) => state.movies.fetchMoviesStatus;
+export const selectMoviesFetchStatus = (state) => state.movies.moviesFetchStatus;
 
-export const selectFetchMovieStatus = (state) => state.movies.fetchMovieStatus;
+export const selectMovieFetchStatus = (state) => state.movies.movieFetchStatus;
 
-export const selectFetchGenresStatus = (state) => state.movies.fetchGenresStatus;
+export const selectGenresFetchStatus = (state) => state.movies.genresFetchStatus;
 
 export const selectMovieDetails = (state) => state.movies.movieDetails;
 
