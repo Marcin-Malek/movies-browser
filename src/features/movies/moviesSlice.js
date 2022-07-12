@@ -22,6 +22,7 @@ export const moviesSlice = createSlice({
         },
         fetchMoviesSuccess: (state, { payload }) => {
             state.moviesList = payload.movies.results;
+            state.resultCount = payload.movies.total_results;
             state.pageCount = payload.movies.total_pages;
             state.fetchMoviesStatus = "completed";
         },
@@ -50,6 +51,8 @@ export const {
 } = moviesSlice.actions;
 
 export const selectPageCount = (state) => state.movies.pageCount;
+
+export const selectResultCount = (state) => state.movies.resultCount
 
 export const selectMoviesList = (state) => state.movies.moviesList;
 
