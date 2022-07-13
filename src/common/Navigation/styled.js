@@ -99,17 +99,27 @@ export const StyledNavLink = styled(NavLink)`
     color: ${({ theme }) => theme.color.white};
     font-size: 14px;
     line-height: 21px;
-    &.active {
-        border: 1px solid;
-        border-radius: 24px;
-    }
-
+    transition: color 0.2s;
+    
     @media(max-width: 860px) {
         display: block;
         padding: 8px 12px;
         font-size: 12px;
         line-height: 18px;
-}
+    }
+
+    &.active {
+        border: 1px solid;
+        border-radius: 24px;
+    }
+
+    &:hover{
+        color: ${({ theme }) => theme.color.darkerGray};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.color.mineShaft};
+    }
 `;
 
 export const StyledSearchBox = styled.input`

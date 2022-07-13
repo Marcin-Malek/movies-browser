@@ -1,23 +1,24 @@
 import React from 'react';
-import { Header, List, Wrapper } from "./styled";
+import { Header } from '../../../../common/Header/styled';
 import { PersonTile } from "../../../../common/PersonTile";
+import { Wrapper } from '../../../people/PeopleList/styled';
 
 export const People = ({ header, credits }) => {
 
     return (
-        <Wrapper>
+        <>
             <Header>{header}</Header>
-            <List>
+            <Wrapper>
                 {credits.map((person, personIndex) =>
                     <PersonTile
                         key={personIndex}
                         id={person.id}
-                        portrait={person.profile_path ? `https://image.tmdb.org/t/p/w185${person.profile_path}` : null}
+                        portrait={person.profile_path ? `https://image.tmdb.org/t/p/w780${person.profile_path}` : null}
                         name={person.original_name}
                         role={person.character ? person.character : person.department}
                     />
                 )}
-            </List>
-        </Wrapper>
+            </Wrapper>
+        </>
     );
 };

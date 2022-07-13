@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import profile from "../../../../images/profile.svg";
 
 export const Wrapper = styled.section`
     display: grid;
@@ -29,28 +30,31 @@ export const Wrapper = styled.section`
 
 export const Name = styled.header`
     grid-area: name;
+    margin: 8px 0 0;
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
-    margin: 8px 0 0;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 130%;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px){
+        font-size: 5vw;
         margin: 0 0 8px;
     }
 `;
 
 export const Image = styled.img`
-    max-width: 20.78vw;
-    max-height: 29.37vw;
-    border-radius: 5px;
     grid-area: poster;
-    
+    width: 20.78vw;
+    height: 29.375vw;
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.color.silver};
+    background-image: url(${profile});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 42%;
+
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        min-width: 116px;
-        min-height: 163px;
+        width: 116px;
+        height: 163px;
     }
 `;
 
