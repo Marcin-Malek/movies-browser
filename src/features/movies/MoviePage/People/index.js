@@ -8,11 +8,11 @@ export const People = ({ header, credits }) => {
         <Wrapper>
             <Header>{header}</Header>
             <List>
-                {credits.map((person) =>
+                {credits.map((person, personIndex) =>
                     <PersonTile
-                        key={person.id}
+                        key={personIndex}
                         id={person.id}
-                        portrait={person.profile_path ? `https://image.tmdb.org/t/p/w185/${person.profile_path}` : null}
+                        portrait={person.profile_path ? `https://image.tmdb.org/t/p/w185${person.profile_path}` : null}
                         name={person.original_name}
                         role={person.character ? person.character : person.department}
                     />
