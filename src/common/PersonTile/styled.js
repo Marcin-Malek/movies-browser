@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import profile from "../../../../images/profile.svg";
+import profile from "../../images/profile.svg";
 
 export const Content = styled.li`
     cursor: pointer;

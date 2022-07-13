@@ -1,19 +1,16 @@
 import React, { useEffect } from 'react';
-import { MainWrapper } from './styled';
 import { PersonDetails } from "./PersonDetails";
 import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerson, selectPersonFetchStatus, selectPersonDetails } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
-import Loader from '../../../common/Loader';
+import { Loader } from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
 import { fetchGenres } from '../../movies/moviesSlice';
-
-
+import { MainWrapper } from '../../../common/MainWrapper/styled';
 
 export const PersonPage = () => {
     const { id } = useParams();
-
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectPersonFetchStatus);
     const person = useSelector(selectPersonDetails);
@@ -39,8 +36,8 @@ export const PersonPage = () => {
                 </MainWrapper>
             );
         case "error":
-            return (<ErrorPage />);
+            return <ErrorPage />
         default:
-            return (<Loader />);
+            return <Loader />
     }
 };

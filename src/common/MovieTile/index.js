@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useFormatDate } from "../../../../common/useFormatDate";
+import { useFormatDate } from "../useFormatDate";
 import {
     Content,
     TagsContainer,
@@ -27,7 +27,7 @@ export const MovieTile = ({
 
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
-            <Img src={poster} alt={title} />
+            <Img src={poster} alt={title} loading="lazy" />
             <Title>{title}</Title>
             <FeaturedDate>
                 {featured && <span>{featured} </span>}

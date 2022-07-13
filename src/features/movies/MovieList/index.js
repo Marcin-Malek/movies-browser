@@ -9,13 +9,15 @@ import {
     selectMoviesList,
     selectPageCount,
 } from "../moviesSlice";
-import { MovieTile } from "./MovieTile";
-import { Content, Title, Wrapper } from "./styled";
+import { MovieTile } from "../../../common/MovieTile";
+import { Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
-import Loader from "../../../common/Loader";
+import { Loader } from "../../../common/Loader";
 import { SearchResults } from "../../../common/SearchResults";
 import { useQueryParameter } from "../../../common/useQueryParameter";
+import { MainWrapper } from "../../../common/MainWrapper/styled";
+import { Header } from "../../../common/Header/styled";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
@@ -39,12 +41,12 @@ export const MovieList = () => {
     if (searchQuery) {
         return <SearchResults />
     }
-    
+
     switch (fetchStatus) {
         case "completed":
             return (
-                <Content>
-                    <Title>Popular movies</Title>
+                <MainWrapper>
+                    <Header>Popular movies</Header>
                     <Wrapper>
                         {movies.map((movie) =>
                             <MovieTile
@@ -64,16 +66,12 @@ export const MovieList = () => {
                         )}
                     </Wrapper>
                     <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} />
-                </Content>
+                </MainWrapper>
             );
         case "error":
-            return (<ErrorPage />);
+            return <ErrorPage />
         default:
-            return (
-                <Content>
-                    <Loader />
-                </Content>
-            );
+            return <Loader />
     }
 
 };

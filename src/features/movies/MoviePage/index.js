@@ -2,20 +2,20 @@ import React, { useEffect } from 'react';
 import { MovieDetails } from './MovieDetails';
 import { MoviePoster } from './MoviePoster';
 import { People } from './People';
-import { MainWrapper } from './styled';
 import { useParams } from "react-router-dom";
 import { fetchMovie, selectMovieFetchStatus } from '../moviesSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieDetails } from "../moviesSlice";
-import Loader from '../../../common/Loader';
+import { Loader } from '../../../common/Loader';
 import { ErrorPage } from '../../../common/ErrorPage';
+import { MainWrapper } from '../../../common/MainWrapper/styled';
 
 export const MoviePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const movieDetails = useSelector(selectMovieDetails);
     const fetchStatus = useSelector(selectMovieFetchStatus);
-    
+
     useEffect(() => {
         dispatch(fetchMovie(id));
     }, [id, dispatch]);
@@ -41,13 +41,13 @@ export const MoviePage = () => {
                             description={movieDetails.overview}
                         />
                         <People header={"Cast"} credits={movieDetails.credits.cast} />
-                        <People header={"Crew"} credits={movieDetails.credits.crew}/>
+                        <People header={"Crew"} credits={movieDetails.credits.crew} />
                     </MainWrapper>
                 </>
             );
         case "error":
-            return (<ErrorPage />);
+            return <ErrorPage />
         default:
-            return (<Loader />);
+            return <Loader />
     }
 };

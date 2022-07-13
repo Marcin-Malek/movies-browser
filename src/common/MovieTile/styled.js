@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {ReactComponent as Star} from "../../../../images/star.svg";
-import camera from "../../../../images/camera.svg";
+import {ReactComponent as Star} from "../../images/star.svg";
+import camera from "../../images/camera.svg";
 
 export const Content = styled.li`
     cursor: pointer;

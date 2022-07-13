@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
-import { MovieTile } from "../../features/movies/MovieList/MovieTile";
-import { Content, Title, Wrapper } from "../../features/movies/MovieList/styled";
+import { MovieTile } from "../MovieTile";
+import { Wrapper } from "../../features/movies/MovieList/styled";
 import { selectMoviesFetchStatus, selectMoviesGenres, selectMoviesList, selectPageCount, selectResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
-import Loader from "../Loader";
+import { Loader } from "../Loader";
 import { Pagination } from "../Pagination";
 import { useQueryParameter } from "../useQueryParameter";
 import { StyledNoResults } from "./styled";
+import { MainWrapper } from "../MainWrapper/styled";
+import { Header } from "../Header/styled";
 
 export const SearchResults = () => {
     const fetchStatus = useSelector(selectMoviesFetchStatus);
@@ -21,15 +23,15 @@ export const SearchResults = () => {
         case "completed":
             if (movies.length === 0) {
                 return (
-                    <Content>
-                        <Title>Sorry, there are no results for “{searchQuery}”</Title>
+                    <MainWrapper>
+                        <Header>Sorry, there are no results for “{searchQuery}”</Header>
                         <StyledNoResults />
-                    </Content>
+                    </MainWrapper>
                 )
             }
             return (
-                <Content>
-                    <Title>Search results for “{searchQuery}” ({resultCount})</Title>
+                <MainWrapper>
+                    <Header>Search results for “{searchQuery}” ({resultCount})</Header>
                     <Wrapper>
                         {movies.map((movie) =>
                             <MovieTile
@@ -49,16 +51,16 @@ export const SearchResults = () => {
                         )}
                     </Wrapper>
                     <Pagination currentPage={pageQuery || 1} allPages={pageCount > 500 ? 500 : pageCount} searchPages={true} />
-                </Content>
+                </MainWrapper>
             );
         case "error":
-            return (<ErrorPage />);
+            return <ErrorPage />
         default:
             return (
-                <Content>
-                    <Title>Search results for {searchQuery}</Title>
+                <MainWrapper>
+                    <Header>Search results for {searchQuery}</Header>
                     <Loader />
-                </Content>
+                </MainWrapper>
             );
     }
 };
