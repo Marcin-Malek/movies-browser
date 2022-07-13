@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useFormatDate } from "../../../../common/useFormatDate";
+import { useFormatDate } from "../useFormatDate";
 import {
     Content,
     TagsContainer,

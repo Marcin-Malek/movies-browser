@@ -1,16 +1,15 @@
 import { useSelector } from "react-redux";
 import { ErrorPage } from "../../../../common/ErrorPage";
-import Loader from "../../../../common/Loader";
-import { MovieTile } from "../../../movies/MovieList/MovieTile";
+import { Loader } from "../../../../common/Loader";
+import { MovieTile } from "../../../../common/MovieTile";
 import { selectMoviesGenres, selectGenresFetchStatus } from "../../../movies/moviesSlice";
 import { Content, Title, Wrapper } from "./styled";
 
 export const Movies = (props) => {
     const { header, list } = props;
-
     const genres = useSelector(selectMoviesGenres);
     const fetchStatus = useSelector(selectGenresFetchStatus);
-    
+
     switch (fetchStatus) {
         case "completed":
             return (
@@ -25,7 +24,7 @@ export const Movies = (props) => {
                                 tags={movie.genre_ids.map(
                                     (genreId) => genres.find(
                                         (genre) => genre.id === genreId).name
-                                    )
+                                )
                                 }
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
@@ -36,10 +35,9 @@ export const Movies = (props) => {
                     </Wrapper>
                 </Content>
             );
-            case "error":
-                return (<ErrorPage />)
-            default:
-                return (<Loader />);
+        case "error":
+            return <ErrorPage />
+        default:
+            return <Loader />
     }
-    
 };

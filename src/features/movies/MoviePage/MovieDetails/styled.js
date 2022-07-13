@@ -15,6 +15,7 @@ export const Wrapper = styled.section`
     column-gap: 40px;
     row-gap: 24px;
     padding: 40px;
+    margin-top: 64px;
     box-shadow: 0 4px 12px rgba(186, 199, 213, 0.5);
     background-color: ${({ theme }) => theme.color.white};
 

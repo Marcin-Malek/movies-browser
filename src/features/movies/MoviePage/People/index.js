@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, List, Wrapper } from "./styled";
-import { PersonTile } from "../../../people/PeopleList/PersonTile/index.js";
+import { PersonTile } from "../../../../common/PersonTile";
 
 export const People = ({ header, credits }) => {
 
