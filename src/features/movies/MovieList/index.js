@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import {
     fetchMovies,
     selectMoviesFetchStatus,
-    selectMoviesGenres,
     selectMoviesList,
     selectPageCount,
 } from "../moviesSlice";
@@ -22,7 +21,6 @@ export const MovieList = () => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectMoviesFetchStatus);
     const movies = useSelector(selectMoviesList);
-    const genres = useSelector(selectMoviesGenres);
     const pageCount = useSelector(selectPageCount);
     const pageQuery = useQueryParameter("p");
     const searchQuery = useQueryParameter("search");
@@ -50,11 +48,7 @@ export const MovieList = () => {
                                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 title={movie.title}
                                 date={movie.release_date}
-                                tags={movie.genre_ids.map(
-                                    (genreId) => genres.find(
-                                        (genre) => genre.id === genreId).name
-                                )
-                                }
+                                genreIds={movie.genre_ids}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />
