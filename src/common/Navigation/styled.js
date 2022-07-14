@@ -11,8 +11,8 @@ export const BlackBar = styled.div`
 
 export const NavbarContainer = styled.nav`
     width: 1368px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
     align-items: center;
     flex-wrap: wrap;
 `;
@@ -117,7 +117,7 @@ export const StyledSearchBox = styled.input`
     border-radius: 33px;
     height: 48px;
     min-width: 282px;
-    width: 22.5vw;
+    justify-self: end;
     margin: 16px;
     text-indent: 60px;
 

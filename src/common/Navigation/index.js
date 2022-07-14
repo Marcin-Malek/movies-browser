@@ -30,7 +30,7 @@ export const Navigation = () => {
     return (
         <BlackBar>
             <NavbarContainer>
-                <NavbarWrapper>
+                {/* <NavbarWrapper> */}
                     <Logotype to="/">
                         <StyledCameraIcon />
                         <StyledPageTitle>Movies Browser</StyledPageTitle>
@@ -43,7 +43,7 @@ export const Navigation = () => {
                             <StyledNavLink to="/people">PEOPLE</StyledNavLink>
                         </li>
                     </StyledNavbar>
-                </NavbarWrapper>
+                {/* </NavbarWrapper> */}
                 <StyledSearchBox placeholder="Search for movies..." value={searchQuery || ""} onChange={(e) => onInputChange(e)} />
             </NavbarContainer>
         </BlackBar>
