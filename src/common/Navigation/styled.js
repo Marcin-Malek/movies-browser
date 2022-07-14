@@ -45,18 +45,20 @@ export const Logotype = styled(Link)`
 `;
 
 export const StyledCameraIcon = styled(CameraIcon)`
+    width: 40px;
+    height: 40px;
+    
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 20px;
+        height: 20px;
+    }
+
     path {
         stroke-width: 2.5;
     }
+
     g {
         opacity: 1;
-    }
-    width: 40px;
-    height: 40px;
-
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 20px;
-        height: 21px;
     }
 `;
 
@@ -97,6 +99,7 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: ${({ theme }) => theme.color.white};
     font-size: 14px;
+    font-weight: 600;
     line-height: 21px;
     border-radius: 24px;
 
@@ -108,15 +111,15 @@ export const StyledNavLink = styled(NavLink)`
         padding: 8px 12px;
         font-size: 12px;
         line-height: 18px;
-}
+    }
 `;
 
 export const StyledSearchBox = styled.input`
-    border: 1px solid ${({ theme }) => theme.color.gray};
-    border-radius: 33px;
+    width: 100%;
     height: 48px;
     max-width: 432px;
-    width: 100%;
+    border-radius: 33px;
+    border: 1px solid ${({ theme }) => theme.color.gray};
     justify-self: end;
     text-indent: 60px;
 
@@ -130,9 +133,9 @@ export const StyledSearchBox = styled.input`
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        grid-column: 1/3;
-        max-width: unset;
         height: 44px;
+        max-width: unset;
+        grid-column: 1/3;
         text-indent: 40px;
         background-position: 17px center;
         background-size: 14px;
