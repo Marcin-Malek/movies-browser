@@ -12,29 +12,27 @@ export const BlackBar = styled.div`
 export const NavbarContainer = styled.nav`
     width: 1368px;
     display: grid;
-    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-columns: 1fr 1fr 2.5fr;
+    padding: 27px 16px;
     align-items: center;
-    flex-wrap: wrap;
 `;
 
-export const NavbarWrapper = styled.div`
+/* export const NavbarWrapper = styled.div`
     display: flex;
     
-    @media(max-width: 860px) {
-
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         justify-content: space-between;
         flex-grow: 1;
     }
-`;
+`; */
 
 export const Logotype = styled(Link)`
     display: flex;
     align-items: center;
-    margin: 27px 16px;
     transition: 0.2s;
     text-decoration: none;
     
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin-bottom: 18px;
     }
     
@@ -58,14 +56,14 @@ export const StyledCameraIcon = styled(CameraIcon)`
     width: 40px;
     height: 40px;
 
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 20px;
         height: 21px;
     }
 `;
 
 export const StyledPageTitle = styled.h1`
-    padding: 0 5vw 0 16px;
+    padding-left: 16px;
     font-weight: 500;
     font-size: 23px;
     line-height: 40px;
@@ -74,11 +72,10 @@ export const StyledPageTitle = styled.h1`
     margin: 0;
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 16.9px;
         letter-spacing: -0.5px;
-        padding: 0 0 0 16px;
     }
 `;
 
@@ -86,9 +83,10 @@ export const StyledNavbar = styled.ul`
     list-style-type: none;
     display: flex;
     align-items: center;
+    padding: 0;
+    margin: 16px;
 
-    @media(max-width: 860px) {
-        padding: 0;
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin: 16px 28px 6px 0;
     }
 `;
@@ -99,12 +97,13 @@ export const StyledNavLink = styled(NavLink)`
     color: ${({ theme }) => theme.color.white};
     font-size: 14px;
     line-height: 21px;
+    border-radius: 24px;
+    
     &.active {
         border: 1px solid;
-        border-radius: 24px;
     }
 
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         display: block;
         padding: 8px 12px;
         font-size: 12px;
@@ -116,9 +115,9 @@ export const StyledSearchBox = styled.input`
     border: 1px solid ${({ theme }) => theme.color.gray};
     border-radius: 33px;
     height: 48px;
-    min-width: 282px;
+    max-width: 432px;
+    width: 100%;
     justify-self: end;
-    margin: 16px;
     text-indent: 60px;
 
     background-image: url(${img});
@@ -130,7 +129,7 @@ export const StyledSearchBox = styled.input`
         color: ${({ theme }) => theme.color.darkerGray};
     }
 
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 90vw;
         height: 44px;
         text-indent: 40px;
@@ -139,6 +138,6 @@ export const StyledSearchBox = styled.input`
         font-size: 13px;
         display: flex;
         flex-grow: 1;
-}
+    }
 `;
 
