@@ -55,7 +55,7 @@ export const Image = styled.img`
     max-width: 72vw;
     aspect-ratio: 16/9;
     z-index: -1;
-    background-image: url(${noresult});
+    background-color: ${({theme}) => theme.color.black};
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50vw;
