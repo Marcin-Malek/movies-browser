@@ -55,9 +55,6 @@ export const Image = styled.img`
     aspect-ratio: 16/9;
     z-index: -1;
     background-color: ${({theme}) => theme.color.black};
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50vw;
 `;
 
 export const MainInfo = styled.div`

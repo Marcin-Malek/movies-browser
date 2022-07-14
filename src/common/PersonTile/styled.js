@@ -44,7 +44,7 @@ export const Name = styled.h3`
     }
 `;
 
-export const Role = styled.h3`
+export const Role = styled.h4`
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;

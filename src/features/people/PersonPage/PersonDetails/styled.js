@@ -38,6 +38,8 @@ export const Name = styled.header`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px){
         font-size: 5vw;
         margin: 0 0 8px;
+        line-height: 130%;
+        font-weight: 500;
     }
 `;
 
