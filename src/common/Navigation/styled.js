@@ -114,11 +114,11 @@ export const StyledNavLink = styled(NavLink)`
     }
 
     &:hover{
-        color: ${({ theme }) => theme.color.darkerGray};
+        color: ${({ theme }) => theme.color.lightBlue};
     }
 
     &:active{
-        color: ${({ theme }) => theme.color.mineShaft};
+        color: ${({ theme }) => theme.color.blue};
     }
 `;
 
