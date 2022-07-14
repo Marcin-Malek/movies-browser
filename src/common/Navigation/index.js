@@ -8,7 +8,6 @@ import {
     StyledPageTitle,
     StyledCameraIcon,
     StyledSearchBox,
-    NavbarWrapper,
     BlackBar
 } from "./styled"
 
