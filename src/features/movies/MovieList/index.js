@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import {
-    fetchGenres,
     fetchMovies,
     selectMoviesFetchStatus,
     selectMoviesGenres,
@@ -31,12 +30,8 @@ export const MovieList = () => {
     const currentPage = searchQuery ? pageQuery : page;
 
     useEffect(() => {
-        if (!genres.length > 0) {
-            dispatch(fetchGenres());
-        } else {
-            dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
-        }
-    }, [dispatch, currentPage, genres, searchQuery]);
+        dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
+    }, [dispatch, currentPage, searchQuery]);
 
     if (searchQuery) {
         return <SearchResults />
