@@ -23,15 +23,6 @@ export const NavbarContainer = styled.nav`
     }
 `;
 
-/* export const NavbarWrapper = styled.div`
-    display: flex;
-    
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        justify-content: space-between;
-        flex-grow: 1;
-    }
-`; */
-
 export const Logotype = styled(Link)`
     display: flex;
     align-items: center;
