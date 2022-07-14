@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactComponent as Star } from "../../../../images/star.svg";
-import noresult from "../../../../images/noresults.svg";
 
 export const Shadow = styled.div`
     display: flex;

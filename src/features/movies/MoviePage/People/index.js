@@ -13,7 +13,7 @@ export const People = ({ header, credits }) => {
                     <PersonTile
                         key={personIndex}
                         id={person.id}
-                        portrait={person.profile_path ? `https://image.tmdb.org/t/p/w780${person.profile_path}` : null}
+                        portrait={`https://image.tmdb.org/t/p/w780/${person.profile_path}`}
                         name={person.original_name}
                         role={person.character ? person.character : person.department}
                     />

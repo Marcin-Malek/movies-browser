@@ -25,7 +25,7 @@ export const MovieDetails = (props) => {
         <Wrapper>
             <Title>{props.title}</Title>
             <Year dateTime={props.date}>{useFormatDate(props.date, "year")}</Year>
-            <Image src={props.image} alt={props.title} />
+            <Image src={props.image === "https://image.tmdb.org/t/p/w500/null" ? null : props.image} alt={props.title} />
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>
