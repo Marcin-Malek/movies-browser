@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useQueryParameter } from "../useQueryParameter";
 import { useReplaceQueryParameter } from "../useReplaceQueryParameter";
 import {
@@ -15,6 +16,7 @@ import {
 export const Navigation = () => {
     const searchQuery = useQueryParameter("search");
     const replaceQueryParameter = useReplaceQueryParameter();
+    const pageType = useLocation().pathname.split("/")[1];
 
     const onInputChange = ({ target }) => {
         replaceQueryParameter({
@@ -44,7 +46,7 @@ export const Navigation = () => {
                         </li>
                     </StyledNavbar>
                 </NavbarWrapper>
-                <StyledSearchBox placeholder="Search for movies..." value={searchQuery || ""} onChange={(e) => onInputChange(e)} />
+                <StyledSearchBox placeholder={`Search for ${pageType}...`} value={searchQuery || ""} onChange={(e) => onInputChange(e)} />
             </NavbarContainer>
         </BlackBar>
     )
