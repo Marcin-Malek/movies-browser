@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    pageCount: 500,
     peopleList: [],
     personDetails: {},
     peopleFetchStatus: "initiated",
@@ -18,7 +19,9 @@ export const peopleSlice = createSlice({
             state.personFetchStatus = "initiated"
         },
         fetchPeopleSuccess: (state, { payload }) => {
-            state.peopleList = payload.people;
+            state.peopleList = payload.people.results;
+            state.resultCount = payload.people.total_results;
+            state.pageCount = payload.people.total_pages;
             state.peopleFetchStatus = "completed"
         },
         fetchPersonSuccess: (state, { payload }) => {
@@ -41,6 +44,10 @@ export const {
     fetchPeople,
     fetchPerson
 } = peopleSlice.actions;
+
+export const selectPeoplePageCount = (state) => state.people.pageCount;
+
+export const selectPeopleResultCount = (state) => state.people.resultCount;
 
 export const selectPeopleList = (state) => state.people.peopleList;
 

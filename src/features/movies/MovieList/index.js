@@ -7,7 +7,7 @@ import {
     selectMoviesFetchStatus,
     selectMoviesGenres,
     selectMoviesList,
-    selectPageCount,
+    selectMoviesPageCount,
 } from "../moviesSlice";
 import { MovieTile } from "../../../common/MovieTile";
 import { Wrapper } from "./styled";
@@ -24,7 +24,7 @@ export const MovieList = () => {
     const fetchStatus = useSelector(selectMoviesFetchStatus);
     const movies = useSelector(selectMoviesList);
     const genres = useSelector(selectMoviesGenres);
-    const pageCount = useSelector(selectPageCount);
+    const pageCount = useSelector(selectMoviesPageCount);
     const pageQuery = useQueryParameter("p");
     const searchQuery = useQueryParameter("search");
     const { page } = useParams();

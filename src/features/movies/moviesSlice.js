@@ -52,9 +52,9 @@ export const {
     fetchMovieSuccess,
 } = moviesSlice.actions;
 
-export const selectPageCount = (state) => state.movies.pageCount;
+export const selectMoviesPageCount = (state) => state.movies.pageCount;
 
-export const selectResultCount = (state) => state.movies.resultCount
+export const selectMoviesResultCount = (state) => state.movies.resultCount;
 
 export const selectMoviesList = (state) => state.movies.moviesList;
 
