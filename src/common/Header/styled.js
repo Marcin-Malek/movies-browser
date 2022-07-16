@@ -9,6 +9,6 @@ export const Header = styled.h2`
         font-size:3.51vw;
     }
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        font-size: 18px;
+        font-size: 5.625vw;
     }
 `;
