@@ -1,5 +1,7 @@
 # Movies Browser 🎬
-*preview soon here*
+
+![alt text](https://github.com/Marcin-Malek/movies-browser/blob/main/Gifs/Preview.jpg)
+
 ## Table of contents
 * [General info](#general-info)
 * [Demo version](#demo-version)
