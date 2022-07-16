@@ -27,7 +27,6 @@ export const SearchResults = () => {
     const searchQuery = useQueryParameter("search");
     const pageQuery = useQueryParameter("p");
 
-    console.log(people);
     if (pageType === "movies") {
         switch (fetchMoviesStatus) {
             case "completed":
