@@ -4,7 +4,7 @@ import { Shadow, ImageWrapper, Image, MainInfo, Title, StyledStar, Numerator, De
 export const MoviePoster = (props) => (
     <Shadow>
         <ImageWrapper>
-            <Image src={props.image} />
+            <Image src={props.image === "https://image.tmdb.org/t/p/w1280/null" ? null : props.image} />
             <MainInfo>
                 <Title>{props.title}</Title>
                 <Rating>

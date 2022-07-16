@@ -102,15 +102,24 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
     line-height: 21px;
     border-radius: 24px;
-
-    &.active {
-        border: 1px solid;
-    }
+    transition: 0.2s;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         padding: 8px 12px;
         font-size: 12px;
         line-height: 18px;
+    }
+
+    &.active {
+        border: 1px solid;
+    }
+
+    &:hover{
+        color: ${({ theme }) => theme.color.lightBlue};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.color.blue};
     }
 `;
 

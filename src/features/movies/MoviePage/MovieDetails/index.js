@@ -6,7 +6,6 @@ import {
     DetailsWrapper,
     Image,
     Numerator,
-    Poster,
     ProductionDetails,
     Property,
     Rating,
@@ -18,32 +17,40 @@ import {
     Wrapper,
     Year
 } from './styled';
-import { ReactComponent as CameraIcon } from "../../../../images/camera.svg";
 import { useFormatDate } from '../../../../common/useFormatDate';
 
 export const MovieDetails = (props) => {
+    const year = useFormatDate(props.date, "year");
+    const date = useFormatDate(props.date);
 
     return (
         <Wrapper>
             <Title>{props.title}</Title>
-            <Year dateTime={props.date}>{useFormatDate(props.date, "year")}</Year>
-            <Poster>
-                {(props.image && <Image src={props.image} />) || <CameraIcon />}
-            </Poster>
+            <Year>
+                {props.date ? <time dateTime={props.date}>{year}</time>
+                    : <span>(No release date)</span>
+                }
+            </Year>
+            <Image src={props.image === "https://image.tmdb.org/t/p/w500/null" ? null : props.image} alt={props.title} />
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>
                     <Detail>
-                        {props.production.map(
+                        {props.production.length > 0 ? props.production.map(
                             (country, index) => index + 1 < props.production.length ?
                                 `${country.name}, ` :
                                 country.name
-                        )}
+                        ) :
+                        "(No production info)"}
                     </Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Release date:</Property>
-                    <Detail><time dateTime={props.date}>{useFormatDate(props.date)}</time></Detail>
+                    <Detail>
+                        {props.date ? <time dateTime={props.date}>{date}</time>
+                            : <span>(No release date)</span>
+                        }
+                    </Detail>
                 </DetailsWrapper>
             </ProductionDetails>
             <Tags>

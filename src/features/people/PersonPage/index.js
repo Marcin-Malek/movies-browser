@@ -6,7 +6,6 @@ import { fetchPerson, selectPersonFetchStatus, selectPersonDetails } from '../pe
 import { ErrorPage } from '../../../common/ErrorPage';
 import { Loader } from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
-import { fetchGenres } from '../../movies/moviesSlice';
 import { MainWrapper } from '../../../common/MainWrapper/styled';
 
 export const PersonPage = () => {
@@ -17,7 +16,6 @@ export const PersonPage = () => {
 
     useEffect(() => {
         dispatch(fetchPerson(id));
-        dispatch(fetchGenres());
     }, [dispatch, id]);
 
     switch (fetchStatus) {

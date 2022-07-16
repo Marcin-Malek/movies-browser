@@ -15,15 +15,20 @@ import {
 
 export const PersonDetails = (props) => {
     const [width] = useWindowSize();
+    const date = useFormatDate(props.birthday);
 
     return (
         <Wrapper>
-            <Image src={props.image} />
+            <Image src={props.image} alt={props.name} />
             <Name>{props.name}</Name>
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>{width >= theme.breakpoint.mobile ? "Date of Birth: " : "Birth: "}</Property>
-                    <Detail><time dateTime={props.birthday}>{useFormatDate(props.birthday)}</time></Detail>
+                    <Detail>
+                        {props.birthday ? <time dateTime={props.birthday}>{date}</time>
+                            : <span>(No birthday info)</span>
+                        }
+                    </Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Place of birth:</Property>
