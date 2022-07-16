@@ -15,6 +15,7 @@ import {
 
 export const PersonDetails = (props) => {
     const [width] = useWindowSize();
+    const date = useFormatDate(props.birthday);
 
     return (
         <Wrapper>
@@ -23,7 +24,11 @@ export const PersonDetails = (props) => {
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>{width >= theme.breakpoint.mobile ? "Date of Birth: " : "Birth: "}</Property>
-                    <Detail><time dateTime={props.birthday}>{useFormatDate(props.birthday)}</time></Detail>
+                    <Detail>
+                        {props.birthday ? <time dateTime={props.birthday}>{date}</time>
+                            : <span>(No birthday info)</span>
+                        }
+                    </Detail>
                 </DetailsWrapper>
                 <DetailsWrapper>
                     <Property>Place of birth:</Property>
