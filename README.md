@@ -36,15 +36,15 @@ https://marcin-malek.github.io/movies-browser/
 ## Features
 * Movie Page
 
-    *animated preview soon here*
+    ![](https://github.com/Marcin-Malek/movies-browser/blob/main/Gifs/moviepage.gif)
 
 * People Page 
 
-    *animated preview soon here*
+    ![](https://github.com/Marcin-Malek/movies-browser/blob/main/Gifs/peoplepage.gif)
 
 * Search
 
-    *animated preview soon here*
+    ![](https://github.com/Marcin-Malek/movies-browser/blob/main/Gifs/search.gif)
 
 ## How to use 
 * To browse through movies or people select the button in the navigation.
