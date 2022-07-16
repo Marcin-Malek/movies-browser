@@ -30,7 +30,7 @@ export const MovieTile = ({
 
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
-            <Img src={poster} alt={title} loading="lazy" />
+            <Img src={poster === "https://image.tmdb.org/t/p/w500/null" ? null : poster} alt={title} loading="lazy" />
             <Title>{title}</Title>
             <FeaturedDate>
                 {featured && <span>{featured} </span>}

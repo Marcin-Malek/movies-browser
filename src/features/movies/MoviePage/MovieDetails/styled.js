@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Star } from "../../../../images/star.svg";
+import camera from "../../../../images/camera.svg";
 
 export const Wrapper = styled.section`
     display: grid;
@@ -42,7 +43,7 @@ export const Title = styled.header`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-weight: 500;
-        font-size: 16px;
+        font-size: 5vw;
         line-height: 130%;
         margin: 0 0 -4px;
     }
@@ -60,26 +61,20 @@ export const Year = styled.div`
     }
 `;
 
-export const Poster = styled.div`
-    grid-area: poster;
-    display: flex;
-    aspect-ratio: 2/3;
-    width: 312px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background: ${({theme}) => theme.color.silver};
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        width: 114px;
-    }
-`;
-
 export const Image = styled.img`
-    width: 312px;
+    grid-area: poster;
+    width: 16.25vw;
+    height: 24.1vw;
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.color.silver};
+    background-image: url(${camera});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 42%;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         width: 114px;
+        height: 169px;
     }
 `;
 

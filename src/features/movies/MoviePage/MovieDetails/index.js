@@ -6,7 +6,6 @@ import {
     DetailsWrapper,
     Image,
     Numerator,
-    Poster,
     ProductionDetails,
     Property,
     Rating,
@@ -18,7 +17,6 @@ import {
     Wrapper,
     Year
 } from './styled';
-import { ReactComponent as CameraIcon } from "../../../../images/camera.svg";
 import { useFormatDate } from '../../../../common/useFormatDate';
 
 export const MovieDetails = (props) => {
@@ -33,9 +31,7 @@ export const MovieDetails = (props) => {
                     : <span>(No release date)</span>
                 }
             </Year>
-            <Poster>
-                {(props.image && <Image src={props.image} />) || <CameraIcon />}
-            </Poster>
+            <Image src={props.image === "https://image.tmdb.org/t/p/w500/null" ? null : props.image} alt={props.title} />
             <ProductionDetails>
                 <DetailsWrapper>
                     <Property>Production:</Property>

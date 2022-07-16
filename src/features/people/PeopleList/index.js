@@ -6,7 +6,7 @@ import { Loader } from "../../../common/Loader";
 import { Pagination } from "../../../common/Pagination";
 import { fetchPeople, selectPeopleFetchStatus, selectPeopleList } from "../peopleSlice";
 import { PersonTile } from "../../../common/PersonTile";
-import { Wrapper } from "../../movies/MovieList/styled";
+import { Wrapper } from "./styled";
 import { MainWrapper } from "../../../common/MainWrapper/styled";
 import { Header } from "../../../common/Header/styled";
 
@@ -29,7 +29,7 @@ export const PeopleList = () => {
                         {people.map((person) =>
                             <PersonTile key={person.id}
                                 name={person.name}
-                                portrait={person.profile_path ? `https://image.tmdb.org/t/p/w185/${person.profile_path}` : null}
+                                portrait={`https://image.tmdb.org/t/p/w780/${person.profile_path}`}
                                 id={person.id}
                             />
                         )}

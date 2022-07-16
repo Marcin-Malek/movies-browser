@@ -19,7 +19,7 @@ export const PersonDetails = (props) => {
 
     return (
         <Wrapper>
-            <Image src={props.image} />
+            <Image src={props.image} alt={props.name} />
             <Name>{props.name}</Name>
             <ProductionDetails>
                 <DetailsWrapper>
