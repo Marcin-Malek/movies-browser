@@ -2,21 +2,30 @@ import React, { useEffect } from 'react';
 import { PersonDetails } from "./PersonDetails";
 import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPerson, selectPersonFetchStatus, selectPersonDetails } from '../peopleSlice';
+import { fetchPerson, selectPersonFetchStatus, selectPersonDetails, fetchPeople } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
 import { Loader } from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
 import { MainWrapper } from '../../../common/MainWrapper/styled';
+import { useQueryParameter } from '../../../common/useQueryParameter';
+import { SearchResults } from '../../../common/SearchResults';
 
 export const PersonPage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectPersonFetchStatus);
     const person = useSelector(selectPersonDetails);
+    const searchQuery = useQueryParameter("search");
+    const currentPage = useQueryParameter("p");
 
     useEffect(() => {
         dispatch(fetchPerson(id));
-    }, [dispatch, id]);
+        dispatch(fetchPeople({page: currentPage, query: searchQuery}));
+    }, [dispatch, id, currentPage, searchQuery]);
+
+    if (searchQuery) {
+        return <SearchResults />
+    }
 
     switch (fetchStatus) {
         case "completed":

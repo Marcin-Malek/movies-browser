@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { Loader } from "../../../common/Loader";
 import { Pagination } from "../../../common/Pagination";
-import { fetchPeople, selectPeopleFetchStatus, selectPeopleList } from "../peopleSlice";
+import { fetchPeople, selectPeopleFetchStatus, selectPeopleList, selectPeoplePageCount } from "../peopleSlice";
 import { PersonTile } from "../../../common/PersonTile";
 import { Wrapper } from "./styled";
 import { MainWrapper } from "../../../common/MainWrapper/styled";
 import { Header } from "../../../common/Header/styled";
+import { useQueryParameter } from "../../../common/useQueryParameter";
+import { SearchResults } from "../../../common/SearchResults";
 
 export const PeopleList = () => {
     const dispatch = useDispatch();
@@ -16,9 +18,18 @@ export const PeopleList = () => {
     const people = useSelector(selectPeopleList);
     const { page } = useParams();
 
+    const pageCount = useSelector(selectPeoplePageCount);
+    const pageQuery = useQueryParameter("p");
+    const searchQuery = useQueryParameter("search");
+    const currentPage = searchQuery ? pageQuery : page;
+
     useEffect(() => {
-        dispatch(fetchPeople(page));
-    }, [dispatch, page]);
+        dispatch(fetchPeople({page: currentPage, query: searchQuery}));
+    }, [dispatch, page, searchQuery, currentPage]);
+
+    if (searchQuery) {
+        return <SearchResults people={true}/>
+    }
 
     switch (fetchStatus) {
         case ("completed"):
@@ -34,7 +45,7 @@ export const PeopleList = () => {
                             />
                         )}
                     </Wrapper>
-                    <Pagination currentPage={page} allPages={500} />
+                    <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} />
                 </MainWrapper>
             );
         case ("error"):

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { takeLatest, put } from "redux-saga/effects";
+import { takeLatest, put, delay } from "redux-saga/effects";
 import {
     fetchPeopleError,
     fetchPeople,
@@ -9,10 +9,17 @@ import {
 } from "./peopleSlice";
 
 
-function* fetchPeopleHandler({ payload: page }) {
+function* fetchPeopleHandler({ payload }) {
     try {
-        const peopleList = yield axios.get(`https://api.themoviedb.org/3/person/popular?api_key=b6338a2fff00b848e44db36dd695b802&page=${page}`);
-        yield put(fetchPeopleSuccess({ people: peopleList.data.results }));
+        if (payload.query) {
+            const peopleList = yield axios.get(`https://api.themoviedb.org/3/search/person?api_key=b6338a2fff00b848e44db36dd695b802&query=${payload.query}&page=${payload.page || 1}`);
+            delay(1000);
+            yield put(fetchPeopleSuccess({ people: peopleList.data }));
+        } else {
+            const peopleList = yield axios.get(`https://api.themoviedb.org/3/person/popular?api_key=b6338a2fff00b848e44db36dd695b802&page=${payload.page}`);
+            yield put(fetchPeopleSuccess({ people: peopleList.data }));
+        }
+
     } catch (error) {
         yield put(fetchPeopleError());
         console.error(error);

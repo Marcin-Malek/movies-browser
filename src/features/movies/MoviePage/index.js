@@ -3,22 +3,31 @@ import { MovieDetails } from './MovieDetails';
 import { MoviePoster } from './MoviePoster';
 import { People } from './People';
 import { useParams } from "react-router-dom";
-import { fetchMovie, selectMovieFetchStatus } from '../moviesSlice';
+import { fetchMovie, fetchMovies, selectMovieFetchStatus } from '../moviesSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieDetails } from "../moviesSlice";
 import { Loader } from '../../../common/Loader';
 import { ErrorPage } from '../../../common/ErrorPage';
 import { MainWrapper } from '../../../common/MainWrapper/styled';
+import { useQueryParameter } from '../../../common/useQueryParameter';
+import { SearchResults } from '../../../common/SearchResults';
 
 export const MoviePage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const movieDetails = useSelector(selectMovieDetails);
     const fetchStatus = useSelector(selectMovieFetchStatus);
+    const searchQuery = useQueryParameter("search");
+    const currentPage = useQueryParameter("p");
 
     useEffect(() => {
         dispatch(fetchMovie(id));
-    }, [id, dispatch]);
+        dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
+    }, [id, dispatch, currentPage, searchQuery]);
+
+    if (searchQuery) {
+        return <SearchResults />
+    }
 
     switch (fetchStatus) {
         case "completed":
