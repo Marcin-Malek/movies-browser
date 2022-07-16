@@ -17,6 +17,7 @@ export const SearchResults = () => {
     const pageType = useLocation().pathname.split("/")[1];
     const fetchMoviesStatus = useSelector(selectMoviesFetchStatus);
     const fetchPeopleStatus = useSelector(selectPeopleFetchStatus);
+    const currentFetchStatus = pageType === "movies" ? fetchMoviesStatus : fetchPeopleStatus;
     const genres = useSelector(selectMoviesGenres);
     const movies = useSelector(selectMoviesList);
     const people = useSelector(selectPeopleList);
@@ -27,17 +28,18 @@ export const SearchResults = () => {
     const searchQuery = useQueryParameter("search");
     const pageQuery = useQueryParameter("p");
 
-    if (pageType === "movies") {
-        switch (fetchMoviesStatus) {
-            case "completed":
-                if (movies.length === 0) {
-                    return (
-                        <MainWrapper>
-                            <Header>Sorry, there are no results for “{searchQuery}”</Header>
-                            <StyledNoResults />
-                        </MainWrapper>
-                    )
-                }
+
+    switch (currentFetchStatus) {
+        case "completed":
+            if ((pageType === "movies" && movies.length === 0) || (pageType === "people" && people.length === 0)) {
+                return (
+                    <MainWrapper>
+                        <Header>Sorry, there are no results for “{searchQuery}”</Header>
+                        <StyledNoResults />
+                    </MainWrapper>
+                )
+            }
+            if (pageType === "movies") {
                 return (
                     <MainWrapper>
                         <Header>Search results for “{searchQuery}” ({resultMoviesCount})</Header>
@@ -62,28 +64,7 @@ export const SearchResults = () => {
                         <Pagination currentPage={pageQuery || 1} allPages={pageMoviesCount > 500 ? 500 : pageMoviesCount} searchPages={true} />
                     </MainWrapper>
                 );
-            case "error":
-                return <ErrorPage />
-            default:
-                return (
-                    <MainWrapper>
-                        <Header>Search results for "{searchQuery}"</Header>
-                        <Loader />
-                    </MainWrapper>
-                );
-        }
-    }
-    if (pageType === "people") {
-        switch (fetchPeopleStatus) {
-            case "completed":
-                if (people.length === 0) {
-                    return (
-                        <MainWrapper>
-                            <Header>Sorry, there are no results for “{searchQuery}”</Header>
-                            <StyledNoResults />
-                        </MainWrapper>
-                    )
-                };
+            } if (pageType === "people") {
                 return (
                     <MainWrapper>
                         <Header>Search results for “{searchQuery}” ({resultPeopleCount})</Header>
@@ -100,15 +81,16 @@ export const SearchResults = () => {
                         <Pagination currentPage={pageQuery || 1} allPages={pagePeopleCount > 500 ? 500 : pagePeopleCount} searchPages={true} />
                     </MainWrapper>
                 )
-            case "error":
-                return <ErrorPage />
-            default:
-                return (
-                    <MainWrapper>
-                        <Header>Search results for "{searchQuery}"</Header>
-                        <Loader />
-                    </MainWrapper>
-                );
-        }
+            }
+        break;
+        case "error":
+            return <ErrorPage />
+        default:
+            return (
+                <MainWrapper>
+                    <Header>Search results for "{searchQuery}"</Header>
+                    <Loader />
+                </MainWrapper>
+            );
     };
 };
