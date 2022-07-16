@@ -29,7 +29,7 @@ export const Img = styled.img`
     background-image: url(${profile});
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 35%;
+    background-size: 30%;
 `;
 
 export const Name = styled.h3`
