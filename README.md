@@ -17,7 +17,7 @@
 ## General info
 Movies Browser is a simple site that contains all your favorite movies. You can search for a movie or an actor on it.
 
-This Movies Browser app was created as a final group project from the course YouCode.
+This Movies Browser app was created as a group project which completes YouCode Front-end Developer course
 
 When searching for a movie, you will find additional information, such as:
 * Release date
