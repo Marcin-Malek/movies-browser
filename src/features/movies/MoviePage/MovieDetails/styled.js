@@ -48,7 +48,7 @@ export const Title = styled.header`
     }
 `;
 
-export const Year = styled.time`
+export const Year = styled.div`
     grid-area: year;
     font-size: 22px;
     line-height: 120%;
