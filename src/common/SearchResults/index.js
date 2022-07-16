@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { MovieTile } from "../MovieTile";
 import { Wrapper } from "../../features/movies/MovieList/styled";
-import { selectMoviesFetchStatus, selectMoviesGenres, selectMoviesList, selectMoviesPageCount, selectMoviesResultCount } from "../../features/movies/moviesSlice";
+import { selectMoviesFetchStatus, selectMoviesList, selectMoviesPageCount, selectMoviesResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
 import { Loader } from "../Loader";
 import { Pagination } from "../Pagination";
@@ -18,7 +18,6 @@ export const SearchResults = () => {
     const fetchMoviesStatus = useSelector(selectMoviesFetchStatus);
     const fetchPeopleStatus = useSelector(selectPeopleFetchStatus);
     const currentFetchStatus = pageType === "movies" ? fetchMoviesStatus : fetchPeopleStatus;
-    const genres = useSelector(selectMoviesGenres);
     const movies = useSelector(selectMoviesList);
     const people = useSelector(selectPeopleList);
     const resultMoviesCount = useSelector(selectMoviesResultCount);

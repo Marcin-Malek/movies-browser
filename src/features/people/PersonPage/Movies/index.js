@@ -1,5 +1,4 @@
 import { MovieTile } from "../../../../common/MovieTile";
-import { selectMoviesGenres, selectGenresFetchStatus } from "../../../movies/moviesSlice";
 import { Wrapper } from "./styled";
 import { Header } from "../../../../common/Header/styled"
 
