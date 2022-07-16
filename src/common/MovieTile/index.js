@@ -27,7 +27,7 @@ export const MovieTile = ({
     const navigate = useNavigate();
     const year = useFormatDate(date, "year");
     const genres = useSelector(selectMoviesGenres);
-    
+
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
             <Img src={poster} alt={title} loading="lazy" />
@@ -42,13 +42,13 @@ export const MovieTile = ({
                     <span>(No release date)</span>
                 }
             </FeaturedDate>
-            {(genreIds && genres &&
+            {genreIds.length > 0 && genres.length > 0 &&
                 <TagsContainer>
                     {genres.map((genre) => genreIds.includes(genre.id) && (
                         <Tag key={genre.id}>{genre.name}</Tag>
                     ))}
                 </TagsContainer>
-            ) || null}
+            }
             {(votes && rate &&
                 <RatingContainer>
                     <StyledStar />
