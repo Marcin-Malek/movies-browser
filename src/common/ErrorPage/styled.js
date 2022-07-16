@@ -23,7 +23,7 @@ export const StyledDangerIcon = styled(DangerIcon)`
     }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
     text-align: center;
     font-weight: 600;
     font-size: 35px;
