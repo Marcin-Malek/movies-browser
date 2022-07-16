@@ -54,6 +54,7 @@ export const Image = styled.img`
     max-width: 72vw;
     aspect-ratio: 16/9;
     z-index: -1;
+    background-color: ${({theme}) => theme.color.black};
 `;
 
 export const MainInfo = styled.div`

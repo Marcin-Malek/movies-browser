@@ -51,11 +51,7 @@ export const SearchResults = () => {
                                     poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                     title={movie.title}
                                     date={movie.release_date}
-                                    tags={movie.genre_ids.map(
-                                        (genreId) => genres.find(
-                                            (genre) => genre.id === genreId).name
-                                    )
-                                    }
+                                    genreIds={movie.genre_ids}
                                     rate={movie.vote_average}
                                     votes={movie.vote_count}
                                 />

@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import {
-    fetchGenres,
     fetchMovies,
     selectMoviesFetchStatus,
-    selectMoviesGenres,
     selectMoviesList,
     selectMoviesPageCount,
 } from "../moviesSlice";
@@ -23,7 +21,6 @@ export const MovieList = () => {
     const dispatch = useDispatch();
     const fetchStatus = useSelector(selectMoviesFetchStatus);
     const movies = useSelector(selectMoviesList);
-    const genres = useSelector(selectMoviesGenres);
     const pageCount = useSelector(selectMoviesPageCount);
     const pageQuery = useQueryParameter("p");
     const searchQuery = useQueryParameter("search");
@@ -31,12 +28,8 @@ export const MovieList = () => {
     const currentPage = searchQuery ? pageQuery : page;
 
     useEffect(() => {
-        if (!genres.length > 0) {
-            dispatch(fetchGenres());
-        } else {
-            dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
-        }
-    }, [dispatch, currentPage, genres, searchQuery]);
+        dispatch(fetchMovies({ page: currentPage, query: searchQuery }));
+    }, [dispatch, currentPage, searchQuery]);
 
     if (searchQuery) {
         return <SearchResults />
@@ -55,11 +48,7 @@ export const MovieList = () => {
                                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 title={movie.title}
                                 date={movie.release_date}
-                                tags={movie.genre_ids.map(
-                                    (genreId) => genres.find(
-                                        (genre) => genre.id === genreId).name
-                                )
-                                }
+                                genreIds={movie.genre_ids}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />

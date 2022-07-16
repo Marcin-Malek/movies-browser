@@ -51,7 +51,7 @@ export const Img = styled.img`
     background-image: url(${camera});
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 42%;
+    background-size: 30%;
 `;
 
 export const Title = styled.h3`

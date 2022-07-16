@@ -9,7 +9,6 @@ import {
     StyledPageTitle,
     StyledCameraIcon,
     StyledSearchBox,
-    NavbarWrapper,
     BlackBar
 } from "./styled"
 
@@ -32,7 +31,6 @@ export const Navigation = () => {
     return (
         <BlackBar>
             <NavbarContainer>
-                <NavbarWrapper>
                     <Logotype to="/">
                         <StyledCameraIcon />
                         <StyledPageTitle>Movies Browser</StyledPageTitle>
@@ -45,7 +43,6 @@ export const Navigation = () => {
                             <StyledNavLink to="/people">PEOPLE</StyledNavLink>
                         </li>
                     </StyledNavbar>
-                </NavbarWrapper>
                 <StyledSearchBox placeholder={`Search for ${pageType}...`} value={searchQuery || ""} onChange={(e) => onInputChange(e)} />
             </NavbarContainer>
         </BlackBar>

@@ -6,7 +6,6 @@ import { fetchPerson, selectPersonFetchStatus, selectPersonDetails, fetchPeople 
 import { ErrorPage } from '../../../common/ErrorPage';
 import { Loader } from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
-import { fetchGenres } from '../../movies/moviesSlice';
 import { MainWrapper } from '../../../common/MainWrapper/styled';
 import { useQueryParameter } from '../../../common/useQueryParameter';
 import { SearchResults } from '../../../common/SearchResults';
@@ -21,7 +20,6 @@ export const PersonPage = () => {
 
     useEffect(() => {
         dispatch(fetchPerson(id));
-        dispatch(fetchGenres());
         dispatch(fetchPeople({page: currentPage, query: searchQuery}));
     }, [dispatch, id, currentPage, searchQuery]);
 

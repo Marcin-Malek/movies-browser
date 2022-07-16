@@ -33,11 +33,13 @@ export const MoviePage = () => {
         case "completed":
             return (
                 <>
-                    <MoviePoster
-                        title={movieDetails.original_title}
-                        image={`https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path}`}
-                        rating={movieDetails.vote_average}
-                        votes={movieDetails.vote_count} />
+                    {movieDetails.backdrop_path &&
+                        <MoviePoster
+                            title={movieDetails.original_title}
+                            image={`https://image.tmdb.org/t/p/w1280/${movieDetails.backdrop_path}`}
+                            rating={movieDetails.vote_average}
+                            votes={movieDetails.vote_count} />
+                    }
                     <MainWrapper>
                         <MovieDetails
                             image={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
