@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { MovieTile } from "../MovieTile";
 import { Wrapper } from "../../features/movies/MovieList/styled";
-import { selectMoviesFetchStatus, selectMoviesGenres, selectMoviesList, selectPageCount, selectResultCount } from "../../features/movies/moviesSlice";
+import { selectMoviesFetchStatus, selectMoviesList, selectPageCount, selectResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
 import { Loader } from "../Loader";
 import { Pagination } from "../Pagination";
@@ -12,7 +12,6 @@ import { Header } from "../Header/styled";
 
 export const SearchResults = () => {
     const fetchStatus = useSelector(selectMoviesFetchStatus);
-    const genres = useSelector(selectMoviesGenres);
     const movies = useSelector(selectMoviesList);
     const resultCount = useSelector(selectResultCount);
     const pageCount = useSelector(selectPageCount);
@@ -40,11 +39,7 @@ export const SearchResults = () => {
                                 poster={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 title={movie.title}
                                 date={movie.release_date}
-                                tags={movie.genre_ids.map(
-                                    (genreId) => genres.find(
-                                        (genre) => genre.id === genreId).name
-                                )
-                                }
+                                genreIds={movie.genre_ids}
                                 rate={movie.vote_average}
                                 votes={movie.vote_count}
                             />

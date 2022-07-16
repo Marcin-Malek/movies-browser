@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useFormatDate } from "../useFormatDate";
 import {
     Content,
@@ -12,18 +13,20 @@ import {
     StyledStar,
     FeaturedDate
 } from "./styled";
+import { selectMoviesGenres } from "../../features/movies/moviesSlice";
 
 export const MovieTile = ({
     poster,
     title,
     date,
-    tags,
+    genreIds,
     rate,
     votes,
     id,
     featured }) => {
     const navigate = useNavigate();
     const year = useFormatDate(date, "year");
+    const genres = useSelector(selectMoviesGenres);
 
     return (
         <Content onClick={() => navigate(`../movies/${id}`)}>
@@ -39,11 +42,13 @@ export const MovieTile = ({
                     <span>(No release date)</span>
                 }
             </FeaturedDate>
-            <TagsContainer>
-                {tags.map((tag, tagIndex) => (
-                    <Tag key={tagIndex}>{tag}</Tag>
-                ))}
-            </TagsContainer>
+            {genreIds.length > 0 && genres.length > 0 &&
+                <TagsContainer>
+                    {genres.map((genre) => genreIds.includes(genre.id) && (
+                        <Tag key={genre.id}>{genre.name}</Tag>
+                    ))}
+                </TagsContainer>
+            }
             {(votes && rate &&
                 <RatingContainer>
                     <StyledStar />
