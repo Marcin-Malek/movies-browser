@@ -11,31 +11,27 @@ export const BlackBar = styled.div`
 
 export const NavbarContainer = styled.nav`
     width: 1368px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2.5fr;
+    padding: 23px 16px;
     align-items: center;
-    flex-wrap: wrap;
-`;
 
-export const NavbarWrapper = styled.div`
-    display: flex;
-    
-    @media(max-width: 860px) {
-
-        justify-content: space-between;
-        flex-grow: 1;
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-row-gap: 32px;
     }
 `;
 
 export const Logotype = styled(Link)`
     display: flex;
     align-items: center;
-    margin: 27px 16px;
     transition: 0.2s;
     text-decoration: none;
     
-    @media(max-width: 860px) {
-        margin-bottom: 18px;
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-row: 1;
+        grid-column: 1;
     }
     
     &:hover {
@@ -49,23 +45,25 @@ export const Logotype = styled(Link)`
 `;
 
 export const StyledCameraIcon = styled(CameraIcon)`
+    width: 40px;
+    height: 40px;
+    
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        width: 20px;
+        height: 20px;
+    }
+
     path {
         stroke-width: 2.5;
     }
+
     g {
         opacity: 1;
-    }
-    width: 40px;
-    height: 40px;
-
-    @media(max-width: 860px) {
-        width: 20px;
-        height: 21px;
     }
 `;
 
 export const StyledPageTitle = styled.h1`
-    padding: 0 5vw 0 16px;
+    padding-left: 16px;
     font-weight: 500;
     font-size: 23px;
     line-height: 40px;
@@ -74,11 +72,10 @@ export const StyledPageTitle = styled.h1`
     margin: 0;
     color: ${({ theme }) => theme.color.white};
 
-    @media(max-width: 860px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         font-size: 13px;
         line-height: 16.9px;
         letter-spacing: -0.5px;
-        padding: 0 0 0 16px;
     }
 `;
 
@@ -86,10 +83,14 @@ export const StyledNavbar = styled.ul`
     list-style-type: none;
     display: flex;
     align-items: center;
+    padding: 0;
+    margin: 0 16px;
 
-    @media(max-width: 860px) {
-        padding: 0;
-        margin: 16px 28px 6px 0;
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        grid-row: 1;
+        grid-column: 2;
+        margin: 0;
+        justify-self: end;
     }
 `;
 
@@ -98,11 +99,12 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: ${({ theme }) => theme.color.white};
     font-size: 14px;
+    font-weight: 600;
     line-height: 21px;
-    transition: color 0.2s;
-    
-    @media(max-width: 860px) {
-        display: block;
+    border-radius: 24px;
+    transition: 0.2s;
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         padding: 8px 12px;
         font-size: 12px;
         line-height: 18px;
@@ -110,7 +112,6 @@ export const StyledNavLink = styled(NavLink)`
 
     &.active {
         border: 1px solid;
-        border-radius: 24px;
     }
 
     &:hover{
@@ -123,16 +124,16 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const StyledSearchBox = styled.input`
-    border: 1px solid ${({ theme }) => theme.color.gray};
-    border-radius: 33px;
+    width: 100%;
     height: 48px;
-    min-width: 282px;
-    width: 22.5vw;
-    margin: 16px;
+    max-width: 432px;
+    border-radius: 33px;
+    border: 1px solid ${({ theme }) => theme.color.gray};
+    justify-self: end;
     text-indent: 60px;
 
     background-image: url(${img});
-    background-size: 20px 20px;
+    background-size: 20px;
     background-repeat: no-repeat;
     background-position: 25px center;
 
@@ -140,15 +141,14 @@ export const StyledSearchBox = styled.input`
         color: ${({ theme }) => theme.color.darkerGray};
     }
 
-    @media(max-width: 860px) {
-        width: 90vw;
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         height: 44px;
+        max-width: unset;
+        grid-column: 1/3;
         text-indent: 40px;
         background-position: 17px center;
-        background-size: 14px 14px;
+        background-size: 14px;
         font-size: 13px;
-        display: flex;
-        flex-grow: 1;
-}
+    }
 `;
 
