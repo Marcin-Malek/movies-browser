@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { MovieTile } from "../MovieTile";
-import { Wrapper } from "../../features/movies/MovieList/styled";
+import { MoviesWrapper } from "../../features/movies/MovieList/styled";
+import { PeopleWrapper } from "../../features/people/PeopleList/styled";
 import { selectMoviesFetchStatus, selectMoviesList, selectMoviesPageCount, selectMoviesResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
-import { Loader } from "../Loader";
+import { Loader } from "../Loader/styled";
 import { Pagination } from "../Pagination";
 import { useQueryParameter } from "../useQueryParameter";
 import { StyledNoResults } from "./styled";
@@ -42,7 +43,7 @@ export const SearchResults = () => {
                 return (
                     <MainWrapper>
                         <Header>Search results for “{searchQuery}” ({resultMoviesCount})</Header>
-                        <Wrapper>
+                        <MoviesWrapper>
                             {movies.map((movie) =>
                                 <MovieTile
                                     key={movie.id}
@@ -55,7 +56,7 @@ export const SearchResults = () => {
                                     votes={movie.vote_count}
                                 />
                             )}
-                        </Wrapper>
+                        </MoviesWrapper>
                         <Pagination currentPage={pageQuery || 1} allPages={pageMoviesCount > 500 ? 500 : pageMoviesCount} searchPages={true} />
                     </MainWrapper>
                 );
@@ -63,16 +64,16 @@ export const SearchResults = () => {
                 return (
                     <MainWrapper>
                         <Header>Search results for “{searchQuery}” ({resultPeopleCount})</Header>
-                        <Wrapper>
+                        <PeopleWrapper>
                             {people.map((person) =>
                                 <PersonTile
                                     key={person.id}
                                     name={person.name}
-                                    portrait={person.profile_path ? `https://image.tmdb.org/t/p/w185/${person.profile_path}` : null}
+                                    portrait={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
                                     id={person.id}
                                 />
                             )}
-                        </Wrapper>
+                        </PeopleWrapper>
                         <Pagination currentPage={pageQuery || 1} allPages={pagePeopleCount > 500 ? 500 : pagePeopleCount} searchPages={true} />
                     </MainWrapper>
                 )

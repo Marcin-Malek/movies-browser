@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.ul`
+export const MoviesWrapper = styled.ul`
     padding: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
