@@ -19,6 +19,10 @@ export const Content = styled.li`
     &:active {
         transform: scale(1.03);
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+        padding: 8px;
+    }
 `;
 
 export const Img = styled.img`
