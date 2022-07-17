@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ErrorPage } from "../../../common/ErrorPage";
-import { Loader } from "../../../common/Loader";
+import { Loader } from "../../../common/Loader/styled";
 import { Pagination } from "../../../common/Pagination";
 import { fetchPeople, selectPeopleFetchStatus, selectPeopleList, selectPeoplePageCount } from "../peopleSlice";
 import { PersonTile } from "../../../common/PersonTile";

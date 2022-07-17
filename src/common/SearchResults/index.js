@@ -3,7 +3,7 @@ import { MovieTile } from "../MovieTile";
 import { Wrapper } from "../../features/movies/MovieList/styled";
 import { selectMoviesFetchStatus, selectMoviesList, selectMoviesPageCount, selectMoviesResultCount } from "../../features/movies/moviesSlice";
 import { ErrorPage } from "../ErrorPage";
-import { Loader } from "../Loader";
+import { Loader } from "../Loader/styled";
 import { Pagination } from "../Pagination";
 import { useQueryParameter } from "../useQueryParameter";
 import { StyledNoResults } from "./styled";

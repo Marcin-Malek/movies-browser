@@ -11,7 +11,7 @@ import { MovieTile } from "../../../common/MovieTile";
 import { Wrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
-import { Loader } from "../../../common/Loader";
+import { Loader } from "../../../common/Loader/styled";
 import { SearchResults } from "../../../common/SearchResults";
 import { useQueryParameter } from "../../../common/useQueryParameter";
 import { MainWrapper } from "../../../common/MainWrapper/styled";

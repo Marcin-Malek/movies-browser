@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchMovie, fetchMovies, selectMovieFetchStatus } from '../moviesSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { selectMovieDetails } from "../moviesSlice";
-import { Loader } from '../../../common/Loader';
+import { Loader } from '../../../common/Loader/styled';
 import { ErrorPage } from '../../../common/ErrorPage';
 import { MainWrapper } from '../../../common/MainWrapper/styled';
 import { useQueryParameter } from '../../../common/useQueryParameter';
