@@ -6,7 +6,7 @@ import { Loader } from "../../../common/Loader/styled";
 import { Pagination } from "../../../common/Pagination";
 import { fetchPeople, selectPeopleFetchStatus, selectPeopleList, selectPeoplePageCount } from "../peopleSlice";
 import { PersonTile } from "../../../common/PersonTile";
-import { Wrapper } from "./styled";
+import { PeopleWrapper } from "./styled";
 import { MainWrapper } from "../../../common/MainWrapper/styled";
 import { Header } from "../../../common/Header/styled";
 import { useQueryParameter } from "../../../common/useQueryParameter";
@@ -36,15 +36,15 @@ export const PeopleList = () => {
             return (
                 <MainWrapper>
                     <Header>Popular people</Header>
-                    <Wrapper>
+                    <PeopleWrapper>
                         {people.map((person) =>
                             <PersonTile key={person.id}
                                 name={person.name}
-                                portrait={`https://image.tmdb.org/t/p/w780/${person.profile_path}`}
+                                portrait={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
                                 id={person.id}
                             />
                         )}
-                    </Wrapper>
+                    </PeopleWrapper>
                     <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} />
                 </MainWrapper>
             );

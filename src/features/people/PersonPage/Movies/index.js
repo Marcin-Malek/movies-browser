@@ -1,5 +1,5 @@
 import { MovieTile } from "../../../../common/MovieTile";
-import { Wrapper } from "./styled";
+import { MoviesWrapper } from "../../../movies/MovieList/styled";
 import { Header } from "../../../../common/Header/styled"
 
 export const Movies = (props) => {
@@ -8,7 +8,7 @@ export const Movies = (props) => {
     return (
         <>
             <Header>Movies - {header} ({list.length})</Header>
-            <Wrapper>
+            <MoviesWrapper>
                 {list.map((movie, index) =>
                     <MovieTile key={index}
                         title={movie.title}
@@ -21,7 +21,7 @@ export const Movies = (props) => {
                         id={movie.id}
                     />
                 )}
-            </Wrapper>
+            </MoviesWrapper>
         </>
     );
 

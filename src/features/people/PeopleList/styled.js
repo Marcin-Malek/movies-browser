@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.ul`
+export const PeopleWrapper = styled.ul`
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));

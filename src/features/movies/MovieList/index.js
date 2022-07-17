@@ -8,7 +8,7 @@ import {
     selectMoviesPageCount,
 } from "../moviesSlice";
 import { MovieTile } from "../../../common/MovieTile";
-import { Wrapper } from "./styled";
+import { MoviesWrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
 import { Loader } from "../../../common/Loader/styled";
@@ -40,7 +40,7 @@ export const MovieList = () => {
             return (
                 <MainWrapper>
                     <Header>Popular movies</Header>
-                    <Wrapper>
+                    <MoviesWrapper>
                         {movies.map((movie) =>
                             <MovieTile
                                 key={movie.id}
@@ -53,7 +53,7 @@ export const MovieList = () => {
                                 votes={movie.vote_count}
                             />
                         )}
-                    </Wrapper>
+                    </MoviesWrapper>
                     <Pagination currentPage={currentPage || 1} allPages={pageCount > 500 ? 500 : pageCount} />
                 </MainWrapper>
             );
