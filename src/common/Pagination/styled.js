@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as PrevIcon } from "../../images/prev.svg";
-import { ReactComponent as NextIcon } from "../../images/next.svg";
+import { ReactComponent as PrevIcon } from "./prev.svg";
+import { ReactComponent as NextIcon } from "./next.svg";
 
 export const PaginationContainer = styled.footer`
     margin: 40px auto 103px;

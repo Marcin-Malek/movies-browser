@@ -1,6 +1,6 @@
 import { MovieTile } from "../../../../common/MovieTile";
 import { MoviesWrapper } from "../../../movies/MovieList/styled";
-import { Header } from "../../../../common/Header/styled"
+import { Header } from "../../../../common/Header"
 
 export const Movies = (props) => {
     const { header, list } = props;

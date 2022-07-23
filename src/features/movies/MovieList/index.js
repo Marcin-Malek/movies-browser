@@ -11,11 +11,11 @@ import { MovieTile } from "../../../common/MovieTile";
 import { MoviesWrapper } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 import { ErrorPage } from "../../../common/ErrorPage";
-import { Loader } from "../../../common/Loader/styled";
+import { Loader } from "../../../common/Loader";
 import { SearchResults } from "../../../common/SearchResults";
 import { useQueryParameter } from "../../../common/useQueryParameter";
-import { MainWrapper } from "../../../common/MainWrapper/styled";
-import { Header } from "../../../common/Header/styled";
+import { MainWrapper } from "../../../common/MainWrapper";
+import { Header } from "../../../common/Header";
 
 export const MovieList = () => {
     const dispatch = useDispatch();
