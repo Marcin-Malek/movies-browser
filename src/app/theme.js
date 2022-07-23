@@ -13,7 +13,7 @@ export const theme = {
         silver: "#C4C4C4",
     },
     breakpoint: {
-        mobile: 767,
+        mobile: 768,
         tablet: 1024,
     }
 };
