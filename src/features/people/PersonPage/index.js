@@ -4,9 +4,9 @@ import { Movies } from './Movies';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerson, selectPersonFetchStatus, selectPersonDetails, fetchPeople } from '../peopleSlice';
 import { ErrorPage } from '../../../common/ErrorPage';
-import { Loader } from '../../../common/Loader/styled';
+import { Loader } from '../../../common/Loader';
 import { useParams } from 'react-router-dom';
-import { MainWrapper } from '../../../common/MainWrapper/styled';
+import { MainWrapper } from '../../../common/MainWrapper';
 import { useQueryParameter } from '../../../common/useQueryParameter';
 import { SearchResults } from '../../../common/SearchResults';
 

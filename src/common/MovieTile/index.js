@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useFormatDate } from "../useFormatDate";
+import { formatDate } from "../formatDate";
 import {
     Content,
     TagsContainer,
@@ -25,7 +25,7 @@ export const MovieTile = ({
     id,
     featured }) => {
     const navigate = useNavigate();
-    const year = useFormatDate(date, "year");
+    const year = formatDate(date, "year");
     const genres = useSelector(selectMoviesGenres);
 
     return (

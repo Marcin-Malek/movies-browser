@@ -17,11 +17,11 @@ import {
     Wrapper,
     Year
 } from './styled';
-import { useFormatDate } from '../../../../common/useFormatDate';
+import { formatDate } from '../../../../common/formatDate';
 
 export const MovieDetails = (props) => {
-    const year = useFormatDate(props.date, "year");
-    const date = useFormatDate(props.date);
+    const year = formatDate(props.date, "year");
+    const date = formatDate(props.date);
 
     return (
         <Wrapper>

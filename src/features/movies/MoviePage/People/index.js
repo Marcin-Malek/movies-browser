@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../../../common/Header/styled';
+import { Header } from '../../../../common/Header';
 import { PersonTile } from "../../../../common/PersonTile";
 import { PeopleWrapper } from '../../../people/PeopleList/styled';
 
