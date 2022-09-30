@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as DangerIcon } from "../../images/danger.svg";
+import { ReactComponent as DangerIcon } from "./danger.svg";
 
 export const Wrapper = styled.div`
     margin: 195px auto;

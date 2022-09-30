@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as CameraIcon } from "../../images/camera.svg"
-import img from "../../images/search.svg";
+import img from "./search.svg";
 
 export const BlackBar = styled.div`
     display: flex;

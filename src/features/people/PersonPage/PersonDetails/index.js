@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme } from '../../../../app/theme';
-import { useFormatDate } from '../../../../common/useFormatDate';
+import { formatDate } from '../../../../common/formatDate';
 import { useWindowSize } from '../../../../common/useWindowSize';
 import {
     Wrapper,
@@ -15,7 +15,7 @@ import {
 
 export const PersonDetails = (props) => {
     const [width] = useWindowSize();
-    const date = useFormatDate(props.birthday);
+    const date = formatDate(props.birthday);
 
     return (
         <Wrapper>

@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ErrorPage } from "../../../common/ErrorPage";
-import { Loader } from "../../../common/Loader/styled";
+import { Loader } from "../../../common/Loader";
 import { Pagination } from "../../../common/Pagination";
 import { fetchPeople, selectPeopleFetchStatus, selectPeopleList, selectPeoplePageCount } from "../peopleSlice";
 import { PersonTile } from "../../../common/PersonTile";
 import { PeopleWrapper } from "./styled";
-import { MainWrapper } from "../../../common/MainWrapper/styled";
-import { Header } from "../../../common/Header/styled";
+import { MainWrapper } from "../../../common/MainWrapper";
+import { Header } from "../../../common/Header";
 import { useQueryParameter } from "../../../common/useQueryParameter";
 import { SearchResults } from "../../../common/SearchResults";
 
